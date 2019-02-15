@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/</link>
+    <description>Recent content on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Thu, 14 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>安装lsyncd</title>
+      <link>https://alonsovau.github.io/2019/02/%E5%AE%89%E8%A3%85lsyncd/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2019/02/%E5%AE%89%E8%A3%85lsyncd/</guid>
+      <description>1. install Lua5.2 2. install rsync-3.1 3. install lsyncd-2.1.6 2.2.3版本在readhat7.1编译失败 cmake -DCMAKE_C_FLAGS=-ldl . make make install 参考github
+PS: example文件夹下有配置文件
+setting{ statusFile=&amp;#34;/tmp/lsyncd.stat&amp;#34;, statusInterval = 1, logfile=&amp;#34;/var/log/lsyncd-status.log&amp;#34;, } sync{ default.rsyncssh, source=&amp;#34;/root/zx&amp;#34;, targetdir=&amp;#34;/root/zx&amp;#34;, exclude={&amp;#39;*.csv&amp;#39;, &amp;#39;*.log&amp;#39;, &amp;#39;build&amp;#39;, &amp;#39;nbproject&amp;#39;}, host=&amp;#34;172.30.241.210&amp;#34;, delay=2, rsync = { archive=true, compress=false, whole_file=false, }, ssh = { port=22, --identityFile=&amp;#34;/root/.ssh/id_rsa.pub&amp;#34;, binary=&amp;#34;/usr/bin/ssh&amp;#34;, }, } sync{ default.rsyncssh, source=&amp;#34;/root/zx&amp;#34;, targetdir=&amp;#34;/cffex/zx&amp;#34;, exclude={&amp;#39;*.swx&amp;#39;, &amp;#39;*.swp&amp;#39;, &amp;#39;*.csv&amp;#39;, &amp;#39;*.log&amp;#39;, &amp;#39;build&amp;#39;, &amp;#39;nbproject&amp;#39;}, host=&amp;#34;zhx@172.31.197.10&amp;#34;, delay=2, rsync = { --rsh=&amp;#34;/usr/bin/ssh -l zhx -i /root/.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://alonsovau.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/about/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec ex vel orci dapibus aliquam non in metus. Vestibulum posuere justo nunc, eu eleifend orci dignissim in. Vestibulum eu eros neque. Quisque luctus posuere sapien nec accumsan. Maecenas mattis, nisl ac dictum ultrices, ligula eros vehicula eros, vel fermentum diam erat eget dolor. Suspendisse vitae felis ligula. Integer quis tincidunt risus, convallis ullamcorper dui. Suspendisse potenti. Sed scelerisque volutpat leo, at mattis ipsum posuere nec.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://alonsovau.github.io/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/contact/</guid>
+      <description>Contact us!</description>
+    </item>
+    
+  </channel>
+</rss>
