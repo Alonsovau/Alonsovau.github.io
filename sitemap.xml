@@ -8,6 +8,156 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/</loc>
+    <lastmod>2019-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2019/02/vmvare-multiple-network-adapters-configuration/</loc>
+    <lastmod>2019-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/12/watchdog/</loc>
+    <lastmod>2018-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/12/%E5%B8%B8%E7%94%A8shell/</loc>
+    <lastmod>2018-12-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/12/%E7%BC%96%E8%AF%91%E6%89%BE%E4%B8%8D%E5%88%B0lua/</loc>
+    <lastmod>2018-12-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/11/%E6%9F%A5%E8%AF%A2rpm%E5%8C%85%E4%BF%A1%E6%81%AF/</loc>
+    <lastmod>2018-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/11/%E6%9F%A5%E8%AF%A2%E7%BC%BA%E5%B0%91%E7%9A%84so%E7%94%B1%E4%BB%80%E4%B9%88%E6%8F%90%E4%BE%9B/</loc>
+    <lastmod>2018-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/11/%E6%9F%A5%E7%9C%8Bbinary%E7%9A%84symbol/</loc>
+    <lastmod>2018-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/11/%E6%A0%B9%E6%8D%AE%E8%BF%9B%E7%A8%8B%E5%90%8Dkill/</loc>
+    <lastmod>2018-11-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/11/core%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2018-11-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/09/%E8%B4%A6%E6%88%B7%E9%94%81%E5%AE%9A%E5%8F%8Assh%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/</loc>
+    <lastmod>2018-09-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/09/tcpdump/</loc>
+    <lastmod>2018-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/07/apt-search%E7%B2%BE%E7%A1%AE%E5%8C%B9%E9%85%8D/</loc>
+    <lastmod>2018-07-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/07/%E6%9F%A5%E8%AF%A2linux%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</loc>
+    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/07/no-mta-installed-discarding-output/</loc>
+    <lastmod>2018-07-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/07/%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</loc>
+    <lastmod>2018-07-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/07/ubuntu%E7%BD%91%E5%8D%A1%E9%87%8D%E5%90%AF/</loc>
+    <lastmod>2018-07-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/07/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2018-07-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/07/linux-swap%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2018-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/06/%E6%96%87%E4%BB%B6%E5%8F%8Aterminal%E7%BB%88%E7%AB%AF%E7%BC%96%E7%A0%81/</loc>
+    <lastmod>2018-06-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/04/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/</loc>
+    <lastmod>2018-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/02/crontab/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/02/sed/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/02/%E6%9F%A5%E7%9C%8B%E6%9C%BA%E5%99%A8%E9%87%8D%E5%90%AF%E6%97%B6%E9%97%B4/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/10/%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2017-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/04/ubuntu-server%E9%80%9A%E8%BF%87vnc%E8%BF%9E%E6%8E%A5xrdp%E4%BA%A6%E5%8F%AF/</loc>
+    <lastmod>2017-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/03/euidsuidruid/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/03/find-print-print0/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/03/find%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/03/%E5%AE%89%E8%A3%85xfce4/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/about/</loc>
   </url>
   
@@ -21,13 +171,44 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/tags/cpp/</loc>
+    <lastmod>2018-11-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/categories/linux/</loc>
+    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/tags/linux/</loc>
+    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/tags/lua/</loc>
+    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/post/</loc>
     <lastmod>2019-02-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/tags/shell/</loc>
+    <lastmod>2018-12-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/tags/</loc>
+    <lastmod>2018-11-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

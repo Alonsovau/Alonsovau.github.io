@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="sed" />
+<meta property="og:description" content="语法 sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件] 参数 -e&lt;script&gt;或--expression=&lt;script&gt; 以选项中指定的script来处理输入的文本文件 -f&lt;script文件&gt;或--file=&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件 -h或--help 显示帮助 -n或--quiet或--silent 仅显示script处理后的结果 -V或--version 显示版本信息 动作  a: 新增，在匹配的下一行新增一行
+ i: 插入，转匹配的上一行新增一行
+ c: 取代，c后面是将替换的值
+ d: 删除，删除指定行
+ p: 打印，通常与sed -n一起使用
+ s: 取代，进行搜索
+  例子  sed -e 4a\zx zx.txt：在第四行后面加zx，输出到标准输出，macOS语法错误
+ nl zx.txt |sed &lsquo;2,5d&rsquo;：列出内容并列出行号，同时删除2-5行
+ nl zx.txt |sed &lsquo;2,$d&rsquo;：删除2到最后一行
+ nl zx.txt |sed &lsquo;2a zx&rsquo;：第二行后增加zx，行前使用2i,macOS不可
+ nl zx.txt |sed &lsquo;2a zx\按enter键xz&rsquo;：第二行后加zx，xz2行数据，macOS不可
+ nl zx.txt |sed &lsquo;2,3c kol&rsquo;：2到3行替换为kol" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alonsovau.github.io/2018/02/sed/" />
+<meta property="article:published_time" content="2018-02-23T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-02-23T00:00:00&#43;00:00"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="sed"/>
+<meta name="twitter:description" content="语法 sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件] 参数 -e&lt;script&gt;或--expression=&lt;script&gt; 以选项中指定的script来处理输入的文本文件 -f&lt;script文件&gt;或--file=&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件 -h或--help 显示帮助 -n或--quiet或--silent 仅显示script处理后的结果 -V或--version 显示版本信息 动作  a: 新增，在匹配的下一行新增一行
+ i: 插入，转匹配的上一行新增一行
+ c: 取代，c后面是将替换的值
+ d: 删除，删除指定行
+ p: 打印，通常与sed -n一起使用
+ s: 取代，进行搜索
+  例子  sed -e 4a\zx zx.txt：在第四行后面加zx，输出到标准输出，macOS语法错误
+ nl zx.txt |sed &lsquo;2,5d&rsquo;：列出内容并列出行号，同时删除2-5行
+ nl zx.txt |sed &lsquo;2,$d&rsquo;：删除2到最后一行
+ nl zx.txt |sed &lsquo;2a zx&rsquo;：第二行后增加zx，行前使用2i,macOS不可
+ nl zx.txt |sed &lsquo;2a zx\按enter键xz&rsquo;：第二行后加zx，xz2行数据，macOS不可
+ nl zx.txt |sed &lsquo;2,3c kol&rsquo;：2到3行替换为kol"/>
+
+
+
+    <link rel="canonical" href="https://alonsovau.github.io/2018/02/sed/">
+
+    <title>
+      
+        sed | Xin Zhou Blog
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://alonsovau.github.io/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+  </head>
+  <body>
+    
+      
+
+<header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            Xin Zhou Blog
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/">Home</a>
+                    
+                </li>
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/about/">About</a>
+                    
+                </li>
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/contact/">Contact</a>
+                    
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/02/sed/">sed</a>
+</h2>
+
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-02-23">Feb 23, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+    
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+    
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    <hr>
+</header>
+<article class="blog-post">
+    
+
+<h4 id="语法">语法</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed <span style="color:#f92672">[</span>-hnV<span style="color:#f92672">][</span>-e&lt;script&gt;<span style="color:#f92672">][</span>-f&lt;script文件&gt;<span style="color:#f92672">][</span>文本文件<span style="color:#f92672">]</span></code></pre></div>
+<h4 id="参数">参数</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-e&lt;script&gt;或--expression<span style="color:#f92672">=</span>&lt;script&gt; 以选项中指定的script来处理输入的文本文件
+
+-f&lt;script文件&gt;或--file<span style="color:#f92672">=</span>&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件
+
+-h或--help 显示帮助
+
+-n或--quiet或--silent 仅显示script处理后的结果
+
+-V或--version 显示版本信息</code></pre></div>
+<h4 id="动作">动作</h4>
+
+<ul>
+<li><p>a: 新增，在匹配的下一行新增一行</p></li>
+
+<li><p>i: 插入，转匹配的上一行新增一行</p></li>
+
+<li><p>c: 取代，c后面是将替换的值</p></li>
+
+<li><p>d: 删除，删除指定行</p></li>
+
+<li><p>p: 打印，通常与sed -n一起使用</p></li>
+
+<li><p>s: 取代，进行搜索</p></li>
+</ul>
+
+<h4 id="例子">例子</h4>
+
+<ul>
+<li><p>sed -e 4a\zx zx.txt：在第四行后面加zx，输出到标准输出，macOS语法错误</p></li>
+
+<li><p>nl zx.txt |sed &lsquo;2,5d&rsquo;：列出内容并列出行号，同时删除2-5行</p></li>
+
+<li><p>nl zx.txt |sed &lsquo;2,$d&rsquo;：删除2到最后一行</p></li>
+
+<li><p>nl zx.txt |sed &lsquo;2a zx&rsquo;：第二行后增加zx，行前使用2i,macOS不可</p></li>
+
+<li><p>nl zx.txt |sed &lsquo;2a zx\按enter键xz&rsquo;：第二行后加zx，xz2行数据，macOS不可</p></li>
+
+<li><p>nl zx.txt |sed &lsquo;2,3c kol&rsquo;：2到3行替换为kol</p></li>
+
+<li><p>nl zx.txt |sed -n &lsquo;1,4p&rsquo;：列出1-4行</p></li>
+
+<li><p>nl zx.txt |sed &lsquo;/iu/p&rsquo;：输出所有行，匹配的行会有2次输出</p></li>
+
+<li><p>nl zx.txt |sed -n &lsquo;/iu/p&rsquo;：输出匹配的行</p></li>
+
+<li><p>nl zx.txt |sed &lsquo;/iu/d&rsquo;：删除含iu行输出其他行</p></li>
+
+<li><p>nl zx.txt |sed -n &lsquo;/iu/{s/iu/iuu/;p;q}&lsquo;：找到对应行，替换后输出再退出，macOS不可</p></li>
+
+<li><p>sed &rsquo;s/old/new/g&rsquo;：替换</p></li>
+
+<li><p>ifconfig en0 |grep &lsquo;inet &rsquo; |sed &rsquo;s/^.*inet //g&rsquo; |sed &rsquo;s/ netmask.*$//g&rsquo;：取出IP</p></li>
+
+<li><p>nl zx.txt |sed -e &lsquo;6,$d&rsquo; -e &rsquo;s/iu/iuu/&lsquo;：多点编辑，删除6到尾，并替换iu为iuu</p></li>
+
+<li><p>sed -i &lsquo;$a hyojoo&rsquo; zx.txt：修改文件内容</p></li>
+
+<li><p>sed -i &rsquo;s/\.$/\!/g&rsquo; zx.txt：每一行结尾为.替换为!</p></li>
+
+<li><p>sed -i &rsquo;s/\r//&rsquo;</p></li>
+</ul>
+
+
+    
+
+    
+
+    <h4>See also</h4>
+    <ul>
+        
+            <li><a href="/2018/02/%E6%9F%A5%E7%9C%8B%E6%9C%BA%E5%99%A8%E9%87%8D%E5%90%AF%E6%97%B6%E9%97%B4/">查看机器重启时间</a></li>
+        
+            <li><a href="/2018/02/crontab/">crontab</a></li>
+        
+            <li><a href="/2017/10/%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0%E6%96%87%E4%BB%B6/">输出重定向到文件</a></li>
+        
+            <li><a href="/2017/04/ubuntu-server%E9%80%9A%E8%BF%87vnc%E8%BF%9E%E6%8E%A5xrdp%E4%BA%A6%E5%8F%AF/">ubuntu server通过vnc连接(xrdp亦可)</a></li>
+        
+            <li><a href="/2017/03/find%E5%91%BD%E4%BB%A4/">find命令</a></li>
+        
+    </ul>
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+<section>
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+        
+        <li>
+            <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/">Linux和Windows换行</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/vmvare-multiple-network-adapters-configuration/">vmvare multiple network adapters configuration</a>
+        </li>
+        
+        <li>
+            <a href="/2018/12/watchdog/">watchdog</a>
+        </li>
+        
+        <li>
+            <a href="/2018/12/%E5%B8%B8%E7%94%A8shell/">常用shell</a>
+        </li>
+        
+    </ol>
+</section>
+
+    
+    
+        <section>
+    
+        
+        <h4>Categories</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/categories/linux">linux</a>
+            
+        </p>
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/lua">lua</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">© 2019 Copyright Zhouxin</p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

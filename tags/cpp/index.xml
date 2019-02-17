@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cpp on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/tags/cpp/</link>
+    <description>Recent content in Cpp on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Wed, 07 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>core文件</title>
+      <link>https://alonsovau.github.io/2018/11/core%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/11/core%E6%96%87%E4%BB%B6/</guid>
+      <description>1.ulimit -c unlimited 2./proc/sys/kernel/core_pattern 2.或者/etc/sysctl.conf中添加kernel.core_pattern=core_%e_%p或sysctl -w kernel.core_pattern=core_%e_%p 3.查看/etc/security/limits.conf * soft core unlimited //所有用户 &amp;lt;user-login-id&amp;gt; soft core unlimited //设置某个用户 还有hard core需要考虑$sysctl -a|grep core_pattern kernel.core_pattern = |/usr/libexec/abrt-hook-ccpp /var/cache/abrt %p %s %u %c
+“abrtd” creates a sub-directory (named something like “ccpp-1279914365-14618”) in the directory “/var/cache/abrt” as shown in the value of the variable. This also means that the core files will also be stored in that sub-directory in the “/var/cache/abrt” directory (in addition to the current directory where application was run).</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -11,5 +11,14 @@
 	<atom:link href="https://alonsovau.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Linux</title>
+      <link>https://alonsovau.github.io/categories/linux/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

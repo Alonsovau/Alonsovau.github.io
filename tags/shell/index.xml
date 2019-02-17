@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/tags/shell/</link>
+    <description>Recent content in Shell on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Wed, 12 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>常用shell</title>
+      <link>https://alonsovau.github.io/2018/12/%E5%B8%B8%E7%94%A8shell/</link>
+      <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/12/%E5%B8%B8%E7%94%A8shell/</guid>
+      <description>#得到当前脚本路径 script=`readlink -f $0` base_dir=`dirname $script` #循环该目录下所有文件 for exchange in `ls /target/sixreceiver -I mdloader` do done #生成一个uuid cat /proc/sys/kernel/random/uuid #查找不区分大小写的name并拷贝指定目录 find . -iname *config.xml -exec cp &amp;#39;{}&amp;#39; ./zx/zx \; #查看压缩包中文件 tar -vtf package.tar.gz #shell函数 func() { }</description>
+    </item>
+    
+    <item>
+      <title>查询RPM包信息</title>
+      <link>https://alonsovau.github.io/2018/11/%E6%9F%A5%E8%AF%A2rpm%E5%8C%85%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>Thu, 29 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/11/%E6%9F%A5%E8%AF%A2rpm%E5%8C%85%E4%BF%A1%E6%81%AF/</guid>
+      <description># 查询文件属于哪个安装包 $ rpm -qf /usr/bin/ldd # 查询某个目录、文件、模块是由哪个包提供 $ rpm -q --whatprovides /usr/bin # 查询被哪个包需要 $ rpm -q --whatrequires /usr/bin/lynx # 查询包中文件 $ rpm -qpl filename # 查询已安装文件 $ rpm -ql name # 查询配置文件 $ rpm -qpc filename $ rpm -qc name # 查询所有信息 $ rpm -qpil filename $ rpm -qil name</description>
+    </item>
+    
+    <item>
+      <title>查询缺少的so由什么提供</title>
+      <link>https://alonsovau.github.io/2018/11/%E6%9F%A5%E8%AF%A2%E7%BC%BA%E5%B0%91%E7%9A%84so%E7%94%B1%E4%BB%80%E4%B9%88%E6%8F%90%E4%BE%9B/</link>
+      <pubDate>Thu, 29 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/11/%E6%9F%A5%E8%AF%A2%E7%BC%BA%E5%B0%91%E7%9A%84so%E7%94%B1%E4%BB%80%E4%B9%88%E6%8F%90%E4%BE%9B/</guid>
+      <description>$ yum list name 可以看包版本 $ yum provides libselinux.so.1 libselinux-2.0.94-5.3.el6.i686 : SELinux library and simple utilities Repo : local Matched from: Other : libselinux.</description>
+    </item>
+    
+    <item>
+      <title>查询Linux进程启动和运行时间</title>
+      <link>https://alonsovau.github.io/2018/07/%E6%9F%A5%E8%AF%A2linux%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/07/%E6%9F%A5%E8%AF%A2linux%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</guid>
+      <description>ps -eo pid,start,etime,cmd |grep -v grep | grep ss</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -115,7 +115,23 @@
 </div>
 
         
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/lua">lua</a>
+    
+</div>
+
         
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
     </header>
     1. install Lua5.2 2. install rsync-3.1 3. install lsyncd-2.1.6 2.2.3版本在readhat7.1编译失败 cmake -DCMAKE_C_FLAGS=-ldl . make make install 参考github
 PS: example文件夹下有配置文件
@@ -130,7 +146,379 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
 
 
 
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/">Linux和Windows换行</a>
+</h2>
 
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2019-02-13">Feb 13, 2019</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    CRLF: Windows \r\n
+ LF: Unix and OSX \n
+ CR: Classic Mac \r
+ Linux下查看格式：
+  vi filename :set ff 或者 :set fileformat  修改  - sed -i &#39;s/\r//g&#39; filename - sed -i &#39;s/^M//g&#39; filename - vi filename 然后 set ff=unix 保存  PS:
+  注意\^M在linux下写法,按^M是回车换行符,输入方法是按住CTRL+v,松开v,按m
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2019/02/vmvare-multiple-network-adapters-configuration/">vmvare multiple network adapters configuration</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2019-02-13">Feb 13, 2019</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    1. add second adapter to virtual machine 2. find out network device name, here is ens33 and ens38 ip a 2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000 link/ether 00:0c:29:53:2f:a9 brd ff:ff:ff:ff:ff:ff inet 192.168.1.150/24 brd 192.168.1.255 scope global dynamic ens33 valid_lft 27719sec preferred_lft 27719sec inet6 fe80::20c:29ff:fe53:2fa9/64 scope link valid_lft forever preferred_lft forever 3: ens38: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000 link/ether 00:0c:29:53:2f:b3 brd ff:ff:ff:ff:ff:ff 3.
+    
+    <p></p>
+    <a href="/2019/02/vmvare-multiple-network-adapters-configuration/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/12/watchdog/">watchdog</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-12-13">Dec 13, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    The Linux kernel watchdog is used to monitor if a system is running. It is supposed to automatically reboot hanged systems due to unrecoverable software errors. The watchdog module is specific to the hardware or chip being used. Personal computer users don’t need watchdog as they can reset the system manually. However, it is useful for systems that are mission critical and need the ability to reboot themselves without human intervention.
+    
+    <p></p>
+    <a href="/2018/12/watchdog/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/12/%E5%B8%B8%E7%94%A8shell/">常用shell</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-12-12">Dec 12, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/shell">shell</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    #得到当前脚本路径 script=`readlink -f $0` base_dir=`dirname $script` #循环该目录下所有文件 for exchange in `ls /target/sixreceiver -I mdloader` do done #生成一个uuid cat /proc/sys/kernel/random/uuid #查找不区分大小写的name并拷贝指定目录 find . -iname *config.xml -exec cp &#39;{}&#39; ./zx/zx \; #查看压缩包中文件 tar -vtf package.tar.gz #shell函数 func() { }
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/12/%E7%BC%96%E8%AF%91%E6%89%BE%E4%B8%8D%E5%88%B0lua/">编译找不到Lua</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-12-06">Dec 6, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/lua">lua</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    cmake . -DLUA_INCLUDE_DIR=/usr/local/include/ -DLUA_LIBRARY=/usr/local/lib/liblua.
+    
+    <p></p>
+    <a href="/2018/12/%E7%BC%96%E8%AF%91%E6%89%BE%E4%B8%8D%E5%88%B0lua/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/11/%E6%9F%A5%E8%AF%A2rpm%E5%8C%85%E4%BF%A1%E6%81%AF/">查询RPM包信息</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-11-29">Nov 29, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/shell">shell</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    # 查询文件属于哪个安装包 $ rpm -qf /usr/bin/ldd # 查询某个目录、文件、模块是由哪个包提供 $ rpm -q --whatprovides /usr/bin # 查询被哪个包需要 $ rpm -q --whatrequires /usr/bin/lynx # 查询包中文件 $ rpm -qpl filename # 查询已安装文件 $ rpm -ql name # 查询配置文件 $ rpm -qpc filename $ rpm -qc name # 查询所有信息 $ rpm -qpil filename $ rpm -qil name
+    
+</article>
+
+    
+
+
+
+
+
+<nav class="blog-pagination">
+    <ul class="pagination justify-content-center">
+        
+        <li class="page-item">
+            <a class="page-link" href="/post/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+        </li>
+        
+        <li class="page-item disabled">
+            <a class="page-link" href="" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+        </li>
+        
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item active">
+                    <a class="page-link" href="/post/">1</a>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/post/page/2/">2</a>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/post/page/3/">3</a>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item disabled">
+                    <span class="page-link" aria-hidden="true">&hellip;</span>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/post/page/5/">5</a>
+                </li>
+            
+        
+        <li class="page-item ">
+            <a class="page-link" href="/post/page/2/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+        </li>
+        
+            <li class="page-item">
+                <a class="page-link" href="/post/page/5/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+            </li>
+        
+    </ul>
+</nav>
 
 
 
@@ -151,7 +539,19 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
         </li>
         
         <li>
-            <a href="/post/">Posts</a>
+            <a href="/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/">Linux和Windows换行</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/vmvare-multiple-network-adapters-configuration/">vmvare multiple network adapters configuration</a>
+        </li>
+        
+        <li>
+            <a href="/2018/12/watchdog/">watchdog</a>
+        </li>
+        
+        <li>
+            <a href="/2018/12/%E5%B8%B8%E7%94%A8shell/">常用shell</a>
         </li>
         
     </ol>
@@ -162,7 +562,27 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
         <section>
     
         
+        <h4>Categories</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/categories/linux">linux</a>
+            
+        </p>
+        
     
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/lua">lua</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+        </p>
         
     
 </section>
