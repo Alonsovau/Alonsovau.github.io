@@ -14,7 +14,8 @@
 passwd -l test passwd -u test 修改shell类型禁止登录(su切换不可)
 cat /etc/passwd |grep zx 锁定： sed -i &#39;s#/home/zx:/bin/bash#/home/zx:/sbin/nologin#g&#39; /etc/passwd 等价于： usermod zx -s /sbin/nologin 解锁： sed -i &#39;s#/home/zx:/sbin/nologin#/home/zx:/bin/bash#g&#39; /etc/passwd 等价于： usermod zx -s /bin/bash 禁止其他用户登录(su可切换)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://alonsovau.github.io/2018/09/%E8%B4%A6%E6%88%B7%E9%94%81%E5%AE%9A%E5%8F%8Assh%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/" /><meta property="article:published_time" content="2018-09-20T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://alonsovau.github.io/2018/09/%E8%B4%A6%E6%88%B7%E9%94%81%E5%AE%9A%E5%8F%8Assh%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/" />
+<meta property="article:published_time" content="2018-09-20T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2018-09-20T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>

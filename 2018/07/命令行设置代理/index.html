@@ -12,7 +12,8 @@ apt install proxychains4 vi /etc/proxychains4.conf proxychains4 curl ip.cn # 查
  polipo可代替proxychains4
 apt-get install polipo vi /etc/polipo/config service polipo restart export http_proxy=&#34;http://127.0.0.1:8123/&#34; # 可能需要执行 可加入.bashrc/etc/polipo/config: logSyslog = true logFile = /var/log/polipo/polipo.log proxyAddress = &#34;0.0.0.0&#34; socksParentProxy = &#34;127.0.0.1:1080&#34; socksProxyType = socks5 proxyPort = 8123 chunkHighMark = 50331648 objectHighMark = 16384 serverMaxSlots = 64 serverSlots = 16 serverSlots1 = 32 genpac" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://alonsovau.github.io/2018/07/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/" /><meta property="article:published_time" content="2018-07-11T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://alonsovau.github.io/2018/07/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/" />
+<meta property="article:published_time" content="2018-07-11T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2018-07-11T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
@@ -215,7 +216,7 @@ export http_proxy<span style="color:#f92672">=</span><span style="color:#e6db74"
         
             <li><a href="/2018/04/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">网络相关</a></li>
         
-            <li><a href="/2018/02/sed/">sed</a></li>
+            <li><a href="/2018/02/%E6%9F%A5%E7%9C%8B%E6%9C%BA%E5%99%A8%E9%87%8D%E5%90%AF%E6%97%B6%E9%97%B4/">查看机器重启时间</a></li>
         
     </ul>
 
