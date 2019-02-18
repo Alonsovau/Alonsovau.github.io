@@ -10,8 +10,7 @@
 PS: example文件夹下有配置文件
 setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34;/var/log/lsyncd-status.log&#34;, } sync{ default.rsyncssh, source=&#34;/root/zx&#34;, targetdir=&#34;/root/zx&#34;, exclude={&#39;*.csv&#39;, &#39;*.log&#39;, &#39;build&#39;, &#39;nbproject&#39;}, host=&#34;172.30.241.210&#34;, delay=2, rsync = { archive=true, compress=false, whole_file=false, }, ssh = { port=22, --identityFile=&#34;/root/.ssh/id_rsa.pub&#34;, binary=&#34;/usr/bin/ssh&#34;, }, } sync{ default.rsyncssh, source=&#34;/root/zx&#34;, targetdir=&#34;/cffex/zx&#34;, exclude={&#39;*.swx&#39;, &#39;*.swp&#39;, &#39;*.csv&#39;, &#39;*.log&#39;, &#39;build&#39;, &#39;nbproject&#39;}, host=&#34;zhx@172.31.197.10&#34;, delay=2, rsync = { --rsh=&#34;/usr/bin/ssh -l zhx -i /root/." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://alonsovau.github.io/2019/02/%E5%AE%89%E8%A3%85lsyncd/" />
-<meta property="article:published_time" content="2019-02-14T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://alonsovau.github.io/2019/02/%E5%AE%89%E8%A3%85lsyncd/" /><meta property="article:published_time" content="2019-02-14T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-02-14T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
@@ -227,6 +226,10 @@ sync{
     <ol class="list-unstyled">
         
         <li>
+            <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
+        </li>
+        
+        <li>
             <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
         </li>
         
@@ -242,10 +245,6 @@ sync{
             <a href="/2018/12/watchdog/">watchdog</a>
         </li>
         
-        <li>
-            <a href="/2018/12/%E5%B8%B8%E7%94%A8shell/">常用shell</a>
-        </li>
-        
     </ol>
 </section>
 
@@ -259,6 +258,8 @@ sync{
             
             <a class="badge badge-primary" href="/categories/linux">linux</a>
             
+            <a class="badge badge-primary" href="/categories/mysql">mysql</a>
+            
         </p>
         
     
@@ -271,6 +272,8 @@ sync{
             <a class="badge badge-primary" href="/tags/linux">linux</a>
             
             <a class="badge badge-primary" href="/tags/lua">lua</a>
+            
+            <a class="badge badge-primary" href="/tags/mysql">mysql</a>
             
             <a class="badge badge-primary" href="/tags/shell">shell</a>
             

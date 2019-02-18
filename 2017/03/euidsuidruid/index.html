@@ -11,8 +11,7 @@
 暂存用户ID（Saved UID，即SUID）于以提升权限运行的进程暂时需要做一些不需特权的操作时使用，这种情况下进程会暂时将自己的有效用户ID从特权用户（常为root）对应的UID变为某个非特权用户对应的UID，而后将原有的特权用户UID复制为SUID暂存；之后当进程完成不需特权的操作后，进程使用SUID的值重置EUID以重新获得特权。在这里需要说明的是，无特权进程的EUID值只能设为与RUID、SUID与EUID（也即不改变）之一相同的值。
 文件系统用户ID（File System UID，即FSUID）在Linux中使用，且只用于对文件系统的访问权限控制，在没有明确设定的情况下与EUID相同（若FSUID为root的UID，则SUID、RUID与EUID必至少有一亦为root的UID），且EUID改变也会影响到FSUID。设立FSUID是为了允许程序（如NFS服务器）在不需获取向给定UID账户发送信号的情况下以给定UID的权限来限定自己的文件系统权限。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://alonsovau.github.io/2017/03/euidsuidruid/" />
-<meta property="article:published_time" content="2017-03-31T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://alonsovau.github.io/2017/03/euidsuidruid/" /><meta property="article:published_time" content="2017-03-31T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2017-03-31T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
@@ -146,9 +145,9 @@
         
             <li><a href="/2017/03/find%E5%91%BD%E4%BB%A4/">find命令</a></li>
         
-            <li><a href="/2017/03/%E5%AE%89%E8%A3%85xfce4/">安装xfce4</a></li>
-        
             <li><a href="/2017/03/find-print-print0/">find -print -print0</a></li>
+        
+            <li><a href="/2017/03/%E5%AE%89%E8%A3%85xfce4/">安装xfce4</a></li>
         
     </ul>
 
@@ -169,6 +168,10 @@
     <ol class="list-unstyled">
         
         <li>
+            <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
+        </li>
+        
+        <li>
             <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
         </li>
         
@@ -184,10 +187,6 @@
             <a href="/2018/12/watchdog/">watchdog</a>
         </li>
         
-        <li>
-            <a href="/2018/12/%E5%B8%B8%E7%94%A8shell/">常用shell</a>
-        </li>
-        
     </ol>
 </section>
 
@@ -201,6 +200,8 @@
             
             <a class="badge badge-primary" href="/categories/linux">linux</a>
             
+            <a class="badge badge-primary" href="/categories/mysql">mysql</a>
+            
         </p>
         
     
@@ -213,6 +214,8 @@
             <a class="badge badge-primary" href="/tags/linux">linux</a>
             
             <a class="badge badge-primary" href="/tags/lua">lua</a>
+            
+            <a class="badge badge-primary" href="/tags/mysql">mysql</a>
             
             <a class="badge badge-primary" href="/tags/shell">shell</a>
             

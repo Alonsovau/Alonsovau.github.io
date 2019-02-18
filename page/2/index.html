@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-	<meta name="generator" content="Hugo 0.54.0" />
+	<meta name="generator" content="Hugo 0.53" />
     <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,7 +10,6 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/" />
-
 <meta property="og:updated_time" content="2018-11-29T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
@@ -93,6 +92,52 @@
 
 
 
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/11/%E6%9F%A5%E8%AF%A2rpm%E5%8C%85%E4%BF%A1%E6%81%AF/">查询RPM包信息</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-11-29">Nov 29, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/shell">shell</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    # 查询文件属于哪个安装包 $ rpm -qf /usr/bin/ldd # 查询某个目录、文件、模块是由哪个包提供 $ rpm -q --whatprovides /usr/bin # 查询被哪个包需要 $ rpm -q --whatrequires /usr/bin/lynx # 查询包中文件 $ rpm -qpl filename # 查询已安装文件 $ rpm -ql name # 查询配置文件 $ rpm -qpc filename $ rpm -qc name # 查询所有信息 $ rpm -qpil filename $ rpm -qil name
+    
+</article>
+
+    
 
 
 
@@ -380,51 +425,6 @@ cat /etc/passwd |grep zx 锁定： sed -i &#39;s#/home/zx:/bin/bash#/home/zx:/sb
 
 
 
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/07/apt-search%E7%B2%BE%E7%A1%AE%E5%8C%B9%E9%85%8D/">apt search精确匹配</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-07-26">Jul 26, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    apt search: limit to exact match
-apt search ^python$ #正则表达式 apt search --names-only python
-    
-</article>
-
-    
-
-
-
 
 
 <nav class="blog-pagination">
@@ -530,6 +530,10 @@ apt search ^python$ #正则表达式 apt search --names-only python
     <ol class="list-unstyled">
         
         <li>
+            <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
+        </li>
+        
+        <li>
             <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
         </li>
         
@@ -545,10 +549,6 @@ apt search ^python$ #正则表达式 apt search --names-only python
             <a href="/2018/12/watchdog/">watchdog</a>
         </li>
         
-        <li>
-            <a href="/2018/12/%E5%B8%B8%E7%94%A8shell/">常用shell</a>
-        </li>
-        
     </ol>
 </section>
 
@@ -562,6 +562,8 @@ apt search ^python$ #正则表达式 apt search --names-only python
             
             <a class="badge badge-primary" href="/categories/linux">linux</a>
             
+            <a class="badge badge-primary" href="/categories/mysql">mysql</a>
+            
         </p>
         
     
@@ -574,6 +576,8 @@ apt search ^python$ #正则表达式 apt search --names-only python
             <a class="badge badge-primary" href="/tags/linux">linux</a>
             
             <a class="badge badge-primary" href="/tags/lua">lua</a>
+            
+            <a class="badge badge-primary" href="/tags/mysql">mysql</a>
             
             <a class="badge badge-primary" href="/tags/shell">shell</a>
             

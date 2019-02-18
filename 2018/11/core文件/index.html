@@ -9,8 +9,7 @@
 <meta property="og:description" content="1.ulimit -c unlimited 2./proc/sys/kernel/core_pattern 2.或者/etc/sysctl.conf中添加kernel.core_pattern=core_%e_%p或sysctl -w kernel.core_pattern=core_%e_%p 3.查看/etc/security/limits.conf * soft core unlimited //所有用户 &lt;user-login-id&gt; soft core unlimited //设置某个用户 还有hard core需要考虑$sysctl -a|grep core_pattern kernel.core_pattern = |/usr/libexec/abrt-hook-ccpp /var/cache/abrt %p %s %u %c
 “abrtd” creates a sub-directory (named something like “ccpp-1279914365-14618”) in the directory “/var/cache/abrt” as shown in the value of the variable. This also means that the core files will also be stored in that sub-directory in the “/var/cache/abrt” directory (in addition to the current directory where application was run)." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://alonsovau.github.io/2018/11/core%E6%96%87%E4%BB%B6/" />
-<meta property="article:published_time" content="2018-11-07T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://alonsovau.github.io/2018/11/core%E6%96%87%E4%BB%B6/" /><meta property="article:published_time" content="2018-11-07T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2018-11-07T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
@@ -186,6 +185,10 @@
     <ol class="list-unstyled">
         
         <li>
+            <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
+        </li>
+        
+        <li>
             <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
         </li>
         
@@ -201,10 +204,6 @@
             <a href="/2018/12/watchdog/">watchdog</a>
         </li>
         
-        <li>
-            <a href="/2018/12/%E5%B8%B8%E7%94%A8shell/">常用shell</a>
-        </li>
-        
     </ol>
 </section>
 
@@ -218,6 +217,8 @@
             
             <a class="badge badge-primary" href="/categories/linux">linux</a>
             
+            <a class="badge badge-primary" href="/categories/mysql">mysql</a>
+            
         </p>
         
     
@@ -230,6 +231,8 @@
             <a class="badge badge-primary" href="/tags/linux">linux</a>
             
             <a class="badge badge-primary" href="/tags/lua">lua</a>
+            
+            <a class="badge badge-primary" href="/tags/mysql">mysql</a>
             
             <a class="badge badge-primary" href="/tags/shell">shell</a>
             
