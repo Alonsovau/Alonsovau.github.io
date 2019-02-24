@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="fork后同步原仓库" />
+<meta property="og:description" content="configuring a remote for a fork  查看远程状态  git remote -v # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch) # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)  添加一个将被同步给 fork 远程的上游仓库  git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git  再次查看远程状态  git remote -v # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch) # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push) # upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch) # upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push) syncing a fork  从原仓库fetch数据到本地，并会被存储在本地分支upstream/master  git fetch upstream # remote: Counting objects: 75, done. # remote: Compressing objects: 100% (53/53), done." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alonsovau.github.io/2018/11/fork%E5%90%8E%E5%90%8C%E6%AD%A5%E5%8E%9F%E4%BB%93%E5%BA%93/" />
+<meta property="article:published_time" content="2018-11-20T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-11-20T00:00:00&#43;00:00"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="fork后同步原仓库"/>
+<meta name="twitter:description" content="configuring a remote for a fork  查看远程状态  git remote -v # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch) # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)  添加一个将被同步给 fork 远程的上游仓库  git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git  再次查看远程状态  git remote -v # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch) # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push) # upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch) # upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push) syncing a fork  从原仓库fetch数据到本地，并会被存储在本地分支upstream/master  git fetch upstream # remote: Counting objects: 75, done. # remote: Compressing objects: 100% (53/53), done."/>
+
+
+
+    <link rel="canonical" href="https://alonsovau.github.io/2018/11/fork%E5%90%8E%E5%90%8C%E6%AD%A5%E5%8E%9F%E4%BB%93%E5%BA%93/">
+
+    <title>
+      
+        fork后同步原仓库 | Xin Zhou Blog
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://alonsovau.github.io/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+  </head>
+  <body>
+    
+      
+
+<header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            Xin Zhou Blog
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/">Home</a>
+                    
+                </li>
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/about/">About</a>
+                    
+                </li>
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/contact/">Contact</a>
+                    
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/11/fork%E5%90%8E%E5%90%8C%E6%AD%A5%E5%8E%9F%E4%BB%93%E5%BA%93/">fork后同步原仓库</a>
+</h2>
+
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-11-20">Nov 20, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+    
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/git">git</a>
+    
+</div>
+
+    
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/git">Git</a>
+    
+</div>
+
+    <hr>
+</header>
+<article class="blog-post">
+    
+
+<h4 id="configuring-a-remote-for-a-fork">configuring a remote for a fork</h4>
+
+<ul>
+<li>查看远程状态</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git remote -v
+
+<span style="color:#75715e"># origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)</span>
+
+<span style="color:#75715e"># origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)</span></code></pre></div>
+<ul>
+<li>添加一个将被同步给 fork 远程的上游仓库</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git</code></pre></div>
+<ul>
+<li>再次查看远程状态</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git remote -v
+
+<span style="color:#75715e"># origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)</span>
+
+<span style="color:#75715e"># origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)</span>
+
+<span style="color:#75715e"># upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)</span>
+
+<span style="color:#75715e"># upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)</span></code></pre></div>
+<h4 id="syncing-a-fork">syncing a fork</h4>
+
+<ul>
+<li>从原仓库fetch数据到本地，并会被存储在本地分支upstream/master</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git fetch upstream
+
+<span style="color:#75715e"># remote: Counting objects: 75, done.</span>
+
+<span style="color:#75715e"># remote: Compressing objects: 100% (53/53), done.</span>
+
+<span style="color:#75715e"># remote: Total 62 (delta 27), reused 44 (delta 9)</span>
+
+<span style="color:#75715e"># Unpacking objects: 100% (62/62), done.</span>
+
+<span style="color:#75715e"># From https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY</span>
+
+<span style="color:#75715e">#  * [new branch]      master     -&gt; upstream/master</span></code></pre></div>
+<ul>
+<li>切换本地分支（如果不存在的话）</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout master</code></pre></div>
+<ul>
+<li>把upstream/master分支合并到本地分支上</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git merge upstream/master
+
+<span style="color:#75715e"># Updating a422352..5fdff0f</span>
+
+<span style="color:#75715e"># Fast-forward</span>
+
+<span style="color:#75715e">#  README                    |    9 -------</span>
+
+<span style="color:#75715e">#  README.md                 |    7 ++++++</span>
+
+<span style="color:#75715e">#  2 files changed, 7 insertions(+), 9 deletions(-)</span>
+
+<span style="color:#75715e">#  delete mode 100644 README</span>
+
+<span style="color:#75715e">#  create mode 100644 README.md</span></code></pre></div>
+<ul>
+<li>更新到自己fork的仓库上</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git push origin master</code></pre></div>
+
+    
+
+    
+
+    <h4>See also</h4>
+    <ul>
+        
+            <li><a href="/2018/07/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit/">配置多个GIT</a></li>
+        
+            <li><a href="/2018/02/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a></li>
+        
+    </ul>
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+<section>
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+        
+        <li>
+            <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/">Linux和Windows换行</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/vmvare-multiple-network-adapters-configuration/">vmvare multiple network adapters configuration</a>
+        </li>
+        
+        <li>
+            <a href="/2018/12/watchdog/">watchdog</a>
+        </li>
+        
+    </ol>
+</section>
+
+    
+    
+        <section>
+    
+        
+        <h4>Categories</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/categories/cpp">cpp</a>
+            
+            <a class="badge badge-primary" href="/categories/database">database</a>
+            
+            <a class="badge badge-primary" href="/categories/git">git</a>
+            
+            <a class="badge badge-primary" href="/categories/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/categories/mysql">mysql</a>
+            
+        </p>
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+            
+            <a class="badge badge-primary" href="/tags/database">database</a>
+            
+            <a class="badge badge-primary" href="/tags/git">git</a>
+            
+            <a class="badge badge-primary" href="/tags/ide">ide</a>
+            
+            <a class="badge badge-primary" href="/tags/keepalived">keepalived</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/lua">lua</a>
+            
+            <a class="badge badge-primary" href="/tags/mysql">mysql</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">© 2019 Copyright Zhouxin</p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

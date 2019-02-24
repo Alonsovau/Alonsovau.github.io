@@ -10,7 +10,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/post/" />
 
-<meta property="og:updated_time" content="2018-07-17T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-07-20T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -92,6 +92,98 @@
 
 
 
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/07/%E6%9F%A5%E8%AF%A2linux%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/">查询Linux进程启动和运行时间</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-07-20">Jul 20, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/shell">shell</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    ps -eo pid,start,etime,cmd |grep -v grep | grep ss
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/07/no-mta-installed-discarding-output/">No MTA installed, discarding output</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-07-17">Jul 17, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+     配置邮件服务器
+ 重定向到文件或者/dev/null：cd /opt/ &amp;&amp; ./start_sslocal.sh &gt;zx.log 2&gt;&amp;1
+  
+    
+</article>
+
+    
 
 
 
@@ -283,7 +375,7 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/06/%E6%96%87%E4%BB%B6%E5%8F%8Aterminal%E7%BB%88%E7%AB%AF%E7%BC%96%E7%A0%81/">文件及Terminal终端编码</a>
+    <a class="text-dark" href="/2018/07/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit/">配置多个GIT</a>
 </h2>
 
         
@@ -291,7 +383,7 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2018-06-16">Jun 16, 2018</time>
+        <time datetime="2018-07-09">Jul 9, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -302,7 +394,7 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
 <div class="blog-post-tags text-secondary">
     <strong>Tags:</strong>
     
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
+        <a class="badge badge-primary" href="/tags/git">git</a>
     
 </div>
 
@@ -310,100 +402,14 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
 <div class="blog-post-categories text-secondary">
     <strong>Categories:</strong>
     
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+        <a class="badge badge-primary" href="/categories/git">Git</a>
     
 </div>
 
     </header>
-    1. set fileencoding 查看文件编码 2. set fileencdding=utf-8 设置文件编码 按wq保存 3. :e ++enc=cp936 # vim打开文档后，encoding=utf-8（locale决定的），fileencoding=latin1（自动编码判断机制不准导致的），termencoding=空（默认无需转换term编码），显示文件为乱码
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/04/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">网络相关</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-04-09">Apr 9, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    arp -a 搜索同一网段机器 iptables -L -n -v 查看已添加的iptables规则 清空日志文件： cat /dev/null&gt;/var/log/messages
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/crontab/">crontab</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-02-23">Feb 23, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-     1. 用法： 1.cat /etc/crontab 系统级 2./etc/cron.deny 所列用户不允许使用 3./etc/cron.allow 所列用户允许使用 4./var/spool/cron/ 下存储以用户名存储的文件 5.minute hour day month week command 6.crontab [-u user] -l 显示当前用户任务 7.crontab -l &gt; z 备份当前用户的任务到z文件 8.crontab [-u user] -e 编辑当前用户的任务 9.crontab [-u user] -r 删除 10.crontab &lt;filename&gt; 从文件恢复 11.service crond start/stop/restart/reload 2. 例子： * * * * * command 每分钟执行 3,15 * * * * command 每小时第3，15分钟执行 3,15 8-11 */2 * * command 每2天的8-11点的第3，15分钟执行 30 21 * * 0,6 command 每周日、周六21:30分执行 * */2 * * * command 每2小时执行
+     .ssh文件夹下建立config文件：
+# 84 Host 172.28.10.84 HostName 172.28.10.84 PreferredAuthentications publickey IdentityFile ~/.ssh/id_rsa_84 执行ssh-agent让ssh识别新的私钥
+ssh-add ~/.ssh/id_rsa_84 该命令如果报错：Could not open a connection to your authentication agent.无法连接到ssh agent，可执行ssh-agent bash命令后再执行ssh-add命令  
     
 </article>
 
@@ -498,8 +504,21 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
                 
             
             
+                <li class="page-item disabled">
+                    <span class="page-link" aria-hidden="true">&hellip;</span>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
                 <li class="page-item ">
-                    <a class="page-link" href="/post/page/6/">6</a>
+                    <a class="page-link" href="/post/page/7/">7</a>
                 </li>
             
         
@@ -508,7 +527,7 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/post/page/6/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/post/page/7/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -561,6 +580,10 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
             
             <a class="badge badge-primary" href="/categories/cpp">cpp</a>
             
+            <a class="badge badge-primary" href="/categories/database">database</a>
+            
+            <a class="badge badge-primary" href="/categories/git">git</a>
+            
             <a class="badge badge-primary" href="/categories/linux">linux</a>
             
             <a class="badge badge-primary" href="/categories/mysql">mysql</a>
@@ -574,7 +597,13 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
             
             <a class="badge badge-primary" href="/tags/cpp">cpp</a>
             
+            <a class="badge badge-primary" href="/tags/database">database</a>
+            
+            <a class="badge badge-primary" href="/tags/git">git</a>
+            
             <a class="badge badge-primary" href="/tags/ide">ide</a>
+            
+            <a class="badge badge-primary" href="/tags/keepalived">keepalived</a>
             
             <a class="badge badge-primary" href="/tags/linux">linux</a>
             

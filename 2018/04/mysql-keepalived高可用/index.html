@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="MySQL&#43;Keepalived高可用" />
+<meta property="og:description" content="一、结构  简介：
+系统主要通过Keepalived&#43;MySQL双主来实现MySQL-HA，我们必须保证两台MySQL数据库的数据完全一样，基本设计是两台MySQL互为主从关系，通过Keepalived配置虚拟IP，实现当其中的一台MySQL数据库宕机后，应用能够自动切换到另外一台MySQL数据库，保证系统的高可用。
+ 拓扑环境：
+ OS: Red Hat Enterprise Linux Server release 7.1 (Maipo)
+ MySQL version: 5.5.59-log MySQL Community Server (GPL)
+ Keepalived version: keepalived-1.3.5-1.el7.x86_64
+ MySQL-Vip: 172.28.10.100
+ MySQL-Master1: 172.28.10.82
+ MySQL-Master2: 172.28.10.83
+  结构图：
+  二、 MySQL环境部署  修改MySQL配置文件
+以下为master1数据库的my.cnf配置文件内容，目录为/etc/my.cnf，配置完成后重启数据库
+[client] port = 3382 socket = /var/lib/mysql/mysql.sock [mysqld] port = 3382 socket = /var/lib/mysql/mysql.sock skip-external-locking key_buffer_size = 16M max_allowed_packet = 1M table_open_cache = 64 sort_buffer_size = 512K net_buffer_length = 8K read_buffer_size = 256K read_rnd_buffer_size = 512K myisam_sort_buffer_size = 8M log-bin=mysql-bin binlog_format=mixed # master2的server-id改为2 server-id = 1 # 要产生log的数据库 binlog-do-db=pms_db # 不产生log的数据库 binlog-ignore-db=mysql # 要复制的数据库 replicate-do-db=pms_db # 不复制的数据库 replicate-ignore-db=mysql log-bin=mysql-bin innodb_data_home_dir = /var/lib/mysql innodb_data_file_path = ibdata1:10M:autoextend innodb_log_group_home_dir = /var/lib/mysql innodb_buffer_pool_size = 16M innodb_additional_mem_pool_size = 2M innodb_log_file_size = 5M innodb_log_buffer_size = 8M innodb_flush_log_at_trx_commit = 1 innodb_lock_wait_timeout = 50 [mysqldump] quick max_allowed_packet = 16M [mysql] no-auto-rehash [myisamchk] key_buffer_size = 20M sort_buffer_size = 20M read_buffer = 2M write_buffer = 2M [mysqlhotcopy] interactive-timeout 将master1设置为master2的主服务器" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alonsovau.github.io/2018/04/mysql-keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/" />
+<meta property="article:published_time" content="2018-04-11T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-04-11T00:00:00&#43;00:00"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MySQL&#43;Keepalived高可用"/>
+<meta name="twitter:description" content="一、结构  简介：
+系统主要通过Keepalived&#43;MySQL双主来实现MySQL-HA，我们必须保证两台MySQL数据库的数据完全一样，基本设计是两台MySQL互为主从关系，通过Keepalived配置虚拟IP，实现当其中的一台MySQL数据库宕机后，应用能够自动切换到另外一台MySQL数据库，保证系统的高可用。
+ 拓扑环境：
+ OS: Red Hat Enterprise Linux Server release 7.1 (Maipo)
+ MySQL version: 5.5.59-log MySQL Community Server (GPL)
+ Keepalived version: keepalived-1.3.5-1.el7.x86_64
+ MySQL-Vip: 172.28.10.100
+ MySQL-Master1: 172.28.10.82
+ MySQL-Master2: 172.28.10.83
+  结构图：
+  二、 MySQL环境部署  修改MySQL配置文件
+以下为master1数据库的my.cnf配置文件内容，目录为/etc/my.cnf，配置完成后重启数据库
+[client] port = 3382 socket = /var/lib/mysql/mysql.sock [mysqld] port = 3382 socket = /var/lib/mysql/mysql.sock skip-external-locking key_buffer_size = 16M max_allowed_packet = 1M table_open_cache = 64 sort_buffer_size = 512K net_buffer_length = 8K read_buffer_size = 256K read_rnd_buffer_size = 512K myisam_sort_buffer_size = 8M log-bin=mysql-bin binlog_format=mixed # master2的server-id改为2 server-id = 1 # 要产生log的数据库 binlog-do-db=pms_db # 不产生log的数据库 binlog-ignore-db=mysql # 要复制的数据库 replicate-do-db=pms_db # 不复制的数据库 replicate-ignore-db=mysql log-bin=mysql-bin innodb_data_home_dir = /var/lib/mysql innodb_data_file_path = ibdata1:10M:autoextend innodb_log_group_home_dir = /var/lib/mysql innodb_buffer_pool_size = 16M innodb_additional_mem_pool_size = 2M innodb_log_file_size = 5M innodb_log_buffer_size = 8M innodb_flush_log_at_trx_commit = 1 innodb_lock_wait_timeout = 50 [mysqldump] quick max_allowed_packet = 16M [mysql] no-auto-rehash [myisamchk] key_buffer_size = 20M sort_buffer_size = 20M read_buffer = 2M write_buffer = 2M [mysqlhotcopy] interactive-timeout 将master1设置为master2的主服务器"/>
+
+
+
+    <link rel="canonical" href="https://alonsovau.github.io/2018/04/mysql-keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">
+
+    <title>
+      
+        MySQL&#43;Keepalived高可用 | Xin Zhou Blog
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://alonsovau.github.io/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+  </head>
+  <body>
+    
+      
+
+<header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            Xin Zhou Blog
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/">Home</a>
+                    
+                </li>
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/about/">About</a>
+                    
+                </li>
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/contact/">Contact</a>
+                    
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/04/mysql-keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">MySQL+Keepalived高可用</a>
+</h2>
+
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-04-11">Apr 11, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+    
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/mysql">mysql</a>
+    
+        <a class="badge badge-primary" href="/tags/keepalived">keepalived</a>
+    
+</div>
+
+    
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/mysql">Mysql</a>
+    
+</div>
+
+    <hr>
+</header>
+<article class="blog-post">
+    
+
+<h2 id="一-结构">一、结构</h2>
+
+<ol>
+<li><p>简介：<br />
+系统主要通过Keepalived+MySQL双主来实现MySQL-HA，我们必须保证两台MySQL数据库的数据完全一样，基本设计是两台MySQL互为主从关系，通过Keepalived配置虚拟IP，实现当其中的一台MySQL数据库宕机后，应用能够自动切换到另外一台MySQL数据库，保证系统的高可用。</p></li>
+
+<li><p>拓扑环境：</p>
+
+<ul>
+<li><p>OS: Red Hat Enterprise Linux Server release 7.1 (Maipo)</p></li>
+
+<li><p>MySQL version: 5.5.59-log MySQL Community Server (GPL)</p></li>
+
+<li><p>Keepalived version: keepalived-1.3.5-1.el7.x86_64</p></li>
+
+<li><p>MySQL-Vip: 172.28.10.100</p></li>
+
+<li><p>MySQL-Master1: 172.28.10.82</p></li>
+
+<li><p>MySQL-Master2: 172.28.10.83</p></li>
+</ul></li>
+
+<li><p>结构图：</p></li>
+</ol>
+
+<p><img src="系统网络拓扑图.png" alt="image" /></p>
+
+<h2 id="二-mysql环境部署">二、 MySQL环境部署</h2>
+
+<ol>
+<li><p>修改MySQL配置文件<br />
+以下为master1数据库的my.cnf配置文件内容，目录为/etc/my.cnf，配置完成后重启数据库</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">[client]
+
+port        = 3382
+
+socket      = /var/lib/mysql/mysql.sock
+
+    
+
+[mysqld]
+
+port        = 3382
+
+socket      = /var/lib/mysql/mysql.sock
+
+skip-external-locking
+
+key_buffer_size = 16M
+
+max_allowed_packet = 1M
+
+table_open_cache = 64
+
+sort_buffer_size = 512K
+
+net_buffer_length = 8K
+
+read_buffer_size = 256K
+
+read_rnd_buffer_size = 512K
+
+myisam_sort_buffer_size = 8M
+
+log-bin=mysql-bin
+
+binlog_format=mixed
+
+# master2的server-id改为2
+
+server-id   = 1
+
+# 要产生log的数据库
+
+binlog-do-db=pms_db
+
+# 不产生log的数据库
+
+binlog-ignore-db=mysql
+
+# 要复制的数据库
+
+replicate-do-db=pms_db
+
+# 不复制的数据库
+
+replicate-ignore-db=mysql
+
+log-bin=mysql-bin
+
+innodb_data_home_dir = /var/lib/mysql
+
+innodb_data_file_path = ibdata1:10M:autoextend
+
+innodb_log_group_home_dir = /var/lib/mysql
+
+innodb_buffer_pool_size = 16M
+
+innodb_additional_mem_pool_size = 2M
+
+innodb_log_file_size = 5M
+
+innodb_log_buffer_size = 8M
+
+innodb_flush_log_at_trx_commit = 1
+
+innodb_lock_wait_timeout = 50
+
+    
+
+[mysqldump]
+
+quick
+
+max_allowed_packet = 16M
+
+    
+
+[mysql]
+
+no-auto-rehash
+
+    
+
+[myisamchk]
+
+key_buffer_size = 20M
+
+sort_buffer_size = 20M
+
+read_buffer = 2M
+
+write_buffer = 2M
+
+    
+
+[mysqlhotcopy]
+
+interactive-timeout</code></pre></div></li>
+
+<li><p>将master1设置为master2的主服务器</p>
+
+<ul>
+<li>创建用于同步数据的账户及赋予权限、限制登录IP<br /></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#75715e">-- master1上操作
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">create</span> <span style="color:#66d9ef">user</span> <span style="color:#e6db74">&#39;backup&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;172.28.10.83&#39;</span> identified <span style="color:#66d9ef">by</span> <span style="color:#e6db74">&#39;pms@1082&#39;</span>;
+
+<span style="color:#66d9ef">grant</span> replication slave <span style="color:#66d9ef">on</span> <span style="color:#f92672">*</span>.<span style="color:#f92672">*</span> <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;backup&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;172.28.10.83&#39;</span> identified <span style="color:#66d9ef">by</span> <span style="color:#e6db74">&#39;pms@1082&#39;</span>;
+
+<span style="color:#75715e">-- master2上稍后操作
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">create</span> <span style="color:#66d9ef">user</span> <span style="color:#e6db74">&#39;backup&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;172.28.10.82&#39;</span> identified <span style="color:#66d9ef">by</span> <span style="color:#e6db74">&#39;pms@1083&#39;</span>;
+
+<span style="color:#66d9ef">grant</span> replication slave <span style="color:#66d9ef">on</span> <span style="color:#f92672">*</span>.<span style="color:#f92672">*</span> <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;backup&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;172.28.10.82&#39;</span> identified <span style="color:#66d9ef">by</span> <span style="color:#e6db74">&#39;pms@1083&#39;</span>;</code></pre></div>
+<ul>
+<li>master1上操作</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">show</span> master status;
+
+<span style="color:#75715e">-- 执行后显示file和position，显示如下
+</span><span style="color:#75715e"></span>
+<span style="color:#f92672">+</span><span style="color:#75715e">------------------+----------+--------------+------------------+
+</span><span style="color:#75715e"></span>
+<span style="color:#f92672">|</span> File             <span style="color:#f92672">|</span> <span style="color:#66d9ef">Position</span> <span style="color:#f92672">|</span> Binlog_Do_DB <span style="color:#f92672">|</span> Binlog_Ignore_DB <span style="color:#f92672">|</span>
+
+<span style="color:#f92672">+</span><span style="color:#75715e">------------------+----------+--------------+------------------+
+</span><span style="color:#75715e"></span>
+<span style="color:#f92672">|</span> mysql<span style="color:#f92672">-</span>bin.<span style="color:#ae81ff">000010</span> <span style="color:#f92672">|</span>      <span style="color:#ae81ff">107</span> <span style="color:#f92672">|</span> pms_db       <span style="color:#f92672">|</span> mysql            <span style="color:#f92672">|</span>
+
+<span style="color:#f92672">+</span><span style="color:#75715e">------------------+----------+--------------+------------------+</span></code></pre></div>
+<ul>
+<li>master2上操作</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#75715e">-- master_log_file、master_log_pos根据上面master1的信息填写
+</span><span style="color:#75715e"></span>
+change master <span style="color:#66d9ef">to</span> master_host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;172.28.10.82&#39;</span>, master_user<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;backup&#39;</span>, master_password<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;pms@1082&#39;</span>, master_log_file<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mysql-bin.000010&#39;</span>, master_log_pos<span style="color:#f92672">=</span><span style="color:#ae81ff">107</span>, master_port<span style="color:#f92672">=</span><span style="color:#ae81ff">3382</span>;
+
+<span style="color:#66d9ef">start</span> slave;
+
+<span style="color:#66d9ef">show</span> slave status <span style="color:#960050;background-color:#1e0010">\</span><span style="color:#66d9ef">G</span>
+
+<span style="color:#75715e">-- 打印的信息中数值为下面的值即为配置成功
+</span><span style="color:#75715e"></span>
+Slave_IO_Running: Yes
+
+Slave_SQL_Running: Yes    </code></pre></div></li>
+
+<li><p>将master2设置为master2的主服务器<br />
+按照上一部分重复即可</p></li>
+</ol>
+
+<h2 id="三-keepalived的安装配置">三、 Keepalived的安装配置</h2>
+
+<ol>
+<li><p>安装</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 两台机器分别执行，可选rpm、源码安装，依赖问题根据实际情况解决</span>
+
+yum install keepalived </code></pre></div></li>
+
+<li><p>配置</p>
+
+<ul>
+<li>master1配置，==router_id、priority、real_server==与master2不同，==interface==根据实际情况修改，配置文件目录为/etc/keepalived/keepalived.conf</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">! Configuration File for keepalived
+
+global_defs {
+
+    router_id MYSQL-82
+
+    vrrp_skip_check_adv_addr
+
+    vrrp_garp_interval 0
+
+    vrrp_gna_interval 0
+
+}
+
+    
+
+vrrp_instance VI_1 {
+
+    state BACKUP
+
+    interface eth0
+
+    virtual_router_id 51
+
+    priority 100
+
+    nopreempt
+
+    advert_int 1
+
+    authentication {
+
+        auth_type PASS
+
+        auth_pass 1111
+
+    }
+
+    virtual_ipaddress {
+
+        172.28.10.100
+
+    }
+
+}
+
+    
+
+virtual_server 172.28.10.100 3382 {
+
+    delay_loop 2
+
+    lb_algo rr
+
+    lb_kind DR
+
+    persistence_timeout 50
+
+    protocol TCP
+
+    
+
+    real_server 172.28.10.82 3382 {
+
+        weight 1
+
+                notify_down /etc/keepalived/mysql.sh
+
+                TCP_CHECK {
+
+                        connect_timeout 3
+
+                        delay_before_retry 3
+
+                        connect_port 3382
+
+                }
+
+    }
+
+}</code></pre></div>
+<ul>
+<li>master2配置，router_id、priority、real_server与master1不同，interface根据实际情况修改</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">! Configuration File for keepalived
+
+global_defs {
+
+    router_id MYSQL-83
+
+    vrrp_skip_check_adv_addr
+
+    vrrp_garp_interval 0
+
+    vrrp_gna_interval 0
+
+}
+
+    
+
+vrrp_instance VI_1 {
+
+    state BACKUP
+
+    interface eth0
+
+    virtual_router_id 51
+
+    priority 50
+
+    advert_int 1
+
+    authentication {
+
+        auth_type PASS
+
+        auth_pass 1111
+
+    }
+
+    virtual_ipaddress {
+
+        172.28.10.100
+
+    }
+
+}
+
+    
+
+virtual_server 172.28.10.100 3382 {
+
+    delay_loop 2
+
+    lb_algo rr
+
+    lb_kind DR
+
+    persistence_timeout 50
+
+    protocol TCP
+
+    
+
+    real_server 172.28.10.83 3382 {
+
+        weight 1
+
+        notify_down /etc/keepalived/mysql.sh
+
+        TCP_CHECK {
+
+                connect_timeout 3
+
+                delay_before_retry 3
+
+                connect_port 3382
+
+        }
+
+    }
+
+}</code></pre></div>
+<ul>
+<li>mysql.sh脚本，需chmod添加执行权限</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+pkill keepalived
+
+/sbin/ifdown eth0 <span style="color:#f92672">&amp;&amp;</span> /sbin/ifup eth0</code></pre></div>
+<ul>
+<li>启动及检查</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl start keepalived
+
+systemctl status keepalived
+
+systemctl stop keepalived
+
+<span style="color:#75715e"># 查看网络信息</span>
+
+ip a
+
+<span style="color:#75715e"># 查询以下信息证明 Virtual IP已经绑定成功</span>
+
+eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span style="color:#ae81ff">1500</span> qdisc mq state UP qlen <span style="color:#ae81ff">1000</span>
+
+link/ether <span style="color:#ae81ff">00</span>:50:56:b1:60:58 brd ff:ff:ff:ff:ff:ff
+
+inet <span style="color:#ae81ff">172</span>.28.10.83/24 brd <span style="color:#ae81ff">172</span>.28.10.255 scope global eth0
+
+   valid_lft forever preferred_lft forever
+
+inet <span style="color:#ae81ff">172</span>.28.10.100/32 scope global eth0
+
+   valid_lft forever preferred_lft forever
+
+inet6 fe80::250:56ff:feb1:6058/64 scope link 
+
+   valid_lft forever preferred_lft forever</code></pre></div></li>
+</ol>
+
+
+    
+
+    
+
+    <h4>See also</h4>
+    <ul>
+        
+            <li><a href="/2018/04/cluster/">cluster</a></li>
+        
+            <li><a href="/2018/04/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">网络相关</a></li>
+        
+            <li><a href="/2018/02/crontab/">crontab</a></li>
+        
+            <li><a href="/2018/02/%E6%9F%A5%E7%9C%8B%E6%9C%BA%E5%99%A8%E9%87%8D%E5%90%AF%E6%97%B6%E9%97%B4/">查看机器重启时间</a></li>
+        
+            <li><a href="/2018/02/sed/">sed</a></li>
+        
+    </ul>
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+<section>
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+        
+        <li>
+            <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/">Linux和Windows换行</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/vmvare-multiple-network-adapters-configuration/">vmvare multiple network adapters configuration</a>
+        </li>
+        
+        <li>
+            <a href="/2018/12/watchdog/">watchdog</a>
+        </li>
+        
+    </ol>
+</section>
+
+    
+    
+        <section>
+    
+        
+        <h4>Categories</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/categories/cpp">cpp</a>
+            
+            <a class="badge badge-primary" href="/categories/database">database</a>
+            
+            <a class="badge badge-primary" href="/categories/git">git</a>
+            
+            <a class="badge badge-primary" href="/categories/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/categories/mysql">mysql</a>
+            
+        </p>
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+            
+            <a class="badge badge-primary" href="/tags/database">database</a>
+            
+            <a class="badge badge-primary" href="/tags/git">git</a>
+            
+            <a class="badge badge-primary" href="/tags/ide">ide</a>
+            
+            <a class="badge badge-primary" href="/tags/keepalived">keepalived</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/lua">lua</a>
+            
+            <a class="badge badge-primary" href="/tags/mysql">mysql</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">© 2019 Copyright Zhouxin</p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="truncate,delete,drop" />
+<meta property="og:description" content=" 总体  delete：DML语言、可以回退、可以有条件的删除
+ truncate：DDL语言、无法回退、默认所有的表内容都删除、删除速度比delete快、表结构及其列、约束、索引等均保持不变、truncate不记录在日志中，所以不能激活触发器。
+ drop：DDL语言、操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger
+  对比  DELETE语句每删除一行，都在事务日志中为所删除的每行记录一项；TRUNCATE TABLE通过释放存储表数据所用的数据页来删除数据，并且只事务日志中记录页的释放。
+ 对于由 FOREIGN KEY 约束引用的表，不能使用 TRUNCATE TABLE，而应使用不带 Where 子句的 Delete 语句。由于 TRUNCATE TABLE 不记录在日志中，所以它不能激活触发器。
+ TRUNCATE TABLE 不能用于参与了索引视图的表。
+ truncate和 delete只删除数据不删除表的结构(定义)，drop语句将删除表的结构被依赖的约束(constrain),触发器(trigger),索引(index);依赖于该表的存储过程/函数将保留,但是变为invalid状态.
+ delete语句是dml,这个操作会放到rollback segement中,事务提交之后才生效;如果有相应的trigger,执行的时候将被触发. truncate,drop是ddl, 操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger.
+ delete语句不影响表所占用的extent, 高水线(high water mark)保持原位置不动，显然drop语句将表所占用的空间全部释放，truncate语句缺省情况下将空间释放到minextents个extent,除非使用reuse storage;truncate会将高水线复位(回到最开始).
+ 速度,一般来说: drop&gt; truncate &gt; delete
+ 安全性:小心使用drop 和truncate,尤其没有备份的时候.否则哭都来不及
+  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alonsovau.github.io/2017/04/truncatedeletedrop/" />
+<meta property="article:published_time" content="2017-04-11T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-04-11T00:00:00&#43;00:00"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="truncate,delete,drop"/>
+<meta name="twitter:description" content=" 总体  delete：DML语言、可以回退、可以有条件的删除
+ truncate：DDL语言、无法回退、默认所有的表内容都删除、删除速度比delete快、表结构及其列、约束、索引等均保持不变、truncate不记录在日志中，所以不能激活触发器。
+ drop：DDL语言、操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger
+  对比  DELETE语句每删除一行，都在事务日志中为所删除的每行记录一项；TRUNCATE TABLE通过释放存储表数据所用的数据页来删除数据，并且只事务日志中记录页的释放。
+ 对于由 FOREIGN KEY 约束引用的表，不能使用 TRUNCATE TABLE，而应使用不带 Where 子句的 Delete 语句。由于 TRUNCATE TABLE 不记录在日志中，所以它不能激活触发器。
+ TRUNCATE TABLE 不能用于参与了索引视图的表。
+ truncate和 delete只删除数据不删除表的结构(定义)，drop语句将删除表的结构被依赖的约束(constrain),触发器(trigger),索引(index);依赖于该表的存储过程/函数将保留,但是变为invalid状态.
+ delete语句是dml,这个操作会放到rollback segement中,事务提交之后才生效;如果有相应的trigger,执行的时候将被触发. truncate,drop是ddl, 操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger.
+ delete语句不影响表所占用的extent, 高水线(high water mark)保持原位置不动，显然drop语句将表所占用的空间全部释放，truncate语句缺省情况下将空间释放到minextents个extent,除非使用reuse storage;truncate会将高水线复位(回到最开始).
+ 速度,一般来说: drop&gt; truncate &gt; delete
+ 安全性:小心使用drop 和truncate,尤其没有备份的时候.否则哭都来不及
+  "/>
+
+
+
+    <link rel="canonical" href="https://alonsovau.github.io/2017/04/truncatedeletedrop/">
+
+    <title>
+      
+        truncate,delete,drop | Xin Zhou Blog
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://alonsovau.github.io/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+  </head>
+  <body>
+    
+      
+
+<header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            Xin Zhou Blog
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/">Home</a>
+                    
+                </li>
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/about/">About</a>
+                    
+                </li>
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/contact/">Contact</a>
+                    
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+    <a class="text-dark" href="/2017/04/truncatedeletedrop/">truncate,delete,drop</a>
+</h2>
+
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2017-04-11">Apr 11, 2017</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+    
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/database">database</a>
+    
+</div>
+
+    
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/database">Database</a>
+    
+</div>
+
+    <hr>
+</header>
+<article class="blog-post">
+    
+
+<h5 id="总体">总体</h5>
+
+<ul>
+<li><p>delete：DML语言、可以回退、可以有条件的删除</p></li>
+
+<li><p>truncate：DDL语言、无法回退、默认所有的表内容都删除、删除速度比delete快、表结构及其列、约束、索引等均保持不变、truncate不记录在日志中，所以不能激活触发器。</p></li>
+
+<li><p>drop：DDL语言、操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger</p></li>
+</ul>
+
+<h5 id="对比">对比</h5>
+
+<ol>
+<li><p>DELETE语句每删除一行，都在事务日志中为所删除的每行记录一项；TRUNCATE TABLE通过释放存储表数据所用的数据页来删除数据，并且只事务日志中记录页的释放。</p></li>
+
+<li><p>对于由 FOREIGN KEY 约束引用的表，不能使用 TRUNCATE TABLE，而应使用不带 Where 子句的 Delete 语句。由于 TRUNCATE TABLE 不记录在日志中，所以它不能激活触发器。</p></li>
+
+<li><p>TRUNCATE TABLE 不能用于参与了索引视图的表。</p></li>
+
+<li><p>truncate和 delete只删除数据不删除表的结构(定义)，drop语句将删除表的结构被依赖的约束(constrain),触发器(trigger),索引(index);依赖于该表的存储过程/函数将保留,但是变为invalid状态.</p></li>
+
+<li><p>delete语句是dml,这个操作会放到rollback segement中,事务提交之后才生效;如果有相应的trigger,执行的时候将被触发. truncate,drop是ddl, 操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger.</p></li>
+
+<li><p>delete语句不影响表所占用的extent, 高水线(high water mark)保持原位置不动，显然drop语句将表所占用的空间全部释放，truncate语句缺省情况下将空间释放到minextents个extent,除非使用reuse storage;truncate会将高水线复位(回到最开始).</p></li>
+
+<li><p>速度,一般来说: drop&gt; truncate &gt;  delete</p></li>
+
+<li><p>安全性:小心使用drop 和truncate,尤其没有备份的时候.否则哭都来不及</p></li>
+</ol>
+
+
+    
+
+    
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+<section>
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+        
+        <li>
+            <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/">Linux和Windows换行</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/vmvare-multiple-network-adapters-configuration/">vmvare multiple network adapters configuration</a>
+        </li>
+        
+        <li>
+            <a href="/2018/12/watchdog/">watchdog</a>
+        </li>
+        
+    </ol>
+</section>
+
+    
+    
+        <section>
+    
+        
+        <h4>Categories</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/categories/cpp">cpp</a>
+            
+            <a class="badge badge-primary" href="/categories/database">database</a>
+            
+            <a class="badge badge-primary" href="/categories/git">git</a>
+            
+            <a class="badge badge-primary" href="/categories/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/categories/mysql">mysql</a>
+            
+        </p>
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+            
+            <a class="badge badge-primary" href="/tags/database">database</a>
+            
+            <a class="badge badge-primary" href="/tags/git">git</a>
+            
+            <a class="badge badge-primary" href="/tags/ide">ide</a>
+            
+            <a class="badge badge-primary" href="/tags/keepalived">keepalived</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/lua">lua</a>
+            
+            <a class="badge badge-primary" href="/tags/mysql">mysql</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">© 2019 Copyright Zhouxin</p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/categories/git/</link>
+    <description>Recent content in Git on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Tue, 20 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>fork后同步原仓库</title>
+      <link>https://alonsovau.github.io/2018/11/fork%E5%90%8E%E5%90%8C%E6%AD%A5%E5%8E%9F%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/11/fork%E5%90%8E%E5%90%8C%E6%AD%A5%E5%8E%9F%E4%BB%93%E5%BA%93/</guid>
+      <description>configuring a remote for a fork  查看远程状态  git remote -v # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch) # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)  添加一个将被同步给 fork 远程的上游仓库  git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git  再次查看远程状态  git remote -v # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch) # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push) # upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch) # upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push) syncing a fork  从原仓库fetch数据到本地，并会被存储在本地分支upstream/master  git fetch upstream # remote: Counting objects: 75, done. # remote: Compressing objects: 100% (53/53), done.</description>
+    </item>
+    
+    <item>
+      <title>配置多个GIT</title>
+      <link>https://alonsovau.github.io/2018/07/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit/</link>
+      <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/07/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit/</guid>
+      <description> .ssh文件夹下建立config文件：
+# 84 Host 172.28.10.84 HostName 172.28.10.84 PreferredAuthentications publickey IdentityFile ~/.ssh/id_rsa_84 执行ssh-agent让ssh识别新的私钥
+ssh-add ~/.ssh/id_rsa_84 该命令如果报错：Could not open a connection to your authentication agent.无法连接到ssh agent，可执行ssh-agent bash命令后再执行ssh-add命令  </description>
+    </item>
+    
+    <item>
+      <title>git常用命令</title>
+      <link>https://alonsovau.github.io/2018/02/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>git config --global user.name &amp;#34;Alonsovau&amp;#34; git config --global user.email &amp;#34;alonsovau@outlook.com&amp;#34; mkdir learngit pwd 查看完整路径 git init git add readme.txt git commit -m &amp;#34;wrote a readme file&amp;#34; git status git diff readme.txt git log git log --pretty=oneline git reset --hard HEAD^ 退回上一个版本 HEAD^^上上个版本 git reset --hard 4f1be52c 到指定的某个版本 git log得到的commit id的部分即可 git reflog 用来记录你的每一次命令 git checkout -- readme.txt 丢弃工作区修改 --后面要加空格 不然爆炸 场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout &amp;ndash; file。
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库
+rm test.</description>
+    </item>
+    
+  </channel>
+</rss>

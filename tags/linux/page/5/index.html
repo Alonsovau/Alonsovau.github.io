@@ -10,7 +10,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/tags/linux/" />
 
-<meta property="og:updated_time" content="2017-03-31T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-02-23T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux"/>
@@ -92,6 +92,197 @@
 
 
 
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/02/%E6%9F%A5%E7%9C%8B%E6%9C%BA%E5%99%A8%E9%87%8D%E5%90%AF%E6%97%B6%E9%97%B4/">查看机器重启时间</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-02-23">Feb 23, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    who -b 上次启动时间 last reboot 系统启动记录 last reboot |head -1 最后一次启动时间 w 可查看系统已经运行时间 top 也可查看
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2017/10/%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0%E6%96%87%E4%BB%B6/">输出重定向到文件</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2017-10-12">Oct 12, 2017</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    ls &gt; log.log ls &gt;&gt; log.log --不覆盖log.log，追加 cat 1.txt 2&gt; log.log --错误输出到log.log cat 1.txt &gt; log.log 2&gt;&amp;1 --stderr也输出到stdout stdin 0 &lt; stdout 1 1&gt; stderr 2 2&gt;
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2017/04/ubuntu-server%E9%80%9A%E8%BF%87vnc%E8%BF%9E%E6%8E%A5xrdp%E4%BA%A6%E5%8F%AF/">ubuntu server通过vnc连接(xrdp亦可)</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2017-04-09">Apr 9, 2017</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    1.安装
+apt-get install vnc4server 2.设置密码
+vncpasswd 或者
+vncserver 创建一个
+3.启动vnc
+vncserver:1 4.启动vnc客户端
+输入IP地址加:1,例如192.168.1.104:1
+5.配置文件
+进入/root/.vnc
+vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: # unset SESSION_MANAGER # exec /etc/X11/xinit/xinitrc [ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup [ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources xsetroot -solid grey vncconfig -iconic &amp; #x-terminal-emulator -geometry 80x24+10+10 -ls -title &#34;$VNCDESKTOP Desktop&#34; &amp; #x-window-manager &amp; sesion-manager &amp; xfdesktop &amp; xfce4-panel &amp; xfce4-menu-plugin &amp; xfsettingsd &amp; xfconfd &amp; xfwm4 &amp;  6.
+    
+    <p></p>
+    <a href="/2017/04/ubuntu-server%E9%80%9A%E8%BF%87vnc%E8%BF%9E%E6%8E%A5xrdp%E4%BA%A6%E5%8F%AF/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2017/03/euidsuidruid/">EUID、SUID、RUID、</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2017-03-31">Mar 31, 2017</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    有效用户ID（Effective UID，即EUID）与有效用户组ID（Effective Group ID，即EGID）在创建与访问文件的时候发挥作用；具体来说，创建文件时，系统内核将根据创建文件的进程的EUID与EGID设定文件的所有者/组属性，而在访问文件时，内核亦根据访问进程的EUID与EGID决定其能否访问文件。
+真实用户ID（Real UID,即RUID）与真实用户组ID（Real GID，即RGID）用于辨识进程的真正所有者，且会影响到进程发送信号的权限。没有超级用户权限的进程仅在其RUID与目标进程的RUID相匹配时才能向目标进程发送信号，例如在父子进程间，子进程从父进程处继承了认证信息，使得父子进程间可以互相发送信号。
+暂存用户ID（Saved UID，即SUID）于以提升权限运行的进程暂时需要做一些不需特权的操作时使用，这种情况下进程会暂时将自己的有效用户ID从特权用户（常为root）对应的UID变为某个非特权用户对应的UID，而后将原有的特权用户UID复制为SUID暂存；之后当进程完成不需特权的操作后，进程使用SUID的值重置EUID以重新获得特权。在这里需要说明的是，无特权进程的EUID值只能设为与RUID、SUID与EUID（也即不改变）之一相同的值。
+文件系统用户ID（File System UID，即FSUID）在Linux中使用，且只用于对文件系统的访问权限控制，在没有明确设定的情况下与EUID相同（若FSUID为root的UID，则SUID、RUID与EUID必至少有一亦为root的UID），且EUID改变也会影响到FSUID。设立FSUID是为了允许程序（如NFS服务器）在不需获取向给定UID账户发送信号的情况下以给定UID的权限来限定自己的文件系统权限。
+    
+</article>
+
+    
 
 
 
@@ -382,6 +573,10 @@
             
             <a class="badge badge-primary" href="/categories/cpp">cpp</a>
             
+            <a class="badge badge-primary" href="/categories/database">database</a>
+            
+            <a class="badge badge-primary" href="/categories/git">git</a>
+            
             <a class="badge badge-primary" href="/categories/linux">linux</a>
             
             <a class="badge badge-primary" href="/categories/mysql">mysql</a>
@@ -395,7 +590,13 @@
             
             <a class="badge badge-primary" href="/tags/cpp">cpp</a>
             
+            <a class="badge badge-primary" href="/tags/database">database</a>
+            
+            <a class="badge badge-primary" href="/tags/git">git</a>
+            
             <a class="badge badge-primary" href="/tags/ide">ide</a>
+            
+            <a class="badge badge-primary" href="/tags/keepalived">keepalived</a>
             
             <a class="badge badge-primary" href="/tags/linux">linux</a>
             

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Database on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/tags/database/</link>
+    <description>Recent content in Database on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Wed, 12 Apr 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>referential integrity constraint(引用完整性约束)</title>
+      <link>https://alonsovau.github.io/2017/04/referential-integrity-constraint%E5%BC%95%E7%94%A8%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F/</link>
+      <pubDate>Wed, 12 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/04/referential-integrity-constraint%E5%BC%95%E7%94%A8%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F/</guid>
+      <description>实体数据模型 (EDM) 中的“引用完整性约束”与关系数据库中的引用完整性约束类似。 与数据库表中的一个（或多个）列可以引用另一个表的主键相同，实体类型的一个（或多个）属性可以引用另一个实体类型的实体键。 所引用的实体类型称为约束的主体端。 引用主体端的实体类型称为约束的依赖端。
+引用完整性约束定义为两个实体类型间的关联的一部分。引用完整性约束的定义指定了以下信息：
+ 约束的主体端。 （一个实体类型，其实体键由依赖端引用。）
+ 主体端的实体键。
+ 约束的依赖端。 （一个实体类型，它的一个或多个属性引用主体端的实体键。）
+ 依赖端的一个或多个引用属性。
+  </description>
+    </item>
+    
+    <item>
+      <title>truncate,delete,drop</title>
+      <link>https://alonsovau.github.io/2017/04/truncatedeletedrop/</link>
+      <pubDate>Tue, 11 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/04/truncatedeletedrop/</guid>
+      <description> 总体  delete：DML语言、可以回退、可以有条件的删除
+ truncate：DDL语言、无法回退、默认所有的表内容都删除、删除速度比delete快、表结构及其列、约束、索引等均保持不变、truncate不记录在日志中，所以不能激活触发器。
+ drop：DDL语言、操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger
+  对比  DELETE语句每删除一行，都在事务日志中为所删除的每行记录一项；TRUNCATE TABLE通过释放存储表数据所用的数据页来删除数据，并且只事务日志中记录页的释放。
+ 对于由 FOREIGN KEY 约束引用的表，不能使用 TRUNCATE TABLE，而应使用不带 Where 子句的 Delete 语句。由于 TRUNCATE TABLE 不记录在日志中，所以它不能激活触发器。
+ TRUNCATE TABLE 不能用于参与了索引视图的表。
+ truncate和 delete只删除数据不删除表的结构(定义)，drop语句将删除表的结构被依赖的约束(constrain),触发器(trigger),索引(index);依赖于该表的存储过程/函数将保留,但是变为invalid状态.
+ delete语句是dml,这个操作会放到rollback segement中,事务提交之后才生效;如果有相应的trigger,执行的时候将被触发. truncate,drop是ddl, 操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger.
+ delete语句不影响表所占用的extent, 高水线(high water mark)保持原位置不动，显然drop语句将表所占用的空间全部释放，truncate语句缺省情况下将空间释放到minextents个extent,除非使用reuse storage;truncate会将高水线复位(回到最开始).
+ 速度,一般来说: drop&amp;gt; truncate &amp;gt; delete
+ 安全性:小心使用drop 和truncate,尤其没有备份的时候.否则哭都来不及
+  </description>
+    </item>
+    
+  </channel>
+</rss>

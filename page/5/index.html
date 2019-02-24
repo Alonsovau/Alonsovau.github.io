@@ -11,7 +11,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/" />
 
-<meta property="og:updated_time" content="2018-02-23T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-06-16T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Xin Zhou Blog"/>
@@ -100,7 +100,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/sed/">sed</a>
+    <a class="text-dark" href="/2018/06/%E6%96%87%E4%BB%B6%E5%8F%8Aterminal%E7%BB%88%E7%AB%AF%E7%BC%96%E7%A0%81/">文件及Terminal终端编码</a>
 </h2>
 
         
@@ -108,7 +108,7 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2018-02-23">Feb 23, 2018</time>
+        <time datetime="2018-06-16">Jun 16, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -132,21 +132,116 @@
 </div>
 
     </header>
-    语法 sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件] 参数 -e&lt;script&gt;或--expression=&lt;script&gt; 以选项中指定的script来处理输入的文本文件 -f&lt;script文件&gt;或--file=&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件 -h或--help 显示帮助 -n或--quiet或--silent 仅显示script处理后的结果 -V或--version 显示版本信息 动作  a: 新增，在匹配的下一行新增一行
- i: 插入，转匹配的上一行新增一行
- c: 取代，c后面是将替换的值
- d: 删除，删除指定行
- p: 打印，通常与sed -n一起使用
- s: 取代，进行搜索
-  例子  sed -e 4a\zx zx.txt：在第四行后面加zx，输出到标准输出，macOS语法错误
- nl zx.txt |sed &lsquo;2,5d&rsquo;：列出内容并列出行号，同时删除2-5行
- nl zx.txt |sed &lsquo;2,$d&rsquo;：删除2到最后一行
- nl zx.txt |sed &lsquo;2a zx&rsquo;：第二行后增加zx，行前使用2i,macOS不可
- nl zx.txt |sed &lsquo;2a zx\按enter键xz&rsquo;：第二行后加zx，xz2行数据，macOS不可
- nl zx.txt |sed &lsquo;2,3c kol&rsquo;：2到3行替换为kol
+    1. set fileencoding 查看文件编码 2. set fileencdding=utf-8 设置文件编码 按wq保存 3. :e ++enc=cp936 # vim打开文档后，encoding=utf-8（locale决定的），fileencoding=latin1（自动编码判断机制不准导致的），termencoding=空（默认无需转换term编码），显示文件为乱码
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/05/mysql5.7-linux%E5%AE%89%E8%A3%85/">Mysql5.7 Linux安装</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-05-24">May 24, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/mysql">mysql</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/mysql">Mysql</a>
+    
+</div>
+
+    </header>
+    rpm -ivh mysql-community-common-5.7.22-1.el7.x86_64.rpm mysql-community-libs-5.7.22-1.el7.x86_64.rpm rpm -ivh mysql-community-client-5.7.22-1.el7.x86_64.rpm mysql-community-server-5.7.22-1.el7.x86_64.rpm mysqld --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data/ --initialize service mysqld start grep &#39;temporary password&#39; /var/log/mysqld.log mysql -uroot -p ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;cffEx2016!&#39;; GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;cffEx2016!&#39; WITH GRANT OPTION; 拷贝my.cnf到/etc/目录下 my.cnf 权限为-rw-r--r-- 重启mysql
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/04/mysql-keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">MySQL+Keepalived高可用</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-04-11">Apr 11, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/mysql">mysql</a>
+    
+        <a class="badge badge-primary" href="/tags/keepalived">keepalived</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/mysql">Mysql</a>
+    
+</div>
+
+    </header>
+    一、结构  简介：
+系统主要通过Keepalived+MySQL双主来实现MySQL-HA，我们必须保证两台MySQL数据库的数据完全一样，基本设计是两台MySQL互为主从关系，通过Keepalived配置虚拟IP，实现当其中的一台MySQL数据库宕机后，应用能够自动切换到另外一台MySQL数据库，保证系统的高可用。
+ 拓扑环境：
+ OS: Red Hat Enterprise Linux Server release 7.1 (Maipo)
+ MySQL version: 5.5.59-log MySQL Community Server (GPL)
+ Keepalived version: keepalived-1.3.5-1.el7.x86_64
+ MySQL-Vip: 172.28.10.100
+ MySQL-Master1: 172.28.10.82
+ MySQL-Master2: 172.28.10.83
+  结构图：
+  二、 MySQL环境部署  修改MySQL配置文件
+以下为master1数据库的my.cnf配置文件内容，目录为/etc/my.cnf，配置完成后重启数据库
+[client] port = 3382 socket = /var/lib/mysql/mysql.sock [mysqld] port = 3382 socket = /var/lib/mysql/mysql.sock skip-external-locking key_buffer_size = 16M max_allowed_packet = 1M table_open_cache = 64 sort_buffer_size = 512K net_buffer_length = 8K read_buffer_size = 256K read_rnd_buffer_size = 512K myisam_sort_buffer_size = 8M log-bin=mysql-bin binlog_format=mixed # master2的server-id改为2 server-id = 1 # 要产生log的数据库 binlog-do-db=pms_db # 不产生log的数据库 binlog-ignore-db=mysql # 要复制的数据库 replicate-do-db=pms_db # 不复制的数据库 replicate-ignore-db=mysql log-bin=mysql-bin innodb_data_home_dir = /var/lib/mysql innodb_data_file_path = ibdata1:10M:autoextend innodb_log_group_home_dir = /var/lib/mysql innodb_buffer_pool_size = 16M innodb_additional_mem_pool_size = 2M innodb_log_file_size = 5M innodb_log_buffer_size = 8M innodb_flush_log_at_trx_commit = 1 innodb_lock_wait_timeout = 50 [mysqldump] quick max_allowed_packet = 16M [mysql] no-auto-rehash [myisamchk] key_buffer_size = 20M sort_buffer_size = 20M read_buffer = 2M write_buffer = 2M [mysqlhotcopy] interactive-timeout 将master1设置为master2的主服务器
     
     <p></p>
-    <a href="/2018/02/sed/">Read More →</a>
+    <a href="/2018/04/mysql-keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">Read More →</a>
     
 </article>
 
@@ -158,7 +253,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/%E4%BD%BF%E7%94%A8class-object%E7%9A%84%E6%8C%87%E9%92%88/">使用class object的指针</a>
+    <a class="text-dark" href="/2018/04/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">网络相关</a>
 </h2>
 
         
@@ -166,7 +261,7 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2018-02-23">Feb 23, 2018</time>
+        <time datetime="2018-04-09">Apr 9, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -177,7 +272,7 @@
 <div class="blog-post-tags text-secondary">
     <strong>Tags:</strong>
     
-        <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
     
 </div>
 
@@ -185,15 +280,12 @@
 <div class="blog-post-categories text-secondary">
     <strong>Categories:</strong>
     
-        <a class="badge badge-primary" href="/categories/cpp">CPP</a>
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
     
 </div>
 
     </header>
-    使用class object的指针略有不同，这是因为class object链接到一组我们可以调用(invoke)的操作行为(operations)，举例来说检查fibnacci vector的第二个元素是否为1，我们可能会这么写：
-if (!fibonacci.empty() &amp;&amp; (fibonacci[1] == 1))  上例中的fibonacci和empty()两字之间的逗号，称为dot成员选择运算符(member selection operator)，用来选择想要施行的操作，如果要通过指针来指针来选择操作行为，必须改用arrow成员选择运算符：
-由于指针可能未指向任何对象，所以先校验pv是否为非零值
-if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1)) 
+    arp -a 搜索同一网段机器 iptables -L -n -v 查看已添加的iptables规则 清空日志文件： cat /dev/null&gt;/var/log/messages
     
 </article>
 
@@ -205,7 +297,7 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE/">函数默认值设置</a>
+    <a class="text-dark" href="/2018/04/cluster/">cluster</a>
 </h2>
 
         
@@ -213,7 +305,7 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2018-02-23">Feb 23, 2018</time>
+        <time datetime="2018-04-03">Apr 3, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -224,7 +316,9 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
 <div class="blog-post-tags text-secondary">
     <strong>Tags:</strong>
     
-        <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/mysql">mysql</a>
     
 </div>
 
@@ -232,14 +326,16 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
 <div class="blog-post-categories text-secondary">
     <strong>Categories:</strong>
     
-        <a class="badge badge-primary" href="/categories/cpp">CPP</a>
+        <a class="badge badge-primary" href="/categories/mysql">Mysql</a>
     
 </div>
 
     </header>
-     h #include &lt;vector&gt; #include &lt;iostream&gt; using namespace std; void display(const vector&lt;int&gt;&amp;, ostream&amp; = cout);  cpp #include &#34;NumericSeq.h&#34; void display(const vector&lt;int&gt; &amp;vec, ostream &amp;os){ for (int ix = 0; ix &lt; vec.size(); ix++){ os &lt;&lt; vec[ix] &lt;&lt; &#39; &#39;; } os &lt;&lt; endl; }    默认值resolve由最右边进行，如果为某个参数提供了默认值，那么这个参数右侧所有参数必须有默认值
- 默认值只能指定一次，可以在声明处，可以在函数定义处，由于头文件为函数带来更高的可见度，所以置于函数声明处 (出自Essential C++)
-   
+    https://www.linuxidc.com/Linux/2016-07/133234.htm
+ sestatus
+ 防火墙
+   接下来就可以针对这个目录通过一些命令查看配置文件在哪了，如下
+/usr/bin/mysql &ndash;verbose &ndash;help | grep -A 1 &lsquo;Default options&rsquo;
     
 </article>
 
@@ -251,7 +347,7 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/%E6%9F%A5%E7%9C%8B%E6%9C%BA%E5%99%A8%E9%87%8D%E5%90%AF%E6%97%B6%E9%97%B4/">查看机器重启时间</a>
+    <a class="text-dark" href="/2018/02/crontab/">crontab</a>
 </h2>
 
         
@@ -283,7 +379,7 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
 </div>
 
     </header>
-    who -b 上次启动时间 last reboot 系统启动记录 last reboot |head -1 最后一次启动时间 w 可查看系统已经运行时间 top 也可查看
+     1. 用法： 1.cat /etc/crontab 系统级 2./etc/cron.deny 所列用户不允许使用 3./etc/cron.allow 所列用户允许使用 4./var/spool/cron/ 下存储以用户名存储的文件 5.minute hour day month week command 6.crontab [-u user] -l 显示当前用户任务 7.crontab -l &gt; z 备份当前用户的任务到z文件 8.crontab [-u user] -e 编辑当前用户的任务 9.crontab [-u user] -r 删除 10.crontab &lt;filename&gt; 从文件恢复 11.service crond start/stop/restart/reload 2. 例子： * * * * * command 每分钟执行 3,15 * * * * command 每小时第3，15分钟执行 3,15 8-11 */2 * * command 每2天的8-11点的第3，15分钟执行 30 21 * * 0,6 command 每周日、周六21:30分执行 * */2 * * * command 每2小时执行
     
 </article>
 
@@ -295,7 +391,7 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/10/%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0%E6%96%87%E4%BB%B6/">输出重定向到文件</a>
+    <a class="text-dark" href="/2018/02/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a>
 </h2>
 
         
@@ -303,7 +399,7 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2017-10-12">Oct 12, 2017</time>
+        <time datetime="2018-02-23">Feb 23, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -314,7 +410,7 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
 <div class="blog-post-tags text-secondary">
     <strong>Tags:</strong>
     
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
+        <a class="badge badge-primary" href="/tags/git">git</a>
     
 </div>
 
@@ -322,115 +418,18 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
 <div class="blog-post-categories text-secondary">
     <strong>Categories:</strong>
     
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+        <a class="badge badge-primary" href="/categories/git">Git</a>
     
 </div>
 
     </header>
-    ls &gt; log.log ls &gt;&gt; log.log --不覆盖log.log，追加 cat 1.txt 2&gt; log.log --错误输出到log.log cat 1.txt &gt; log.log 2&gt;&amp;1 --stderr也输出到stdout stdin 0 &lt; stdout 1 1&gt; stderr 2 2&gt;
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/04/ubuntu-server%E9%80%9A%E8%BF%87vnc%E8%BF%9E%E6%8E%A5xrdp%E4%BA%A6%E5%8F%AF/">ubuntu server通过vnc连接(xrdp亦可)</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2017-04-09">Apr 9, 2017</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    1.安装
-apt-get install vnc4server 2.设置密码
-vncpasswd 或者
-vncserver 创建一个
-3.启动vnc
-vncserver:1 4.启动vnc客户端
-输入IP地址加:1,例如192.168.1.104:1
-5.配置文件
-进入/root/.vnc
-vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: # unset SESSION_MANAGER # exec /etc/X11/xinit/xinitrc [ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup [ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources xsetroot -solid grey vncconfig -iconic &amp; #x-terminal-emulator -geometry 80x24+10+10 -ls -title &#34;$VNCDESKTOP Desktop&#34; &amp; #x-window-manager &amp; sesion-manager &amp; xfdesktop &amp; xfce4-panel &amp; xfce4-menu-plugin &amp; xfsettingsd &amp; xfconfd &amp; xfwm4 &amp;  6.
+    git config --global user.name &#34;Alonsovau&#34; git config --global user.email &#34;alonsovau@outlook.com&#34; mkdir learngit pwd 查看完整路径 git init git add readme.txt git commit -m &#34;wrote a readme file&#34; git status git diff readme.txt git log git log --pretty=oneline git reset --hard HEAD^ 退回上一个版本 HEAD^^上上个版本 git reset --hard 4f1be52c 到指定的某个版本 git log得到的commit id的部分即可 git reflog 用来记录你的每一次命令 git checkout -- readme.txt 丢弃工作区修改 --后面要加空格 不然爆炸 场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout &ndash; file。
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库
+rm test.
     
     <p></p>
-    <a href="/2017/04/ubuntu-server%E9%80%9A%E8%BF%87vnc%E8%BF%9E%E6%8E%A5xrdp%E4%BA%A6%E5%8F%AF/">Read More →</a>
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/03/euidsuidruid/">EUID、SUID、RUID、</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2017-03-31">Mar 31, 2017</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    有效用户ID（Effective UID，即EUID）与有效用户组ID（Effective Group ID，即EGID）在创建与访问文件的时候发挥作用；具体来说，创建文件时，系统内核将根据创建文件的进程的EUID与EGID设定文件的所有者/组属性，而在访问文件时，内核亦根据访问进程的EUID与EGID决定其能否访问文件。
-真实用户ID（Real UID,即RUID）与真实用户组ID（Real GID，即RGID）用于辨识进程的真正所有者，且会影响到进程发送信号的权限。没有超级用户权限的进程仅在其RUID与目标进程的RUID相匹配时才能向目标进程发送信号，例如在父子进程间，子进程从父进程处继承了认证信息，使得父子进程间可以互相发送信号。
-暂存用户ID（Saved UID，即SUID）于以提升权限运行的进程暂时需要做一些不需特权的操作时使用，这种情况下进程会暂时将自己的有效用户ID从特权用户（常为root）对应的UID变为某个非特权用户对应的UID，而后将原有的特权用户UID复制为SUID暂存；之后当进程完成不需特权的操作后，进程使用SUID的值重置EUID以重新获得特权。在这里需要说明的是，无特权进程的EUID值只能设为与RUID、SUID与EUID（也即不改变）之一相同的值。
-文件系统用户ID（File System UID，即FSUID）在Linux中使用，且只用于对文件系统的访问权限控制，在没有明确设定的情况下与EUID相同（若FSUID为root的UID，则SUID、RUID与EUID必至少有一亦为root的UID），且EUID改变也会影响到FSUID。设立FSUID是为了允许程序（如NFS服务器）在不需获取向给定UID账户发送信号的情况下以给定UID的权限来限定自己的文件系统权限。
+    <a href="/2018/02/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Read More →</a>
     
 </article>
 
@@ -530,12 +529,25 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
                 </li>
             
         
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/page/7/">7</a>
+                </li>
+            
+        
         <li class="page-item ">
             <a class="page-link" href="/page/6/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/page/6/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/page/7/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -588,6 +600,10 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
             
             <a class="badge badge-primary" href="/categories/cpp">cpp</a>
             
+            <a class="badge badge-primary" href="/categories/database">database</a>
+            
+            <a class="badge badge-primary" href="/categories/git">git</a>
+            
             <a class="badge badge-primary" href="/categories/linux">linux</a>
             
             <a class="badge badge-primary" href="/categories/mysql">mysql</a>
@@ -601,7 +617,13 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
             
             <a class="badge badge-primary" href="/tags/cpp">cpp</a>
             
+            <a class="badge badge-primary" href="/tags/database">database</a>
+            
+            <a class="badge badge-primary" href="/tags/git">git</a>
+            
             <a class="badge badge-primary" href="/tags/ide">ide</a>
+            
+            <a class="badge badge-primary" href="/tags/keepalived">keepalived</a>
             
             <a class="badge badge-primary" href="/tags/linux">linux</a>
             

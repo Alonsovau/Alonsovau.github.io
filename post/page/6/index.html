@@ -10,7 +10,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/post/" />
 
-<meta property="og:updated_time" content="2017-03-31T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-02-23T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -99,7 +99,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/03/find-print-print0/">find -print -print0</a>
+    <a class="text-dark" href="/2018/02/sed/">sed</a>
 </h2>
 
         
@@ -107,7 +107,7 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2017-03-31">Mar 31, 2017</time>
+        <time datetime="2018-02-23">Feb 23, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -131,11 +131,21 @@
 </div>
 
     </header>
-    -print  True; print the full file name on the standard output, followed by a newline. If you are
-  piping the output of find into another program and there is the faintest possibility that the files which you are searching for might contain a newline, then you should seriously consider using the -print0 option instead of -print. See the UNUSUAL FILENAMES section for information about how unusual characters in filenames are handled.
+    语法 sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件] 参数 -e&lt;script&gt;或--expression=&lt;script&gt; 以选项中指定的script来处理输入的文本文件 -f&lt;script文件&gt;或--file=&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件 -h或--help 显示帮助 -n或--quiet或--silent 仅显示script处理后的结果 -V或--version 显示版本信息 动作  a: 新增，在匹配的下一行新增一行
+ i: 插入，转匹配的上一行新增一行
+ c: 取代，c后面是将替换的值
+ d: 删除，删除指定行
+ p: 打印，通常与sed -n一起使用
+ s: 取代，进行搜索
+  例子  sed -e 4a\zx zx.txt：在第四行后面加zx，输出到标准输出，macOS语法错误
+ nl zx.txt |sed &lsquo;2,5d&rsquo;：列出内容并列出行号，同时删除2-5行
+ nl zx.txt |sed &lsquo;2,$d&rsquo;：删除2到最后一行
+ nl zx.txt |sed &lsquo;2a zx&rsquo;：第二行后增加zx，行前使用2i,macOS不可
+ nl zx.txt |sed &lsquo;2a zx\按enter键xz&rsquo;：第二行后加zx，xz2行数据，macOS不可
+ nl zx.txt |sed &lsquo;2,3c kol&rsquo;：2到3行替换为kol
     
     <p></p>
-    <a href="/2017/03/find-print-print0/">Read More →</a>
+    <a href="/2018/02/sed/">Read More →</a>
     
 </article>
 
@@ -147,7 +157,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/03/find%E5%91%BD%E4%BB%A4/">find命令</a>
+    <a class="text-dark" href="/2018/02/%E4%BD%BF%E7%94%A8class-object%E7%9A%84%E6%8C%87%E9%92%88/">使用class object的指针</a>
 </h2>
 
         
@@ -155,7 +165,7 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2017-03-31">Mar 31, 2017</time>
+        <time datetime="2018-02-23">Feb 23, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -166,7 +176,7 @@
 <div class="blog-post-tags text-secondary">
     <strong>Tags:</strong>
     
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
+        <a class="badge badge-primary" href="/tags/cpp">cpp</a>
     
 </div>
 
@@ -174,26 +184,15 @@
 <div class="blog-post-categories text-secondary">
     <strong>Categories:</strong>
     
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+        <a class="badge badge-primary" href="/categories/cpp">CPP</a>
     
 </div>
 
     </header>
-    find命令  find (路径) -name 文件名
- find -name &lsquo;*ora*&rsquo; 查找包含ora的文件目录
- find -perm 755 查找权限为755的文件
- find -user root 查找owner为root的文件
- find -group root 查找组为root的文件
- find -mtime -5 更改时间5天内 +5 5天以前
- find -newer myfile2 查找新于myfile2的文件
- find -type d 查找类型为文件夹的文件
- find -size +1k 查找大于1k的文件
- find -type f -exec ls {} \; 注意{}后有空格
- find -ipath &lt;范本样式&gt; 此参数的效果和指定“-path”参数类似，但忽略字符大小写的差别,指定字符串作为寻找目录的范本样式
- find -maxdepth 2 -type f 最大深度为2的文件
-    
-    <p></p>
-    <a href="/2017/03/find%E5%91%BD%E4%BB%A4/">Read More →</a>
+    使用class object的指针略有不同，这是因为class object链接到一组我们可以调用(invoke)的操作行为(operations)，举例来说检查fibnacci vector的第二个元素是否为1，我们可能会这么写：
+if (!fibonacci.empty() &amp;&amp; (fibonacci[1] == 1))  上例中的fibonacci和empty()两字之间的逗号，称为dot成员选择运算符(member selection operator)，用来选择想要施行的操作，如果要通过指针来指针来选择操作行为，必须改用arrow成员选择运算符：
+由于指针可能未指向任何对象，所以先校验pv是否为非零值
+if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1)) 
     
 </article>
 
@@ -205,7 +204,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/03/%E5%AE%89%E8%A3%85xfce4/">安装xfce4</a>
+    <a class="text-dark" href="/2018/02/%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE/">函数默认值设置</a>
 </h2>
 
         
@@ -213,7 +212,53 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2017-03-31">Mar 31, 2017</time>
+        <time datetime="2018-02-23">Feb 23, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/cpp">CPP</a>
+    
+</div>
+
+    </header>
+     h #include &lt;vector&gt; #include &lt;iostream&gt; using namespace std; void display(const vector&lt;int&gt;&amp;, ostream&amp; = cout);  cpp #include &#34;NumericSeq.h&#34; void display(const vector&lt;int&gt; &amp;vec, ostream &amp;os){ for (int ix = 0; ix &lt; vec.size(); ix++){ os &lt;&lt; vec[ix] &lt;&lt; &#39; &#39;; } os &lt;&lt; endl; }    默认值resolve由最右边进行，如果为某个参数提供了默认值，那么这个参数右侧所有参数必须有默认值
+ 默认值只能指定一次，可以在声明处，可以在函数定义处，由于头文件为函数带来更高的可见度，所以置于函数声明处 (出自Essential C++)
+   
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/02/%E6%9F%A5%E7%9C%8B%E6%9C%BA%E5%99%A8%E9%87%8D%E5%90%AF%E6%97%B6%E9%97%B4/">查看机器重启时间</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-02-23">Feb 23, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -237,7 +282,150 @@
 </div>
 
     </header>
-    sudo apt-get install xinit sudo apt-get update sudo apt-get install xfce4 ubuntu中输入startx
+    who -b 上次启动时间 last reboot 系统启动记录 last reboot |head -1 最后一次启动时间 w 可查看系统已经运行时间 top 也可查看
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2017/10/%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0%E6%96%87%E4%BB%B6/">输出重定向到文件</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2017-10-12">Oct 12, 2017</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    ls &gt; log.log ls &gt;&gt; log.log --不覆盖log.log，追加 cat 1.txt 2&gt; log.log --错误输出到log.log cat 1.txt &gt; log.log 2&gt;&amp;1 --stderr也输出到stdout stdin 0 &lt; stdout 1 1&gt; stderr 2 2&gt;
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2017/08/root%E8%B4%A6%E6%88%B7%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/">root账户远程登录</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2017-08-04">Aug 4, 2017</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/mysql">mysql</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/mysql">Mysql</a>
+    
+</div>
+
+    </header>
+     关闭windows防火墙或者在入站规则添加3306端口
+ 执行
+GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;root&#39; WITH GRANT OPTION; 修改root@%此用户的密码
+  
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2017/08/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AE%89%E8%A3%85mysql/">命令行安装mysql</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2017-08-04">Aug 4, 2017</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/mysql">mysql</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/mysql">Mysql</a>
+    
+</div>
+
+    </header>
+     C:\Program Files\mysql目录下新建my.ini
+[mysql] default-character-set=utf8 [mysqld] sql_mode=&#39;NO_AUTO_VALUE_ON_ZERO,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION,PIPES_AS_CONCAT,ANSI_QUOTES&#39; port = 3306 basedir=C:\Program Files\mysql datadir=C:\Program Files\mysql\data max_connections=200 character-set-server=utf8 default-storage-engine=INNODB 进入C:\Program Files\mysql\bin
+ 执行mysqld &ndash;initialize-insecure （不设置root密码，建议使用）
+ 执行mysqld -install
+ 执行net start mysql
+ 执行mysql -u root -p，回车不输入密码即可进入
+ update mysql.user set authentication_string=PASSWORD(&lsquo;wasd123&rsquo;) whereUser=&lsquo;root&rsquo;;
+ 卸载：net stop mysql,执行mysqld &ndash;remove,删除data文件夹
+  
     
 </article>
 
@@ -337,12 +525,25 @@
                 </li>
             
         
-        <li class="page-item disabled">
-            <a class="page-link" href="" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/post/page/7/">7</a>
+                </li>
+            
+        
+        <li class="page-item ">
+            <a class="page-link" href="/post/page/7/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/post/page/6/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/post/page/7/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -395,6 +596,10 @@
             
             <a class="badge badge-primary" href="/categories/cpp">cpp</a>
             
+            <a class="badge badge-primary" href="/categories/database">database</a>
+            
+            <a class="badge badge-primary" href="/categories/git">git</a>
+            
             <a class="badge badge-primary" href="/categories/linux">linux</a>
             
             <a class="badge badge-primary" href="/categories/mysql">mysql</a>
@@ -408,7 +613,13 @@
             
             <a class="badge badge-primary" href="/tags/cpp">cpp</a>
             
+            <a class="badge badge-primary" href="/tags/database">database</a>
+            
+            <a class="badge badge-primary" href="/tags/git">git</a>
+            
             <a class="badge badge-primary" href="/tags/ide">ide</a>
+            
+            <a class="badge badge-primary" href="/tags/keepalived">keepalived</a>
             
             <a class="badge badge-primary" href="/tags/linux">linux</a>
             

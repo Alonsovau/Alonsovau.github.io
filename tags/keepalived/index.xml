@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Keepalived on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/tags/keepalived/</link>
+    <description>Recent content in Keepalived on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Wed, 11 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/tags/keepalived/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MySQL&#43;Keepalived高可用</title>
+      <link>https://alonsovau.github.io/2018/04/mysql-keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/</link>
+      <pubDate>Wed, 11 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/04/mysql-keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/</guid>
+      <description>一、结构  简介：
+系统主要通过Keepalived+MySQL双主来实现MySQL-HA，我们必须保证两台MySQL数据库的数据完全一样，基本设计是两台MySQL互为主从关系，通过Keepalived配置虚拟IP，实现当其中的一台MySQL数据库宕机后，应用能够自动切换到另外一台MySQL数据库，保证系统的高可用。
+ 拓扑环境：
+ OS: Red Hat Enterprise Linux Server release 7.1 (Maipo)
+ MySQL version: 5.5.59-log MySQL Community Server (GPL)
+ Keepalived version: keepalived-1.3.5-1.el7.x86_64
+ MySQL-Vip: 172.28.10.100
+ MySQL-Master1: 172.28.10.82
+ MySQL-Master2: 172.28.10.83
+  结构图：
+  二、 MySQL环境部署  修改MySQL配置文件
+以下为master1数据库的my.cnf配置文件内容，目录为/etc/my.cnf，配置完成后重启数据库
+[client] port = 3382 socket = /var/lib/mysql/mysql.sock [mysqld] port = 3382 socket = /var/lib/mysql/mysql.sock skip-external-locking key_buffer_size = 16M max_allowed_packet = 1M table_open_cache = 64 sort_buffer_size = 512K net_buffer_length = 8K read_buffer_size = 256K read_rnd_buffer_size = 512K myisam_sort_buffer_size = 8M log-bin=mysql-bin binlog_format=mixed # master2的server-id改为2 server-id = 1 # 要产生log的数据库 binlog-do-db=pms_db # 不产生log的数据库 binlog-ignore-db=mysql # 要复制的数据库 replicate-do-db=pms_db # 不复制的数据库 replicate-ignore-db=mysql log-bin=mysql-bin innodb_data_home_dir = /var/lib/mysql innodb_data_file_path = ibdata1:10M:autoextend innodb_log_group_home_dir = /var/lib/mysql innodb_buffer_pool_size = 16M innodb_additional_mem_pool_size = 2M innodb_log_file_size = 5M innodb_log_buffer_size = 8M innodb_flush_log_at_trx_commit = 1 innodb_lock_wait_timeout = 50 [mysqldump] quick max_allowed_packet = 16M [mysql] no-auto-rehash [myisamchk] key_buffer_size = 20M sort_buffer_size = 20M read_buffer = 2M write_buffer = 2M [mysqlhotcopy] interactive-timeout 将master1设置为master2的主服务器</description>
+    </item>
+    
+  </channel>
+</rss>

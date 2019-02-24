@@ -238,6 +238,53 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/11/fork%E5%90%8E%E5%90%8C%E6%AD%A5%E5%8E%9F%E4%BB%93%E5%BA%93/">fork后同步原仓库</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-11-20">Nov 20, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/git">git</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/git">Git</a>
+    
+</div>
+
+    </header>
+    configuring a remote for a fork  查看远程状态  git remote -v # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch) # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)  添加一个将被同步给 fork 远程的上游仓库  git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git  再次查看远程状态  git remote -v # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch) # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push) # upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch) # upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push) syncing a fork  从原仓库fetch数据到本地，并会被存储在本地分支upstream/master  git fetch upstream # remote: Counting objects: 75, done. # remote: Compressing objects: 100% (53/53), done.
+    
+    <p></p>
+    <a href="/2018/11/fork%E5%90%8E%E5%90%8C%E6%AD%A5%E5%8E%9F%E4%BB%93%E5%BA%93/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
     <a class="text-dark" href="/2018/11/%E6%A0%B9%E6%8D%AE%E8%BF%9B%E7%A8%8B%E5%90%8Dkill/">根据进程名kill</a>
 </h2>
 
@@ -375,55 +422,6 @@ precision----11.43756587123401224915 precision----119.43756587123401402550
 
 
 
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/10/netbeans%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%BC%96%E7%A0%81/">netbeans修改默认编码</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-10-15">Oct 15, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/ide">ide</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/cpp">CPP</a>
-    
-</div>
-
-    </header>
-    项目级别，修改项目属性
- 整体IDE,修改etc/netbeans.conf,-J-Dfile.encoding=UTF-8
-  netbeans_default_options=&#34;-J-client -J-Xss2m -J-Xms32m -J-XX:PermSize=32m -J-XX:MaxPermSize=200m -J-Dapple.laf.useScreenMenuBar=true -J-Dapple.awt.graphics.UseQuartz=true -J-Dsun.java2d.noddraw=true -J-Dfile.
-    
-    <p></p>
-    <a href="/2018/10/netbeans%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%BC%96%E7%A0%81/">Read More →</a>
-    
-</article>
-
-    
-
-
-
 
 
 <nav class="blog-pagination">
@@ -507,8 +505,17 @@ precision----11.43756587123401224915 precision----119.43756587123401402550
                 
             
             
+        
+            
+            
+            
+            
+                
+                
+            
+            
                 <li class="page-item ">
-                    <a class="page-link" href="/post/page/6/">6</a>
+                    <a class="page-link" href="/post/page/7/">7</a>
                 </li>
             
         
@@ -517,7 +524,7 @@ precision----11.43756587123401224915 precision----119.43756587123401402550
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/post/page/6/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/post/page/7/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -570,6 +577,10 @@ precision----11.43756587123401224915 precision----119.43756587123401402550
             
             <a class="badge badge-primary" href="/categories/cpp">cpp</a>
             
+            <a class="badge badge-primary" href="/categories/database">database</a>
+            
+            <a class="badge badge-primary" href="/categories/git">git</a>
+            
             <a class="badge badge-primary" href="/categories/linux">linux</a>
             
             <a class="badge badge-primary" href="/categories/mysql">mysql</a>
@@ -583,7 +594,13 @@ precision----11.43756587123401224915 precision----119.43756587123401402550
             
             <a class="badge badge-primary" href="/tags/cpp">cpp</a>
             
+            <a class="badge badge-primary" href="/tags/database">database</a>
+            
+            <a class="badge badge-primary" href="/tags/git">git</a>
+            
             <a class="badge badge-primary" href="/tags/ide">ide</a>
+            
+            <a class="badge badge-primary" href="/tags/keepalived">keepalived</a>
             
             <a class="badge badge-primary" href="/tags/linux">linux</a>
             
