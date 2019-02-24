@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cpp on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/categories/cpp/</link>
+    <description>Recent content in Cpp on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Mon, 29 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/categories/cpp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>double精度(有问题)</title>
+      <link>https://alonsovau.github.io/2018/10/double%E7%B2%BE%E5%BA%A6%E6%9C%89%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/10/double%E7%B2%BE%E5%BA%A6%E6%9C%89%E9%97%AE%E9%A2%98/</guid>
+      <description> double小数前后加起来的有效数字只有16位，当给定的double有效数在16位以内转换为字符串不会丢失精度
+ Code:
+char precisionStr[100] = {0}; double precisionTest = 11.437565871234012; sprintf(precisionStr, &amp;#34;%.20f&amp;#34;, precisionTest); cout &amp;lt;&amp;lt; &amp;#34;precision----&amp;#34; &amp;lt;&amp;lt; precisionStr &amp;lt;&amp;lt; endl; precisionTest = 119.437565871234012; sprintf(precisionStr, &amp;#34;%.20f&amp;#34;, precisionTest); cout &amp;lt;&amp;lt; &amp;#34;precision----&amp;#34; &amp;lt;&amp;lt; precisionStr &amp;lt;&amp;lt; endl;  Output:
+precision----11.43756587123401224915 precision----119.43756587123401402550 </description>
+    </item>
+    
+    <item>
+      <title>netbeans修改默认编码</title>
+      <link>https://alonsovau.github.io/2018/10/netbeans%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Mon, 15 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/10/netbeans%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%BC%96%E7%A0%81/</guid>
+      <description>项目级别，修改项目属性
+ 整体IDE,修改etc/netbeans.conf,-J-Dfile.encoding=UTF-8
+  netbeans_default_options=&amp;#34;-J-client -J-Xss2m -J-Xms32m -J-XX:PermSize=32m -J-XX:MaxPermSize=200m -J-Dapple.laf.useScreenMenuBar=true -J-Dapple.awt.graphics.UseQuartz=true -J-Dsun.java2d.noddraw=true -J-Dfile.</description>
+    </item>
+    
+    <item>
+      <title>宏定义define和常量const的区别</title>
+      <link>https://alonsovau.github.io/2018/10/%E5%AE%8F%E5%AE%9A%E4%B9%89define%E5%92%8C%E5%B8%B8%E9%87%8Fconst%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/10/%E5%AE%8F%E5%AE%9A%E4%B9%89define%E5%92%8C%E5%B8%B8%E9%87%8Fconst%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>类型和安全检查不同
+  宏定义是字符替换，没有数据类型的区别，同时这种替换没有类型安全检查，可能产生边际效应等错误；
+const常量是常量的声明，有类型区别，需要在编译阶段进行类型检查
+ 编译器处理不同
+  宏定义是一个&amp;rdquo;编译时&amp;rdquo;概念，在预处理阶段展开，不能对宏定义进行调试，生命周期结束与编译时期；
+const常量是一个&amp;rdquo;运行时&amp;rdquo;概念，在程序运行使用，类似于一个只读行数据
+ 存储方式不同
+  宏定义是直接替换，不会分配内存，存储与程序的代码段中；
+const常量需要进行内存分配，存储与程序的数据段中</description>
+    </item>
+    
+    <item>
+      <title>不建议使用字符串常量到 char*的转换</title>
+      <link>https://alonsovau.github.io/2018/09/%E4%B8%8D%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E5%88%B0-char%E7%9A%84%E8%BD%AC%E6%8D%A2/</link>
+      <pubDate>Thu, 27 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/09/%E4%B8%8D%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E5%88%B0-char%E7%9A%84%E8%BD%AC%E6%8D%A2/</guid>
+      <description>不建议使用字符串常量到 char*的转换 char* p = &amp;#34;test&amp;#34;; 声明了一个指针，而这个指针指向的是全局的const内存区，如果你一定要写这块内存的话，那就是一个非常严重的内存错误 在声明字符串字面量时，应该加上const. const char *p = &amp;#34;test&amp;#34;; </description>
+    </item>
+    
+    <item>
+      <title>使用class object的指针</title>
+      <link>https://alonsovau.github.io/2018/02/%E4%BD%BF%E7%94%A8class-object%E7%9A%84%E6%8C%87%E9%92%88/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/%E4%BD%BF%E7%94%A8class-object%E7%9A%84%E6%8C%87%E9%92%88/</guid>
+      <description>使用class object的指针略有不同，这是因为class object链接到一组我们可以调用(invoke)的操作行为(operations)，举例来说检查fibnacci vector的第二个元素是否为1，我们可能会这么写：
+if (!fibonacci.empty() &amp;amp;&amp;amp; (fibonacci[1] == 1))  上例中的fibonacci和empty()两字之间的逗号，称为dot成员选择运算符(member selection operator)，用来选择想要施行的操作，如果要通过指针来指针来选择操作行为，必须改用arrow成员选择运算符：
+由于指针可能未指向任何对象，所以先校验pv是否为非零值
+if (pv &amp;amp;&amp;amp; pv-&amp;gt;empty() &amp;amp;&amp;amp; ((*pv)[1] == 1)) </description>
+    </item>
+    
+    <item>
+      <title>函数默认值设置</title>
+      <link>https://alonsovau.github.io/2018/02/%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE/</guid>
+      <description> h #include &amp;lt;vector&amp;gt; #include &amp;lt;iostream&amp;gt; using namespace std; void display(const vector&amp;lt;int&amp;gt;&amp;amp;, ostream&amp;amp; = cout);  cpp #include &amp;#34;NumericSeq.h&amp;#34; void display(const vector&amp;lt;int&amp;gt; &amp;amp;vec, ostream &amp;amp;os){ for (int ix = 0; ix &amp;lt; vec.size(); ix++){ os &amp;lt;&amp;lt; vec[ix] &amp;lt;&amp;lt; &amp;#39; &amp;#39;; } os &amp;lt;&amp;lt; endl; }    默认值resolve由最右边进行，如果为某个参数提供了默认值，那么这个参数右侧所有参数必须有默认值
+ 默认值只能指定一次，可以在声明处，可以在函数定义处，由于头文件为函数带来更高的可见度，所以置于函数声明处 (出自Essential C++)
+   </description>
+    </item>
+    
+  </channel>
+</rss>

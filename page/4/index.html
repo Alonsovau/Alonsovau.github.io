@@ -11,7 +11,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/" />
 
-<meta property="og:updated_time" content="2018-06-16T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-07-17T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Xin Zhou Blog"/>
@@ -93,6 +93,190 @@
 
 
 
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/07/%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">添加开机启动脚本</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-07-17">Jul 17, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    1.crontab -e
+1. crontab -e 2. @reboot cd /opt/ &amp;&amp; ./start_sslocal.sh &gt;zx.log 2&gt;&amp;1 3. grep CRON -i /var/log/syslog 2.
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/07/ubuntu%E7%BD%91%E5%8D%A1%E9%87%8D%E5%90%AF/">Ubuntu网卡重启</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-07-11">Jul 11, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    ifconfig ens33 down &amp;&amp; ifconfig ens33 up
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/07/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/">命令行设置代理</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-07-11">Jul 11, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    sslocal
+apt install shadowsocks sslocal -c ss.json -d startss.json: { &#34;server&#34;:&#34;45.32.10.1&#34;, &#34;server_port&#34;:8892, &#34;local_port&#34;:1080, &#34;password&#34;:&#34;zxzxzxzxzx&#34;, &#34;timeout&#34;:600, &#34;method&#34;:&#34;aes-256-cfb&#34; } proxychains4
+apt install proxychains4 vi /etc/proxychains4.conf proxychains4 curl ip.cn # 查看是否代理成功 proxychains bash # 代理整个终端proxychains4.conf: socks5 127.0.0.1 1080 GitHub
+ polipo可代替proxychains4
+apt-get install polipo vi /etc/polipo/config service polipo restart export http_proxy=&#34;http://127.0.0.1:8123/&#34; # 可能需要执行 可加入.bashrc/etc/polipo/config: logSyslog = true logFile = /var/log/polipo/polipo.log proxyAddress = &#34;0.0.0.0&#34; socksParentProxy = &#34;127.0.0.1:1080&#34; socksProxyType = socks5 proxyPort = 8123 chunkHighMark = 50331648 objectHighMark = 16384 serverMaxSlots = 64 serverSlots = 16 serverSlots1 = 32 genpac
+    
+    <p></p>
+    <a href="/2018/07/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/07/linux-swap%E9%85%8D%E7%BD%AE/">Linux swap配置</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-07-09">Jul 9, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    #查看swap比率 cat /proc/sys/vm/swappiness # open /etc/sysctl.conf as root. Then, change or add this line to the file vm.swappiness = 10 # Reboot for the change to take effect. # You can also change the value while your system is still running with sysctl vm.swappiness=10 # You can also clear your swap by running swapoff -a and then swapon -a as root instead of rebooting to achieve the same effect. swapoff -a swapon -a
+    
+</article>
+
+    
 
 
 
@@ -228,208 +412,6 @@
 
 
 
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/sed/">sed</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-02-23">Feb 23, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    语法 sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件] 参数 -e&lt;script&gt;或--expression=&lt;script&gt; 以选项中指定的script来处理输入的文本文件 -f&lt;script文件&gt;或--file=&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件 -h或--help 显示帮助 -n或--quiet或--silent 仅显示script处理后的结果 -V或--version 显示版本信息 动作  a: 新增，在匹配的下一行新增一行
- i: 插入，转匹配的上一行新增一行
- c: 取代，c后面是将替换的值
- d: 删除，删除指定行
- p: 打印，通常与sed -n一起使用
- s: 取代，进行搜索
-  例子  sed -e 4a\zx zx.txt：在第四行后面加zx，输出到标准输出，macOS语法错误
- nl zx.txt |sed &lsquo;2,5d&rsquo;：列出内容并列出行号，同时删除2-5行
- nl zx.txt |sed &lsquo;2,$d&rsquo;：删除2到最后一行
- nl zx.txt |sed &lsquo;2a zx&rsquo;：第二行后增加zx，行前使用2i,macOS不可
- nl zx.txt |sed &lsquo;2a zx\按enter键xz&rsquo;：第二行后加zx，xz2行数据，macOS不可
- nl zx.txt |sed &lsquo;2,3c kol&rsquo;：2到3行替换为kol
-    
-    <p></p>
-    <a href="/2018/02/sed/">Read More →</a>
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/%E6%9F%A5%E7%9C%8B%E6%9C%BA%E5%99%A8%E9%87%8D%E5%90%AF%E6%97%B6%E9%97%B4/">查看机器重启时间</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-02-23">Feb 23, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    who -b 上次启动时间 last reboot 系统启动记录 last reboot |head -1 最后一次启动时间 w 可查看系统已经运行时间 top 也可查看
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/10/%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0%E6%96%87%E4%BB%B6/">输出重定向到文件</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2017-10-12">Oct 12, 2017</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    ls &gt; log.log ls &gt;&gt; log.log --不覆盖log.log，追加 cat 1.txt 2&gt; log.log --错误输出到log.log cat 1.txt &gt; log.log 2&gt;&amp;1 --stderr也输出到stdout stdin 0 &lt; stdout 1 1&gt; stderr 2 2&gt;
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/04/ubuntu-server%E9%80%9A%E8%BF%87vnc%E8%BF%9E%E6%8E%A5xrdp%E4%BA%A6%E5%8F%AF/">ubuntu server通过vnc连接(xrdp亦可)</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2017-04-09">Apr 9, 2017</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    1.安装
-apt-get install vnc4server 2.设置密码
-vncpasswd 或者
-vncserver 创建一个
-3.启动vnc
-vncserver:1 4.启动vnc客户端
-输入IP地址加:1,例如192.168.1.104:1
-5.配置文件
-进入/root/.vnc
-vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: # unset SESSION_MANAGER # exec /etc/X11/xinit/xinitrc [ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup [ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources xsetroot -solid grey vncconfig -iconic &amp; #x-terminal-emulator -geometry 80x24+10+10 -ls -title &#34;$VNCDESKTOP Desktop&#34; &amp; #x-window-manager &amp; sesion-manager &amp; xfdesktop &amp; xfce4-panel &amp; xfce4-menu-plugin &amp; xfsettingsd &amp; xfconfd &amp; xfwm4 &amp;  6.
-    
-    <p></p>
-    <a href="/2017/04/ubuntu-server%E9%80%9A%E8%BF%87vnc%E8%BF%9E%E6%8E%A5xrdp%E4%BA%A6%E5%8F%AF/">Read More →</a>
-    
-</article>
-
-    
-
-
-
 
 
 <nav class="blog-pagination">
@@ -509,12 +491,25 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
                 </li>
             
         
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/page/6/">6</a>
+                </li>
+            
+        
         <li class="page-item ">
             <a class="page-link" href="/page/5/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/page/5/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/page/6/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -565,6 +560,8 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
         <h4>Categories</h4>
         <p>
             
+            <a class="badge badge-primary" href="/categories/cpp">cpp</a>
+            
             <a class="badge badge-primary" href="/categories/linux">linux</a>
             
             <a class="badge badge-primary" href="/categories/mysql">mysql</a>
@@ -577,6 +574,8 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
         <p>
             
             <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+            
+            <a class="badge badge-primary" href="/tags/ide">ide</a>
             
             <a class="badge badge-primary" href="/tags/linux">linux</a>
             

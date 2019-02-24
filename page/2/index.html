@@ -333,7 +333,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/09/%E8%B4%A6%E6%88%B7%E9%94%81%E5%AE%9A%E5%8F%8Assh%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/">账户锁定及SSH登录失败</a>
+    <a class="text-dark" href="/2018/10/double%E7%B2%BE%E5%BA%A6%E6%9C%89%E9%97%AE%E9%A2%98/">double精度(有问题)</a>
 </h2>
 
         
@@ -341,7 +341,7 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2018-09-20">Sep 20, 2018</time>
+        <time datetime="2018-10-29">Oct 29, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -352,7 +352,7 @@
 <div class="blog-post-tags text-secondary">
     <strong>Tags:</strong>
     
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
+        <a class="badge badge-primary" href="/tags/cpp">cpp</a>
     
 </div>
 
@@ -360,21 +360,15 @@
 <div class="blog-post-categories text-secondary">
     <strong>Categories:</strong>
     
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+        <a class="badge badge-primary" href="/categories/cpp">CPP</a>
     
 </div>
 
     </header>
-    1. Pam_Tally2解锁SSH登录失败锁定 路径: /etc/pam.d/password-auth，/etc/pam.d/system-auth A pluggable authentication module (PAM) is a mechanism to integrate multiple low-level authentication schemes into a high-level application programming interface (API) Example: auth required pam_tally2.so deny=4 even_deny_root unlock_time=1200  deny 指定最大几次认证错误，如果超出此错误，将执行后面的策略。如锁定N秒，如果后面没有其他策略指定时，默认永远锁定，除非手动解锁
- lock_time 锁定多长时间，按秒为单位
- unlock_time 指定认证被锁后，多长时间自动解锁用户
- even_deny_root root用户在认证出错时，一样被锁定
-  2. 查看状态与解锁 pam_tally2 --user oracle pam_tally2 --user oracle --reset 3. Linux锁定账号  禁止个别用户登录(su可切换)
-passwd -l test passwd -u test 修改shell类型禁止登录(su切换不可)
-cat /etc/passwd |grep zx 锁定： sed -i &#39;s#/home/zx:/bin/bash#/home/zx:/sbin/nologin#g&#39; /etc/passwd 等价于： usermod zx -s /sbin/nologin 解锁： sed -i &#39;s#/home/zx:/sbin/nologin#/home/zx:/bin/bash#g&#39; /etc/passwd 等价于： usermod zx -s /bin/bash 禁止其他用户登录(su可切换)
-    
-    <p></p>
-    <a href="/2018/09/%E8%B4%A6%E6%88%B7%E9%94%81%E5%AE%9A%E5%8F%8Assh%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/">Read More →</a>
+     double小数前后加起来的有效数字只有16位，当给定的double有效数在16位以内转换为字符串不会丢失精度
+ Code:
+char precisionStr[100] = {0}; double precisionTest = 11.437565871234012; sprintf(precisionStr, &#34;%.20f&#34;, precisionTest); cout &lt;&lt; &#34;precision----&#34; &lt;&lt; precisionStr &lt;&lt; endl; precisionTest = 119.437565871234012; sprintf(precisionStr, &#34;%.20f&#34;, precisionTest); cout &lt;&lt; &#34;precision----&#34; &lt;&lt; precisionStr &lt;&lt; endl;  Output:
+precision----11.43756587123401224915 precision----119.43756587123401402550 
     
 </article>
 
@@ -386,7 +380,7 @@ cat /etc/passwd |grep zx 锁定： sed -i &#39;s#/home/zx:/bin/bash#/home/zx:/sb
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/09/tcpdump/">tcpdump</a>
+    <a class="text-dark" href="/2018/10/netbeans%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%BC%96%E7%A0%81/">netbeans修改默认编码</a>
 </h2>
 
         
@@ -394,7 +388,7 @@ cat /etc/passwd |grep zx 锁定： sed -i &#39;s#/home/zx:/bin/bash#/home/zx:/sb
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2018-09-04">Sep 4, 2018</time>
+        <time datetime="2018-10-15">Oct 15, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -405,7 +399,7 @@ cat /etc/passwd |grep zx 锁定： sed -i &#39;s#/home/zx:/bin/bash#/home/zx:/sb
 <div class="blog-post-tags text-secondary">
     <strong>Tags:</strong>
     
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
+        <a class="badge badge-primary" href="/tags/ide">ide</a>
     
 </div>
 
@@ -413,12 +407,17 @@ cat /etc/passwd |grep zx 锁定： sed -i &#39;s#/home/zx:/bin/bash#/home/zx:/sb
 <div class="blog-post-categories text-secondary">
     <strong>Categories:</strong>
     
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+        <a class="badge badge-primary" href="/categories/cpp">CPP</a>
     
 </div>
 
     </header>
-    tcpdump -i eth0 vrrp -n
+    项目级别，修改项目属性
+ 整体IDE,修改etc/netbeans.conf,-J-Dfile.encoding=UTF-8
+  netbeans_default_options=&#34;-J-client -J-Xss2m -J-Xms32m -J-XX:PermSize=32m -J-XX:MaxPermSize=200m -J-Dapple.laf.useScreenMenuBar=true -J-Dapple.awt.graphics.UseQuartz=true -J-Dsun.java2d.noddraw=true -J-Dfile.
+    
+    <p></p>
+    <a href="/2018/10/netbeans%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%BC%96%E7%A0%81/">Read More →</a>
     
 </article>
 
@@ -500,8 +499,17 @@ cat /etc/passwd |grep zx 锁定： sed -i &#39;s#/home/zx:/bin/bash#/home/zx:/sb
                 
             
             
+        
+            
+            
+            
+            
+                
+                
+            
+            
                 <li class="page-item ">
-                    <a class="page-link" href="/page/5/">5</a>
+                    <a class="page-link" href="/page/6/">6</a>
                 </li>
             
         
@@ -510,7 +518,7 @@ cat /etc/passwd |grep zx 锁定： sed -i &#39;s#/home/zx:/bin/bash#/home/zx:/sb
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/page/5/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/page/6/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -561,6 +569,8 @@ cat /etc/passwd |grep zx 锁定： sed -i &#39;s#/home/zx:/bin/bash#/home/zx:/sb
         <h4>Categories</h4>
         <p>
             
+            <a class="badge badge-primary" href="/categories/cpp">cpp</a>
+            
             <a class="badge badge-primary" href="/categories/linux">linux</a>
             
             <a class="badge badge-primary" href="/categories/mysql">mysql</a>
@@ -573,6 +583,8 @@ cat /etc/passwd |grep zx 锁定： sed -i &#39;s#/home/zx:/bin/bash#/home/zx:/sb
         <p>
             
             <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+            
+            <a class="badge badge-primary" href="/tags/ide">ide</a>
             
             <a class="badge badge-primary" href="/tags/linux">linux</a>
             

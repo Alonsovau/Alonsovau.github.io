@@ -11,7 +11,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/" />
 
-<meta property="og:updated_time" content="2018-07-26T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-10-11T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Xin Zhou Blog"/>
@@ -93,6 +93,199 @@
 
 
 
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/10/%E5%AE%8F%E5%AE%9A%E4%B9%89define%E5%92%8C%E5%B8%B8%E9%87%8Fconst%E7%9A%84%E5%8C%BA%E5%88%AB/">宏定义define和常量const的区别</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-10-11">Oct 11, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/cpp">CPP</a>
+    
+</div>
+
+    </header>
+    类型和安全检查不同
+  宏定义是字符替换，没有数据类型的区别，同时这种替换没有类型安全检查，可能产生边际效应等错误；
+const常量是常量的声明，有类型区别，需要在编译阶段进行类型检查
+ 编译器处理不同
+  宏定义是一个&rdquo;编译时&rdquo;概念，在预处理阶段展开，不能对宏定义进行调试，生命周期结束与编译时期；
+const常量是一个&rdquo;运行时&rdquo;概念，在程序运行使用，类似于一个只读行数据
+ 存储方式不同
+  宏定义是直接替换，不会分配内存，存储与程序的代码段中；
+const常量需要进行内存分配，存储与程序的数据段中
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/09/%E4%B8%8D%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E5%88%B0-char%E7%9A%84%E8%BD%AC%E6%8D%A2/">不建议使用字符串常量到 char*的转换</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-09-27">Sep 27, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/cpp">CPP</a>
+    
+</div>
+
+    </header>
+    不建议使用字符串常量到 char*的转换 char* p = &#34;test&#34;; 声明了一个指针，而这个指针指向的是全局的const内存区，如果你一定要写这块内存的话，那就是一个非常严重的内存错误 在声明字符串字面量时，应该加上const. const char *p = &#34;test&#34;; 
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/09/%E8%B4%A6%E6%88%B7%E9%94%81%E5%AE%9A%E5%8F%8Assh%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/">账户锁定及SSH登录失败</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-09-20">Sep 20, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    1. Pam_Tally2解锁SSH登录失败锁定 路径: /etc/pam.d/password-auth，/etc/pam.d/system-auth A pluggable authentication module (PAM) is a mechanism to integrate multiple low-level authentication schemes into a high-level application programming interface (API) Example: auth required pam_tally2.so deny=4 even_deny_root unlock_time=1200  deny 指定最大几次认证错误，如果超出此错误，将执行后面的策略。如锁定N秒，如果后面没有其他策略指定时，默认永远锁定，除非手动解锁
+ lock_time 锁定多长时间，按秒为单位
+ unlock_time 指定认证被锁后，多长时间自动解锁用户
+ even_deny_root root用户在认证出错时，一样被锁定
+  2. 查看状态与解锁 pam_tally2 --user oracle pam_tally2 --user oracle --reset 3. Linux锁定账号  禁止个别用户登录(su可切换)
+passwd -l test passwd -u test 修改shell类型禁止登录(su切换不可)
+cat /etc/passwd |grep zx 锁定： sed -i &#39;s#/home/zx:/bin/bash#/home/zx:/sbin/nologin#g&#39; /etc/passwd 等价于： usermod zx -s /sbin/nologin 解锁： sed -i &#39;s#/home/zx:/sbin/nologin#/home/zx:/bin/bash#g&#39; /etc/passwd 等价于： usermod zx -s /bin/bash 禁止其他用户登录(su可切换)
+    
+    <p></p>
+    <a href="/2018/09/%E8%B4%A6%E6%88%B7%E9%94%81%E5%AE%9A%E5%8F%8Assh%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/09/tcpdump/">tcpdump</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-09-04">Sep 4, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+    tcpdump -i eth0 vrrp -n
+    
+</article>
+
+    
 
 
 
@@ -233,190 +426,6 @@ apt search ^python$ #正则表达式 apt search --names-only python
 
 
 
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/07/%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">添加开机启动脚本</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-07-17">Jul 17, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    1.crontab -e
-1. crontab -e 2. @reboot cd /opt/ &amp;&amp; ./start_sslocal.sh &gt;zx.log 2&gt;&amp;1 3. grep CRON -i /var/log/syslog 2.
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/07/ubuntu%E7%BD%91%E5%8D%A1%E9%87%8D%E5%90%AF/">Ubuntu网卡重启</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-07-11">Jul 11, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    ifconfig ens33 down &amp;&amp; ifconfig ens33 up
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/07/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/">命令行设置代理</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-07-11">Jul 11, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    sslocal
-apt install shadowsocks sslocal -c ss.json -d startss.json: { &#34;server&#34;:&#34;45.32.10.1&#34;, &#34;server_port&#34;:8892, &#34;local_port&#34;:1080, &#34;password&#34;:&#34;zxzxzxzxzx&#34;, &#34;timeout&#34;:600, &#34;method&#34;:&#34;aes-256-cfb&#34; } proxychains4
-apt install proxychains4 vi /etc/proxychains4.conf proxychains4 curl ip.cn # 查看是否代理成功 proxychains bash # 代理整个终端proxychains4.conf: socks5 127.0.0.1 1080 GitHub
- polipo可代替proxychains4
-apt-get install polipo vi /etc/polipo/config service polipo restart export http_proxy=&#34;http://127.0.0.1:8123/&#34; # 可能需要执行 可加入.bashrc/etc/polipo/config: logSyslog = true logFile = /var/log/polipo/polipo.log proxyAddress = &#34;0.0.0.0&#34; socksParentProxy = &#34;127.0.0.1:1080&#34; socksProxyType = socks5 proxyPort = 8123 chunkHighMark = 50331648 objectHighMark = 16384 serverMaxSlots = 64 serverSlots = 16 serverSlots1 = 32 genpac
-    
-    <p></p>
-    <a href="/2018/07/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/">Read More →</a>
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/07/linux-swap%E9%85%8D%E7%BD%AE/">Linux swap配置</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-07-09">Jul 9, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    #查看swap比率 cat /proc/sys/vm/swappiness # open /etc/sysctl.conf as root. Then, change or add this line to the file vm.swappiness = 10 # Reboot for the change to take effect. # You can also change the value while your system is still running with sysctl vm.swappiness=10 # You can also clear your swap by running swapoff -a and then swapon -a as root instead of rebooting to achieve the same effect. swapoff -a swapon -a
-    
-</article>
-
-    
-
-
-
 
 
 <nav class="blog-pagination">
@@ -491,8 +500,21 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
                 
             
             
+                <li class="page-item disabled">
+                    <span class="page-link" aria-hidden="true">&hellip;</span>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
                 <li class="page-item ">
-                    <a class="page-link" href="/page/5/">5</a>
+                    <a class="page-link" href="/page/6/">6</a>
                 </li>
             
         
@@ -501,7 +523,7 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/page/5/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/page/6/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -552,6 +574,8 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
         <h4>Categories</h4>
         <p>
             
+            <a class="badge badge-primary" href="/categories/cpp">cpp</a>
+            
             <a class="badge badge-primary" href="/categories/linux">linux</a>
             
             <a class="badge badge-primary" href="/categories/mysql">mysql</a>
@@ -564,6 +588,8 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
         <p>
             
             <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+            
+            <a class="badge badge-primary" href="/tags/ide">ide</a>
             
             <a class="badge badge-primary" href="/tags/linux">linux</a>
             
