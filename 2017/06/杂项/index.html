@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="杂项" />
+<meta property="og:description" content="enumerate将其组成一个索引序列，利用它可以同时获得索引和值
+for lineno, line in enumerate(self.lines, 1):  迭代器切片
+for x in itertools.islice(c, 10, 20): 跳过可迭代对象的开始部分
+for line in dropwhile(lambda l: l.startswith(&#39;#&#39;), f): 跳过所有#开头字符串
+lines = (line for line in f if not line.startswith(&#39;#&#39;)) 排列迭代
+for p in permutations(items, 2): 组合迭代
+for c in combinations(items, 2): for c in combinations_with_replacement(items, 2): 同时迭代多个序列
+for xv, yv in zip(x, y): 迭代多个序列,短的序列补0
+for xv, yv in zip_longest(x, y, fillvalue=0): 不同集合上元素的迭代
+for x in chain(a, b): 按顺序迭代已排序序列" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alonsovau.github.io/2017/06/%E6%9D%82%E9%A1%B9/" /><meta property="article:published_time" content="2017-06-14T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-06-14T00:00:00&#43;00:00"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="杂项"/>
+<meta name="twitter:description" content="enumerate将其组成一个索引序列，利用它可以同时获得索引和值
+for lineno, line in enumerate(self.lines, 1):  迭代器切片
+for x in itertools.islice(c, 10, 20): 跳过可迭代对象的开始部分
+for line in dropwhile(lambda l: l.startswith(&#39;#&#39;), f): 跳过所有#开头字符串
+lines = (line for line in f if not line.startswith(&#39;#&#39;)) 排列迭代
+for p in permutations(items, 2): 组合迭代
+for c in combinations(items, 2): for c in combinations_with_replacement(items, 2): 同时迭代多个序列
+for xv, yv in zip(x, y): 迭代多个序列,短的序列补0
+for xv, yv in zip_longest(x, y, fillvalue=0): 不同集合上元素的迭代
+for x in chain(a, b): 按顺序迭代已排序序列"/>
+
+
+
+    <link rel="canonical" href="https://alonsovau.github.io/2017/06/%E6%9D%82%E9%A1%B9/">
+
+    <title>
+      
+        杂项 | Xin Zhou Blog
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://alonsovau.github.io/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+  </head>
+  <body>
+    
+      
+
+<header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            Xin Zhou Blog
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/">Home</a>
+                    
+                </li>
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/about/">About</a>
+                    
+                </li>
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/contact/">Contact</a>
+                    
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+    <a class="text-dark" href="/2017/06/%E6%9D%82%E9%A1%B9/">杂项</a>
+</h2>
+
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2017-06-14">Jun 14, 2017</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+    
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/python">python</a>
+    
+</div>
+
+    
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/python">Python</a>
+    
+</div>
+
+    <hr>
+</header>
+<article class="blog-post">
+    <ol>
+<li><p>enumerate将其组成一个索引序列，利用它可以同时获得索引和值</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">for</span> lineno, line <span style="color:#f92672">in</span> enumerate(self<span style="color:#f92672">.</span>lines, <span style="color:#ae81ff">1</span>): </code></pre></div></li>
+
+<li><p>迭代器切片</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> itertools<span style="color:#f92672">.</span>islice(c, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>):</code></pre></div></li>
+
+<li><p>跳过可迭代对象的开始部分</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> dropwhile(<span style="color:#66d9ef">lambda</span> l: l<span style="color:#f92672">.</span>startswith(<span style="color:#e6db74">&#39;#&#39;</span>), f):</code></pre></div></li>
+
+<li><p>跳过所有#开头字符串</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">lines <span style="color:#f92672">=</span> (line <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> f <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> line<span style="color:#f92672">.</span>startswith(<span style="color:#e6db74">&#39;#&#39;</span>))</code></pre></div></li>
+
+<li><p>排列迭代</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> permutations(items, <span style="color:#ae81ff">2</span>):</code></pre></div></li>
+
+<li><p>组合迭代</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> combinations(items, <span style="color:#ae81ff">2</span>):
+
+<span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> combinations_with_replacement(items, <span style="color:#ae81ff">2</span>):</code></pre></div></li>
+
+<li><p>同时迭代多个序列</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">for</span> xv, yv <span style="color:#f92672">in</span> zip(x, y):</code></pre></div></li>
+
+<li><p>迭代多个序列,短的序列补0</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">for</span> xv, yv <span style="color:#f92672">in</span> zip_longest(x, y, fillvalue<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>):</code></pre></div></li>
+
+<li><p>不同集合上元素的迭代</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> chain(a, b):</code></pre></div></li>
+
+<li><p>按顺序迭代已排序序列</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> heapq<span style="color:#f92672">.</span>merge(a, b):</code></pre></div></li>
+
+<li><p>迭代器代替while无限循环</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">for</span> chunk <span style="color:#f92672">in</span> iter(<span style="color:#66d9ef">lambda</span> : f<span style="color:#f92672">.</span>read(<span style="color:#ae81ff">5</span>), <span style="color:#e6db74">&#39;&#39;</span>):</code></pre></div></li>
+
+<li><p>模拟普通文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">s <span style="color:#f92672">=</span> io<span style="color:#f92672">.</span>StringIO(<span style="color:#e6db74">&#39;Hello</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">world</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span></code></pre></div></li>
+
+<li><p>固定大小记录的文件迭代</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">records <span style="color:#f92672">=</span> iter(partial(f<span style="color:#f92672">.</span>read(), RECORD_SIZE), <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;</span>)</code></pre></div></li>
+
+<li><p>读取二进制数据到可变缓冲区中</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">f<span style="color:#f92672">.</span>readinto(buf)</code></pre></div></li>
+
+<li><p>内存映射的二进制文件(mmap)</p></li>
+
+<li><p>读取xml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#f92672">from</span> xml.etree.ElementTree <span style="color:#f92672">import</span> parse</code></pre></div></li>
+
+<li><p>增量解析大型xml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#f92672">from</span> xml.etree.ElementTree <span style="color:#f92672">import</span> iterparse</code></pre></div></li>
+
+<li><p>解析带命名空间的xml</p></li>
+
+<li><p>bisect维护列表顺序</p></li>
+
+<li><p>让类支持比较操作</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#f92672">from</span> functools <span style="color:#f92672">import</span> total_ordering
+<span style="color:#a6e22e">@total_ordering</span></code></pre></div></li>
+</ol>
+
+
+    
+
+    
+
+    <h4>See also</h4>
+    <ul>
+        
+            <li><a href="/2017/06/%E6%90%AD%E5%BB%BApycharm%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/">搭建pycharm激活服务器</a></li>
+        
+    </ul>
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+<section>
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+        
+        <li>
+            <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/">Linux和Windows换行</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/vmvare-multiple-network-adapters-configuration/">vmvare multiple network adapters configuration</a>
+        </li>
+        
+        <li>
+            <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
+        </li>
+        
+    </ol>
+</section>
+
+    
+    
+        <section>
+    
+        
+        <h4>Categories</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/categories/cpp">cpp</a>
+            
+            <a class="badge badge-primary" href="/categories/database">database</a>
+            
+            <a class="badge badge-primary" href="/categories/git">git</a>
+            
+            <a class="badge badge-primary" href="/categories/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/categories/mysql">mysql</a>
+            
+            <a class="badge badge-primary" href="/categories/oracle">oracle</a>
+            
+            <a class="badge badge-primary" href="/categories/python">python</a>
+            
+        </p>
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/chrome">chrome</a>
+            
+            <a class="badge badge-primary" href="/tags/cpp">cpp</a>
+            
+            <a class="badge badge-primary" href="/tags/database">database</a>
+            
+            <a class="badge badge-primary" href="/tags/dbf">dbf</a>
+            
+            <a class="badge badge-primary" href="/tags/dict">dict</a>
+            
+            <a class="badge badge-primary" href="/tags/dll">dll</a>
+            
+            <a class="badge badge-primary" href="/tags/git">git</a>
+            
+            <a class="badge badge-primary" href="/tags/html">html</a>
+            
+            <a class="badge badge-primary" href="/tags/ide">ide</a>
+            
+            <a class="badge badge-primary" href="/tags/keepalived">keepalived</a>
+            
+            <a class="badge badge-primary" href="/tags/linux">linux</a>
+            
+            <a class="badge badge-primary" href="/tags/lua">lua</a>
+            
+            <a class="badge badge-primary" href="/tags/lxml">lxml</a>
+            
+            <a class="badge badge-primary" href="/tags/mysql">mysql</a>
+            
+            <a class="badge badge-primary" href="/tags/oracle">oracle</a>
+            
+            <a class="badge badge-primary" href="/tags/pypi">pypi</a>
+            
+            <a class="badge badge-primary" href="/tags/python">python</a>
+            
+            <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+            <a class="badge badge-primary" href="/tags/webdriver">webdriver</a>
+            
+            <a class="badge badge-primary" href="/tags/wrapper">wrapper</a>
+            
+            <a class="badge badge-primary" href="/tags/xml">xml</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">© 2019 Copyright Zhouxin</p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

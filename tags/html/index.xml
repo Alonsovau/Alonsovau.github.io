@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Html on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/tags/html/</link>
+    <description>Recent content in Html on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Fri, 23 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Decode HTML entities</title>
+      <link>https://alonsovau.github.io/2018/02/decode-html-entities/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/decode-html-entities/</guid>
+      <description>Python3.4+ import html print(html.unescape(&amp;#39;&amp;amp;pound;682m&amp;#39;)) Python2.6-3.3 from html.parser import HTMLParser h = HTMLParser() print(h.unescape(&amp;#39;&amp;amp;pound;682m&amp;#39;)) link</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chrome on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/tags/chrome/</link>
+    <description>Recent content in Chrome on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Tue, 10 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>chromedriver添加代理</title>
+      <link>https://alonsovau.github.io/2018/07/chromedriver%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/07/chromedriver%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86/</guid>
+      <description>from selenium import webdriver from selenium.webdriver.chrome.options import Options chrome_options = Options() chrome_options.add_argument(&amp;#34;--headless&amp;#34;) chrome_options.add_argument(&amp;#34;--no-sandbox&amp;#34;) chrome_options.add_argument(&amp;#34;--proxy-server=socks5://127.0.0.1:1080&amp;#34;) driver = webdriver.Chrome(executable_path=&amp;#39;/opt/chromedriver&amp;#39;, chrome_options=chrome_options) driver.</description>
+    </item>
+    
+  </channel>
+</rss>

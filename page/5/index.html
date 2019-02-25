@@ -10,7 +10,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/" />
-<meta property="og:updated_time" content="2018-06-16T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-07-17T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Xin Zhou Blog"/>
@@ -99,7 +99,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/06/%E6%96%87%E4%BB%B6%E5%8F%8Aterminal%E7%BB%88%E7%AB%AF%E7%BC%96%E7%A0%81/">文件及Terminal终端编码</a>
+    <a class="text-dark" href="/2018/07/%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">添加开机启动脚本</a>
 </h2>
 
         
@@ -107,7 +107,7 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2018-06-16">Jun 16, 2018</time>
+        <time datetime="2018-07-17">Jul 17, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -131,7 +131,8 @@
 </div>
 
     </header>
-    1. set fileencoding 查看文件编码 2. set fileencdding=utf-8 设置文件编码 按wq保存 3. :e ++enc=cp936 # vim打开文档后，encoding=utf-8（locale决定的），fileencoding=latin1（自动编码判断机制不准导致的），termencoding=空（默认无需转换term编码），显示文件为乱码
+    1.crontab -e
+1. crontab -e 2. @reboot cd /opt/ &amp;&amp; ./start_sslocal.sh &gt;zx.log 2&gt;&amp;1 3. grep CRON -i /var/log/syslog 2.
     
 </article>
 
@@ -143,7 +144,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/05/mysql5.7-linux%E5%AE%89%E8%A3%85/">Mysql5.7 Linux安装</a>
+    <a class="text-dark" href="/2018/07/ubuntu%E7%BD%91%E5%8D%A1%E9%87%8D%E5%90%AF/">Ubuntu网卡重启</a>
 </h2>
 
         
@@ -151,7 +152,7 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2018-05-24">May 24, 2018</time>
+        <time datetime="2018-07-11">Jul 11, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -164,20 +165,18 @@
     
         <a class="badge badge-primary" href="/tags/linux">linux</a>
     
-        <a class="badge badge-primary" href="/tags/mysql">mysql</a>
-    
 </div>
 
         
 <div class="blog-post-categories text-secondary">
     <strong>Categories:</strong>
     
-        <a class="badge badge-primary" href="/categories/mysql">Mysql</a>
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
     
 </div>
 
     </header>
-    rpm -ivh mysql-community-common-5.7.22-1.el7.x86_64.rpm mysql-community-libs-5.7.22-1.el7.x86_64.rpm rpm -ivh mysql-community-client-5.7.22-1.el7.x86_64.rpm mysql-community-server-5.7.22-1.el7.x86_64.rpm mysqld --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data/ --initialize service mysqld start grep &#39;temporary password&#39; /var/log/mysqld.log mysql -uroot -p ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;cffEx2016!&#39;; GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;cffEx2016!&#39; WITH GRANT OPTION; 拷贝my.cnf到/etc/目录下 my.cnf 权限为-rw-r--r-- 重启mysql
+    ifconfig ens33 down &amp;&amp; ifconfig ens33 up
     
 </article>
 
@@ -189,7 +188,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/04/mysql-keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">MySQL+Keepalived高可用</a>
+    <a class="text-dark" href="/2018/07/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/">命令行设置代理</a>
 </h2>
 
         
@@ -197,7 +196,7 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2018-04-11">Apr 11, 2018</time>
+        <time datetime="2018-07-11">Jul 11, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -210,37 +209,25 @@
     
         <a class="badge badge-primary" href="/tags/linux">linux</a>
     
-        <a class="badge badge-primary" href="/tags/mysql">mysql</a>
-    
-        <a class="badge badge-primary" href="/tags/keepalived">keepalived</a>
-    
 </div>
 
         
 <div class="blog-post-categories text-secondary">
     <strong>Categories:</strong>
     
-        <a class="badge badge-primary" href="/categories/mysql">Mysql</a>
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
     
 </div>
 
     </header>
-    一、结构  简介：
-系统主要通过Keepalived+MySQL双主来实现MySQL-HA，我们必须保证两台MySQL数据库的数据完全一样，基本设计是两台MySQL互为主从关系，通过Keepalived配置虚拟IP，实现当其中的一台MySQL数据库宕机后，应用能够自动切换到另外一台MySQL数据库，保证系统的高可用。
- 拓扑环境：
- OS: Red Hat Enterprise Linux Server release 7.1 (Maipo)
- MySQL version: 5.5.59-log MySQL Community Server (GPL)
- Keepalived version: keepalived-1.3.5-1.el7.x86_64
- MySQL-Vip: 172.28.10.100
- MySQL-Master1: 172.28.10.82
- MySQL-Master2: 172.28.10.83
-  结构图：
-  二、 MySQL环境部署  修改MySQL配置文件
-以下为master1数据库的my.cnf配置文件内容，目录为/etc/my.cnf，配置完成后重启数据库
-[client] port = 3382 socket = /var/lib/mysql/mysql.sock [mysqld] port = 3382 socket = /var/lib/mysql/mysql.sock skip-external-locking key_buffer_size = 16M max_allowed_packet = 1M table_open_cache = 64 sort_buffer_size = 512K net_buffer_length = 8K read_buffer_size = 256K read_rnd_buffer_size = 512K myisam_sort_buffer_size = 8M log-bin=mysql-bin binlog_format=mixed # master2的server-id改为2 server-id = 1 # 要产生log的数据库 binlog-do-db=pms_db # 不产生log的数据库 binlog-ignore-db=mysql # 要复制的数据库 replicate-do-db=pms_db # 不复制的数据库 replicate-ignore-db=mysql log-bin=mysql-bin innodb_data_home_dir = /var/lib/mysql innodb_data_file_path = ibdata1:10M:autoextend innodb_log_group_home_dir = /var/lib/mysql innodb_buffer_pool_size = 16M innodb_additional_mem_pool_size = 2M innodb_log_file_size = 5M innodb_log_buffer_size = 8M innodb_flush_log_at_trx_commit = 1 innodb_lock_wait_timeout = 50 [mysqldump] quick max_allowed_packet = 16M [mysql] no-auto-rehash [myisamchk] key_buffer_size = 20M sort_buffer_size = 20M read_buffer = 2M write_buffer = 2M [mysqlhotcopy] interactive-timeout 将master1设置为master2的主服务器
+    sslocal
+apt install shadowsocks sslocal -c ss.json -d startss.json: { &#34;server&#34;:&#34;45.32.10.1&#34;, &#34;server_port&#34;:8892, &#34;local_port&#34;:1080, &#34;password&#34;:&#34;zxzxzxzxzx&#34;, &#34;timeout&#34;:600, &#34;method&#34;:&#34;aes-256-cfb&#34; } proxychains4
+apt install proxychains4 vi /etc/proxychains4.conf proxychains4 curl ip.cn # 查看是否代理成功 proxychains bash # 代理整个终端proxychains4.conf: socks5 127.0.0.1 1080 GitHub
+ polipo可代替proxychains4
+apt-get install polipo vi /etc/polipo/config service polipo restart export http_proxy=&#34;http://127.0.0.1:8123/&#34; # 可能需要执行 可加入.bashrc/etc/polipo/config: logSyslog = true logFile = /var/log/polipo/polipo.log proxyAddress = &#34;0.0.0.0&#34; socksParentProxy = &#34;127.0.0.1:1080&#34; socksProxyType = socks5 proxyPort = 8123 chunkHighMark = 50331648 objectHighMark = 16384 serverMaxSlots = 64 serverSlots = 16 serverSlots1 = 32 genpac
     
     <p></p>
-    <a href="/2018/04/mysql-keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">Read More →</a>
+    <a href="/2018/07/%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/">Read More →</a>
     
 </article>
 
@@ -252,7 +239,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/04/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">网络相关</a>
+    <a class="text-dark" href="/2018/07/chromedriver%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86/">chromedriver添加代理</a>
 </h2>
 
         
@@ -260,7 +247,58 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2018-04-09">Apr 9, 2018</time>
+        <time datetime="2018-07-10">Jul 10, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/python">python</a>
+    
+        <a class="badge badge-primary" href="/tags/chrome">chrome</a>
+    
+        <a class="badge badge-primary" href="/tags/webdriver">webdriver</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/python">Python</a>
+    
+</div>
+
+    </header>
+    from selenium import webdriver from selenium.webdriver.chrome.options import Options chrome_options = Options() chrome_options.add_argument(&#34;--headless&#34;) chrome_options.add_argument(&#34;--no-sandbox&#34;) chrome_options.add_argument(&#34;--proxy-server=socks5://127.0.0.1:1080&#34;) driver = webdriver.Chrome(executable_path=&#39;/opt/chromedriver&#39;, chrome_options=chrome_options) driver.
+    
+    <p></p>
+    <a href="/2018/07/chromedriver%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/07/linux-swap%E9%85%8D%E7%BD%AE/">Linux swap配置</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-07-09">Jul 9, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -284,7 +322,7 @@
 </div>
 
     </header>
-    arp -a 搜索同一网段机器 iptables -L -n -v 查看已添加的iptables规则 清空日志文件： cat /dev/null&gt;/var/log/messages
+    #查看swap比率 cat /proc/sys/vm/swappiness # open /etc/sysctl.conf as root. Then, change or add this line to the file vm.swappiness = 10 # Reboot for the change to take effect. # You can also change the value while your system is still running with sysctl vm.swappiness=10 # You can also clear your swap by running swapoff -a and then swapon -a as root instead of rebooting to achieve the same effect. swapoff -a swapon -a
     
 </article>
 
@@ -296,7 +334,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/04/cluster/">cluster</a>
+    <a class="text-dark" href="/2018/07/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit/">配置多个GIT</a>
 </h2>
 
         
@@ -304,101 +342,7 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2018-04-03">Apr 3, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-        <a class="badge badge-primary" href="/tags/mysql">mysql</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/mysql">Mysql</a>
-    
-</div>
-
-    </header>
-    https://www.linuxidc.com/Linux/2016-07/133234.htm
- sestatus
- 防火墙
-   接下来就可以针对这个目录通过一些命令查看配置文件在哪了，如下
-/usr/bin/mysql &ndash;verbose &ndash;help | grep -A 1 &lsquo;Default options&rsquo;
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/crontab/">crontab</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-02-23">Feb 23, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-     1. 用法： 1.cat /etc/crontab 系统级 2./etc/cron.deny 所列用户不允许使用 3./etc/cron.allow 所列用户允许使用 4./var/spool/cron/ 下存储以用户名存储的文件 5.minute hour day month week command 6.crontab [-u user] -l 显示当前用户任务 7.crontab -l &gt; z 备份当前用户的任务到z文件 8.crontab [-u user] -e 编辑当前用户的任务 9.crontab [-u user] -r 删除 10.crontab &lt;filename&gt; 从文件恢复 11.service crond start/stop/restart/reload 2. 例子： * * * * * command 每分钟执行 3,15 * * * * command 每小时第3，15分钟执行 3,15 8-11 */2 * * command 每2天的8-11点的第3，15分钟执行 30 21 * * 0,6 command 每周日、周六21:30分执行 * */2 * * * command 每2小时执行
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-02-23">Feb 23, 2018</time>
+        <time datetime="2018-07-09">Jul 9, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -422,13 +366,53 @@
 </div>
 
     </header>
-    git config --global user.name &#34;Alonsovau&#34; git config --global user.email &#34;alonsovau@outlook.com&#34; mkdir learngit pwd 查看完整路径 git init git add readme.txt git commit -m &#34;wrote a readme file&#34; git status git diff readme.txt git log git log --pretty=oneline git reset --hard HEAD^ 退回上一个版本 HEAD^^上上个版本 git reset --hard 4f1be52c 到指定的某个版本 git log得到的commit id的部分即可 git reflog 用来记录你的每一次命令 git checkout -- readme.txt 丢弃工作区修改 --后面要加空格 不然爆炸 场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout &ndash; file。
-场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
-场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库
-rm test.
+     .ssh文件夹下建立config文件：
+# 84 Host 172.28.10.84 HostName 172.28.10.84 PreferredAuthentications publickey IdentityFile ~/.ssh/id_rsa_84 执行ssh-agent让ssh识别新的私钥
+ssh-add ~/.ssh/id_rsa_84 该命令如果报错：Could not open a connection to your authentication agent.无法连接到ssh agent，可执行ssh-agent bash命令后再执行ssh-add命令  
     
-    <p></p>
-    <a href="/2018/02/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Read More →</a>
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/06/linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/">Linux下创建虚拟环境</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-06-26">Jun 26, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/python">python</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/python">Python</a>
+    
+</div>
+
+    </header>
+    pip install virtualenv virtualenv py3env #可选择使用哪个python source bin/activate deactivate
     
 </article>
 
@@ -536,8 +520,57 @@ rm test.
                 
             
             
+                <li class="page-item disabled">
+                    <span class="page-link" aria-hidden="true">&hellip;</span>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
                 <li class="page-item ">
-                    <a class="page-link" href="/page/7/">7</a>
+                    <a class="page-link" href="/page/12/">12</a>
                 </li>
             
         
@@ -546,7 +579,7 @@ rm test.
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/page/7/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/page/12/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -583,7 +616,7 @@ rm test.
         </li>
         
         <li>
-            <a href="/2018/12/watchdog/">watchdog</a>
+            <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
         </li>
         
     </ol>
@@ -607,6 +640,10 @@ rm test.
             
             <a class="badge badge-primary" href="/categories/mysql">mysql</a>
             
+            <a class="badge badge-primary" href="/categories/oracle">oracle</a>
+            
+            <a class="badge badge-primary" href="/categories/python">python</a>
+            
         </p>
         
     
@@ -614,11 +651,21 @@ rm test.
         <h4>Tags</h4>
         <p>
             
+            <a class="badge badge-primary" href="/tags/chrome">chrome</a>
+            
             <a class="badge badge-primary" href="/tags/cpp">cpp</a>
             
             <a class="badge badge-primary" href="/tags/database">database</a>
             
+            <a class="badge badge-primary" href="/tags/dbf">dbf</a>
+            
+            <a class="badge badge-primary" href="/tags/dict">dict</a>
+            
+            <a class="badge badge-primary" href="/tags/dll">dll</a>
+            
             <a class="badge badge-primary" href="/tags/git">git</a>
+            
+            <a class="badge badge-primary" href="/tags/html">html</a>
             
             <a class="badge badge-primary" href="/tags/ide">ide</a>
             
@@ -628,9 +675,23 @@ rm test.
             
             <a class="badge badge-primary" href="/tags/lua">lua</a>
             
+            <a class="badge badge-primary" href="/tags/lxml">lxml</a>
+            
             <a class="badge badge-primary" href="/tags/mysql">mysql</a>
             
+            <a class="badge badge-primary" href="/tags/oracle">oracle</a>
+            
+            <a class="badge badge-primary" href="/tags/pypi">pypi</a>
+            
+            <a class="badge badge-primary" href="/tags/python">python</a>
+            
             <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+            <a class="badge badge-primary" href="/tags/webdriver">webdriver</a>
+            
+            <a class="badge badge-primary" href="/tags/wrapper">wrapper</a>
+            
+            <a class="badge badge-primary" href="/tags/xml">xml</a>
             
         </p>
         

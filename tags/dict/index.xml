@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dict on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/tags/dict/</link>
+    <description>Recent content in Dict on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Fri, 26 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/tags/dict/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用dict实现switch类似功能</title>
+      <link>https://alonsovau.github.io/2018/10/%E4%BD%BF%E7%94%A8dict%E5%AE%9E%E7%8E%B0switch%E7%B1%BB%E4%BC%BC%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/10/%E4%BD%BF%E7%94%A8dict%E5%AE%9E%E7%8E%B0switch%E7%B1%BB%E4%BC%BC%E5%8A%9F%E8%83%BD/</guid>
+      <description>switch_dict = { &amp;#39;char&amp;#39;: lambda x: &amp;#39;i am char&amp;#39; + x, &amp;#39;double&amp;#39;: lambda x: &amp;#39;i am double&amp;#39; + x, &amp;#39;int&amp;#39;: lambda x: &amp;#39;i am int&amp;#39; + x } print(switch_dict[&amp;#39;char&amp;#39;](&amp;#39;999&amp;#39;))</description>
+    </item>
+    
+  </channel>
+</rss>

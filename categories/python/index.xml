@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/categories/python/</link>
+    <description>Recent content in Python on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Fri, 21 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>csv文件操作</title>
+      <link>https://alonsovau.github.io/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Fri, 21 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</guid>
+      <description>with open(&amp;#39;./old/zce_l1.csv&amp;#39;) as f: f_csv = csv.reader(f) headers = next(f_csv) print(headers) Row = namedtuple(&amp;#39;Row&amp;#39;, headers) for r in f_csv: row = Row(*r) print(row.</description>
+    </item>
+    
+    <item>
+      <title>装饰器版高速fibonacci</title>
+      <link>https://alonsovau.github.io/2018/11/%E8%A3%85%E9%A5%B0%E5%99%A8%E7%89%88%E9%AB%98%E9%80%9Ffibonacci/</link>
+      <pubDate>Mon, 12 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/11/%E8%A3%85%E9%A5%B0%E5%99%A8%E7%89%88%E9%AB%98%E9%80%9Ffibonacci/</guid>
+      <description>@functools.lru_cache()此行为关键 import time from functools import wraps import functools def clock(func): @wraps(func) def clocked(*args, **kwargs): start = time.time() result = func(*args, **kwargs) elapsed = time.time() - start name = func.__name__ args_list = [] if args: args_list.append(&amp;#39;,&amp;#39;.join(repr(arg) for arg in args)) if kwargs: pairs = [&amp;#39;%s=%r&amp;#39; % (k, w) for k, w in sorted(kwargs.items())] args_list.append(&amp;#39;,&amp;#39;.join(pairs)) args_str = &amp;#39;,&amp;#39;.join(args_list) print(&amp;#39;[%0.8fs] %s(%s) -&amp;gt; %r&amp;#39; % (elapsed, name, args_str, result)) return result return clocked @functools.</description>
+    </item>
+    
+    <item>
+      <title>Tips</title>
+      <link>https://alonsovau.github.io/2018/11/tips/</link>
+      <pubDate>Tue, 06 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/11/tips/</guid>
+      <description> 并不是所有的装饰器都使用了@wraps，因此这里的方案并不全部适用。特别的，内置的装饰器@staticmethod和@classmethod就没有遵循这个约定(它们把原始函数存储在属性func中)
+ dis模块反编译
+  </description>
+    </item>
+    
+    <item>
+      <title>使用dict实现switch类似功能</title>
+      <link>https://alonsovau.github.io/2018/10/%E4%BD%BF%E7%94%A8dict%E5%AE%9E%E7%8E%B0switch%E7%B1%BB%E4%BC%BC%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/10/%E4%BD%BF%E7%94%A8dict%E5%AE%9E%E7%8E%B0switch%E7%B1%BB%E4%BC%BC%E5%8A%9F%E8%83%BD/</guid>
+      <description>switch_dict = { &amp;#39;char&amp;#39;: lambda x: &amp;#39;i am char&amp;#39; + x, &amp;#39;double&amp;#39;: lambda x: &amp;#39;i am double&amp;#39; + x, &amp;#39;int&amp;#39;: lambda x: &amp;#39;i am int&amp;#39; + x } print(switch_dict[&amp;#39;char&amp;#39;](&amp;#39;999&amp;#39;))</description>
+    </item>
+    
+    <item>
+      <title>计算小段代码运行时间</title>
+      <link>https://alonsovau.github.io/2018/07/%E8%AE%A1%E7%AE%97%E5%B0%8F%E6%AE%B5%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</link>
+      <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/07/%E8%AE%A1%E7%AE%97%E5%B0%8F%E6%AE%B5%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</guid>
+      <description>t1 = timeit.timeit(&amp;#39;f = open(&amp;#34;Log.log_2018-07-10_04-43.log&amp;#34;, encoding=&amp;#34;GBK&amp;#34;);x = sum([l.count(&amp;#34;insert&amp;#34;) for l in f]);&amp;#39; &amp;#39;print(x)&amp;#39;, &amp;#39;&amp;#39;, number=5) # 第二个参数为运行前环境设置，如import timeit</description>
+    </item>
+    
+    <item>
+      <title>chromedriver添加代理</title>
+      <link>https://alonsovau.github.io/2018/07/chromedriver%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/07/chromedriver%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86/</guid>
+      <description>from selenium import webdriver from selenium.webdriver.chrome.options import Options chrome_options = Options() chrome_options.add_argument(&amp;#34;--headless&amp;#34;) chrome_options.add_argument(&amp;#34;--no-sandbox&amp;#34;) chrome_options.add_argument(&amp;#34;--proxy-server=socks5://127.0.0.1:1080&amp;#34;) driver = webdriver.Chrome(executable_path=&amp;#39;/opt/chromedriver&amp;#39;, chrome_options=chrome_options) driver.</description>
+    </item>
+    
+    <item>
+      <title>Linux下创建虚拟环境</title>
+      <link>https://alonsovau.github.io/2018/06/linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/06/linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</guid>
+      <description>pip install virtualenv virtualenv py3env #可选择使用哪个python source bin/activate deactivate</description>
+    </item>
+    
+    <item>
+      <title>Linux下安装python3</title>
+      <link>https://alonsovau.github.io/2018/06/linux%E4%B8%8B%E5%AE%89%E8%A3%85python3/</link>
+      <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/06/linux%E4%B8%8B%E5%AE%89%E8%A3%85python3/</guid>
+      <description>export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN.UTF-8
+make之前需要检查openssl-devel</description>
+    </item>
+    
+    <item>
+      <title>cdll windll oledll</title>
+      <link>https://alonsovau.github.io/2018/03/cdll-windll-oledll/</link>
+      <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/03/cdll-windll-oledll/</guid>
+      <description>cdll
+windll
+oledll
+它们的不同之处在于：动态链接库中的函数所遵守的函数调用方式（calling convention）以及返回方式有所不同。
+cdll用于加载遵循cdecl调用约定的动态链接库，windll用于加载遵循stdcall调用约定的动态链接库，oledll与windll完全相同，只是会默认其载入的函数统一返回一个Windows HRESULT错误编码。</description>
+    </item>
+    
+    <item>
+      <title>Decode HTML entities</title>
+      <link>https://alonsovau.github.io/2018/02/decode-html-entities/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/decode-html-entities/</guid>
+      <description>Python3.4+ import html print(html.unescape(&amp;#39;&amp;amp;pound;682m&amp;#39;)) Python2.6-3.3 from html.parser import HTMLParser h = HTMLParser() print(h.unescape(&amp;#39;&amp;amp;pound;682m&amp;#39;)) link</description>
+    </item>
+    
+    <item>
+      <title>Python3自定义排序</title>
+      <link>https://alonsovau.github.io/2018/02/python3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/python3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/</guid>
+      <description>1. 笨方法，不推荐 a = [&amp;#39;星期一&amp;#39;, &amp;#39;星期三&amp;#39;, &amp;#39;星期二&amp;#39;, &amp;#39;星期日&amp;#39;] c = {&amp;#39;星期一&amp;#39;: 1, &amp;#39;星期二&amp;#39;: 2, &amp;#39;星期三&amp;#39;: 3, &amp;#39;星期四&amp;#39;: 4, &amp;#39;星期五&amp;#39;: 5, &amp;#39;星期六&amp;#39;: 6, &amp;#39;星期日&amp;#39;: 7} b = {} for i in a: b[i] = c[i] b = sorted(b.items(), key=lambda t: t[1]) # b = sorted(zip(b.values(), b.keys())) # 使用zip下面改为j[1] a = [] for j in b: day = j[0] a.append(day) print(a) 2. 自定义大小关系  python3中取消comparison function，使用key function，cmp_to_key帮助cmp过渡为key
+ def compare_day(day1, day2): c = {&amp;#39;星期一&amp;#39;: 1, &amp;#39;星期二&amp;#39;: 2, &amp;#39;星期三&amp;#39;: 3, &amp;#39;星期四&amp;#39;: 4, &amp;#39;星期五&amp;#39;: 5, &amp;#39;星期六&amp;#39;: 6, &amp;#39;星期日&amp;#39;: 7} value1 = c[day1] value2 = c[day2] if value1 &amp;gt; value2: return 1 if value1 &amp;lt; value2: return -1 return 0 a = [&amp;#39;星期一&amp;#39;, &amp;#39;星期三&amp;#39;, &amp;#39;星期二&amp;#39;, &amp;#39;星期日&amp;#39;] from functools import cmp_to_key a.</description>
+    </item>
+    
+    <item>
+      <title>XML解析</title>
+      <link>https://alonsovau.github.io/2018/02/xml%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/xml%E8%A7%A3%E6%9E%90/</guid>
+      <description>XML # document.xml为docx文件中的 from xml.etree.ElementTree import parse from xml.etree.ElementTree import XMLParser f = open(&amp;#39;document.xml&amp;#39;) doc = parse(f, XMLParser(encoding=&amp;#34;utf-8&amp;#34;)) # 1 t_elems = doc.findall(&amp;#39;.//{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t&amp;#39;) # 2 ns = {&amp;#39;w&amp;#39;: &amp;#39;http://schemas.openxmlformats.org/wordprocessingml/2006/main&amp;#39;} t_elems = doc.findall(&amp;#39;.//w:t&amp;#39;, ns) # 3 t_elems = doc.iter(&amp;#39;{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t&amp;#39;) for elem in t_elems: print(elem.text) LXML from lxml import etree f = open(&amp;#39;document.xml&amp;#39;) doc_lxml = etree.parse(f, etree.XMLParser(encoding=&amp;#34;utf-8&amp;#34;)) # 1 p_lxml = doc_lxml.iter(&amp;#39;{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t&amp;#39;) # 2 ns = {&amp;#39;w&amp;#39;: &amp;#39;http://schemas.openxmlformats.org/wordprocessingml/2006/main&amp;#39;} find_results = doc_lxml.findall(&amp;#39;//w:t&amp;#39;, ns) # Namespace prefix-&amp;gt;URI mapping known in the context of this Element.</description>
+    </item>
+    
+    <item>
+      <title>lxml</title>
+      <link>https://alonsovau.github.io/2018/02/lxml/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/lxml/</guid>
+      <description>from lxml import etree html = etree.HTML(resHtml, parser=etree.HTMLParser(encoding=&amp;#39;utf-8&amp;#39;)) # 处理源文件的时候，由于没有指定编码，所以它使用了一个默认编码，从而导致和UTF-8冲突，产生乱码 # http://lxml.</description>
+    </item>
+    
+    <item>
+      <title>undefined symbol PyUnicodeUCS2_FromUnicode</title>
+      <link>https://alonsovau.github.io/2018/02/undefined-symbol-pyunicodeucs2_fromunicode/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/undefined-symbol-pyunicodeucs2_fromunicode/</guid>
+      <description>import sys print(sys.maxunicode) # 大于65535为UCS4，否则为UCS2  python2.6.6 &amp;ndash; 1114111
+ python2.7.10 &amp;ndash; 65535
+ python2.7.13 &amp;ndash; 65535
+ python3.5.2 &amp;ndash; 1114111
+ UCS4为使用4字节Unicode编译扩展模块，UCS2为2字节Unicode，解决方法是使用对应的python版本编译
+  </description>
+    </item>
+    
+    <item>
+      <title>Install Using Source from PyPI</title>
+      <link>https://alonsovau.github.io/2017/09/install-using-source-from-pypi/</link>
+      <pubDate>Fri, 22 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/09/install-using-source-from-pypi/</guid>
+      <description>python setup.py build
+python setup.py install</description>
+    </item>
+    
+    <item>
+      <title>Linux下安装python</title>
+      <link>https://alonsovau.github.io/2017/09/linux%E4%B8%8B%E5%AE%89%E8%A3%85python/</link>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/09/linux%E4%B8%8B%E5%AE%89%E8%A3%85python/</guid>
+      <description> 下载tgz包
+ tar -zxvf python-x.x.x.tgz
+ cd Python-x.x.x
+ ./configure
+ make
+ make install
+ cd /usr/bin
+ rm -rf python
+ ln -s /usr/local/bin/python2.7 ./python
+  </description>
+    </item>
+    
+    <item>
+      <title>logging</title>
+      <link>https://alonsovau.github.io/2017/09/logging/</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/09/logging/</guid>
+      <description>Logging Cookbook</description>
+    </item>
+    
+    <item>
+      <title>浏览器支持列表</title>
+      <link>https://alonsovau.github.io/2017/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8/</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8/</guid>
+      <description>浏览器支持文档</description>
+    </item>
+    
+    <item>
+      <title>同时安装了python2和3</title>
+      <link>https://alonsovau.github.io/2017/08/%E5%90%8C%E6%97%B6%E5%AE%89%E8%A3%85%E4%BA%86python2%E5%92%8C3/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/08/%E5%90%8C%E6%97%B6%E5%AE%89%E8%A3%85%E4%BA%86python2%E5%92%8C3/</guid>
+      <description> py -2 hello.py (Windows)
+ py -3 hello.py (Windows)
+ 文件开头加入:
+ #! python2
+#! python3
+ pip
+py -2 -m pip install xxx py -3 -m pip install xxx mac:
+#!/usr/bin/env python3  </description>
+    </item>
+    
+    <item>
+      <title>xa0、u3000</title>
+      <link>https://alonsovau.github.io/2017/08/xa0u3000/</link>
+      <pubDate>Fri, 25 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/08/xa0u3000/</guid>
+      <description> \xa0是不间断空白符(&amp;amp;nbsp)
+ 我们通常所用的空格是 \x20 ，是在标准ASCII可见字符 0x20~0x7e 范围内。而 \xa0 属于 latin1 （ISO/IEC_8859-1）中的扩展字符集字符，代表空白符nbsp(non-breaking space)。latin1 字符集向下兼容 ASCII （ 0x20~0x7e ）。通常我们见到的字符多数是 latin1 的，比如在 MySQL 数据库中。
+ \u3000是全角的空白符
+ 根据Unicode编码标准及其基本多语言面的定义， \u3000 属于CJK字符的CJK标点符号区块内，是空白字符之一。它的名字是 Ideographic Space ，有人译作表意字空格、象形字空格等。顾名思义，就是全角的 CJK 空格。它跟 nbsp 不一样，是可以被换行间断的。常用于制造缩进， wiki 还说用于抬头，但没见过。
+  </description>
+    </item>
+    
+    <item>
+      <title>安装BeautifulSoup库导入失败</title>
+      <link>https://alonsovau.github.io/2017/08/%E5%AE%89%E8%A3%85beautifulsoup%E5%BA%93%E5%AF%BC%E5%85%A5%E5%A4%B1%E8%B4%A5/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/08/%E5%AE%89%E8%A3%85beautifulsoup%E5%BA%93%E5%AF%BC%E5%85%A5%E5%A4%B1%E8%B4%A5/</guid>
+      <description>import BeautifulSoup # 报错，找不到模块 # 命令行进入python，使用help(&amp;#39;modules&amp;#39;)，发现名字为bs4</description>
+    </item>
+    
+    <item>
+      <title>类似问号表达式</title>
+      <link>https://alonsovau.github.io/2017/08/%E7%B1%BB%E4%BC%BC%E9%97%AE%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/08/%E7%B1%BB%E4%BC%BC%E9%97%AE%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+      <description>expression and truevalue or falsevalue
+a = reduce(lambda x, y: x &amp;gt; y and x or y, [9, 7, 9, 8, 100])</description>
+    </item>
+    
+    <item>
+      <title>failed with error code 1</title>
+      <link>https://alonsovau.github.io/2017/08/failed-with-error-code-1/</link>
+      <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/08/failed-with-error-code-1/</guid>
+      <description>command &amp;ldquo;python setup.py egg_info&amp;rdquo; failed with error code 1 in &amp;hellip;
+解决方法：
+pip install distribute</description>
+    </item>
+    
+    <item>
+      <title>搭建pycharm激活服务器</title>
+      <link>https://alonsovau.github.io/2017/06/%E6%90%AD%E5%BB%BApycharm%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/06/%E6%90%AD%E5%BB%BApycharm%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description> chmod +x intelserver
+ nohup ./intelserver -p 1666 -u zx &amp;gt;zx.out 2&amp;gt;&amp;amp;1 &amp;amp;
+  </description>
+    </item>
+    
+    <item>
+      <title>杂项</title>
+      <link>https://alonsovau.github.io/2017/06/%E6%9D%82%E9%A1%B9/</link>
+      <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/06/%E6%9D%82%E9%A1%B9/</guid>
+      <description>enumerate将其组成一个索引序列，利用它可以同时获得索引和值
+for lineno, line in enumerate(self.lines, 1):  迭代器切片
+for x in itertools.islice(c, 10, 20): 跳过可迭代对象的开始部分
+for line in dropwhile(lambda l: l.startswith(&amp;#39;#&amp;#39;), f): 跳过所有#开头字符串
+lines = (line for line in f if not line.startswith(&amp;#39;#&amp;#39;)) 排列迭代
+for p in permutations(items, 2): 组合迭代
+for c in combinations(items, 2): for c in combinations_with_replacement(items, 2): 同时迭代多个序列
+for xv, yv in zip(x, y): 迭代多个序列,短的序列补0
+for xv, yv in zip_longest(x, y, fillvalue=0): 不同集合上元素的迭代
+for x in chain(a, b): 按顺序迭代已排序序列</description>
+    </item>
+    
+  </channel>
+</rss>

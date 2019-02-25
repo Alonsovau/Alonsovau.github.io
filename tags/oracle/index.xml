@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oracle on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/tags/oracle/</link>
+    <description>Recent content in Oracle on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Tue, 26 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Oracle表空间、段、区和块简述</title>
+      <link>https://alonsovau.github.io/2018/06/oracle%E8%A1%A8%E7%A9%BA%E9%97%B4%E6%AE%B5%E5%8C%BA%E5%92%8C%E5%9D%97%E7%AE%80%E8%BF%B0/</link>
+      <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/06/oracle%E8%A1%A8%E7%A9%BA%E9%97%B4%E6%AE%B5%E5%8C%BA%E5%92%8C%E5%9D%97%E7%AE%80%E8%BF%B0/</guid>
+      <description>l Oracle表空间、段、区和块简述</description>
+    </item>
+    
+    <item>
+      <title>sqlplus的多种连接方式</title>
+      <link>https://alonsovau.github.io/2018/02/sqlplus%E7%9A%84%E5%A4%9A%E7%A7%8D%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/sqlplus%E7%9A%84%E5%A4%9A%E7%A7%8D%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/</guid>
+      <description> sqlplus / as sysdba
+ 操作系统认证，不需要数据库服务器启动listener，也不需要数据库服务器处于可用状态。比如我们想要启动数据库就可以用这种方式进入
+ sqlplus username/password
+ 连接本机数据库，不需要数据库服务器的listener进程，但是由于需要用户名密码的认证，因此需要数据库服务器处于可用状态才行
+ sqlplus username/password@orcl
+ 通过网络连接，这是需要数据库服务器的listener处于监听状态。此时建立一个连接的大致步骤如下
+ a. 查询sqlnet.ora，看看名称的解析方式，默认是TNSNAME；
+b. 查询tnsnames.ora文件，从里边找orcl的记录，并且找到数据库服务器的主机名或者IP，端口和service_name；
+c. 如果服务器listener进程没有问题的话，建立与listener进程的连接；
+d. 根据不同的服务器模式如专用服务器模式或者共享服务器模式，listener采取接下去的动作。默认是专用服务器模式，没有问题的话客户端就连接上了数据库的server process。
+ sqlplus username/password@//host:port/sid
+ sqlplus system/oracle@//192.168.130.99:1521/orabiz
+  </description>
+    </item>
+    
+    <item>
+      <title>blob字段插入实例</title>
+      <link>https://alonsovau.github.io/2017/10/blob%E5%AD%97%E6%AE%B5%E6%8F%92%E5%85%A5%E5%AE%9E%E4%BE%8B/</link>
+      <pubDate>Thu, 12 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/10/blob%E5%AD%97%E6%AE%B5%E6%8F%92%E5%85%A5%E5%AE%9E%E4%BE%8B/</guid>
+      <description>blob字段插入实例
+create table blob_table( id number primary key, blob_cl blob not null ); insert into blob_table values(1,to_blob(&amp;#39;11111000011111&amp;#39;)); commit; select * from blob_table; update blob_table set blob_cl=to_blob(&amp;#39;110010000110011&amp;#39;) where id=1; delete from blob_table where id=1; commit;</description>
+    </item>
+    
+    <item>
+      <title>设置NlS_LANG</title>
+      <link>https://alonsovau.github.io/2017/10/%E8%AE%BE%E7%BD%AEnls_lang/</link>
+      <pubDate>Thu, 12 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/10/%E8%AE%BE%E7%BD%AEnls_lang/</guid>
+      <description>linux:
+export NLS_LANG=&amp;#34;SIMPLIFIED CHINESE_CHINA&amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>杂项</title>
+      <link>https://alonsovau.github.io/2017/05/%E6%9D%82%E9%A1%B9/</link>
+      <pubDate>Mon, 08 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/05/%E6%9D%82%E9%A1%B9/</guid>
+      <description>select text from all_source where type=&amp;lsquo;TRIGGER&amp;rsquo; AND name=&amp;lsquo;TR_XXX&amp;rsquo;;
+ 关键字：  :NEW 和:OLD使用方法和意义，new 只出现在insert和update时，old只出现在update和delete时。在insert时new表示新插入的行数据，update时new表示要替换的新数据、old表示要被更改的原来的数据行，delete时old表示要被删除的数据。
+ORA-08002: 序列 sequence226 尚未在此会话中定义创建Sequence后直接查询它的当前值（CURRVAL）会出错，要先调用Sequence对象.NEXTVAL，才能查询当前值</description>
+    </item>
+    
+    <item>
+      <title>sqlldr(sql loader)</title>
+      <link>https://alonsovau.github.io/2017/04/sqlldrsql-loader/</link>
+      <pubDate>Wed, 12 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/04/sqlldrsql-loader/</guid>
+      <description>sqlldr userid=system/oracle@172.31.198.121/orabiz control=d:\student.ctl log=d:\log\student.log bad=d:\bad\student.bad skip=1  control&amp;ndash;控制文件名
+ log&amp;ndash;日志文件名
+ bad&amp;ndash;错误文件名
+ discard&amp;ndash;废弃文件名
+ discardmax&amp;ndash;允许废弃的文件的数目
+ skip&amp;ndash;要跳过的逻辑记录的数目（默认0）
+ load&amp;ndash;要加载的逻辑记录的数目（默认全部）
+ errors&amp;ndash;允许的错误的数目
+ rows&amp;ndash;常规路径绑定数组中或直接路径保存数据间的行数 (默认:常规路径 64, 所有直接路径)
+ bindsize&amp;ndash;常规路径绑定数组的大小，以字节计，默认256000
+ silent&amp;ndash; 运行过程中隐藏消息 (标题,反馈,错误,废弃,分区)
+ direct&amp;ndash; 使用直接路径 (默认 FALSE)
+ parfile&amp;ndash; 参数文件: 包含参数说明的文件的名称
+ parallel&amp;ndash; 执行并行加载 (默认 FALSE)
+ file&amp;ndash; 要从以下对象中分配区的文件
+ skip_unusable_indexes&amp;ndash; 不允许/允许使用无用的索引或索引分区 (默认 FALSE)
+ skip_index_maintenance&amp;ndash; 没有维护索引, 将受到影响的索引标记为无用 (默认 FALSE)
+ commit_discontinued&amp;ndash; 提交加载中断时已加载的行(默认 FALSE)
+ readsize&amp;ndash; 读取缓冲区的大小(默认 1048576)
+ external_table&amp;ndash; 使用外部表进行加载; NOT_USED, GENERATE_ONLY, EXECUTE (默认 NOT_USED)</description>
+    </item>
+    
+    <item>
+      <title>HWM</title>
+      <link>https://alonsovau.github.io/2017/04/hwm/</link>
+      <pubDate>Tue, 11 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/04/hwm/</guid>
+      <description>HWM(High Water Mark)</description>
+    </item>
+    
+    <item>
+      <title>instance database service SID</title>
+      <link>https://alonsovau.github.io/2017/03/instance-database-service-sid/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/03/instance-database-service-sid/</guid>
+      <description>A database instance is a set of memory structures that manage database files. A database is a set of physical files on disk created by the CREATE DATABASE statement. The instance manages its associated data and serves the users of the database.
+Every running Oracle database is associated with at least one Oracle database instance. Because an instance exists in memory and a database exists on disk, an instance can exist without a database and a database can exist without an instance.</description>
+    </item>
+    
+    <item>
+      <title>shutdown模式</title>
+      <link>https://alonsovau.github.io/2017/03/shutdown%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/03/shutdown%E6%A8%A1%E5%BC%8F/</guid>
+      <description>SHUTDOWN ABORT
+This mode is intended for emergency situations, such as when no other form of shutdown is successful. This mode of shutdown is the fastest. However, a subsequent open of this database may take substantially longer because instance recovery must be performed to make the data files consistent.
+ SHUTDOWN IMMEDIATE
+This mode is typically the fastest next to SHUTDOWN ABORT. Oracle Database terminates any executing SQL statements and disconnects users.</description>
+    </item>
+    
+  </channel>
+</rss>

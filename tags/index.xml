@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2019 Copyright Zhouxin</copyright>
-    <lastBuildDate>Wed, 07 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://alonsovau.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Chrome</title>
+      <link>https://alonsovau.github.io/tags/chrome/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/tags/chrome/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Cpp</title>
@@ -31,11 +40,47 @@
     </item>
     
     <item>
+      <title>Dbf</title>
+      <link>https://alonsovau.github.io/tags/dbf/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/tags/dbf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dict</title>
+      <link>https://alonsovau.github.io/tags/dict/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/tags/dict/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dll</title>
+      <link>https://alonsovau.github.io/tags/dll/</link>
+      <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/tags/dll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Git</title>
       <link>https://alonsovau.github.io/tags/git/</link>
       <pubDate>Tue, 20 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://alonsovau.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Html</title>
+      <link>https://alonsovau.github.io/tags/html/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/tags/html/</guid>
       <description></description>
     </item>
     
@@ -76,6 +121,15 @@
     </item>
     
     <item>
+      <title>Lxml</title>
+      <link>https://alonsovau.github.io/tags/lxml/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/tags/lxml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Mysql</title>
       <link>https://alonsovau.github.io/tags/mysql/</link>
       <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
@@ -85,11 +139,65 @@
     </item>
     
     <item>
+      <title>Oracle</title>
+      <link>https://alonsovau.github.io/tags/oracle/</link>
+      <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/tags/oracle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pypi</title>
+      <link>https://alonsovau.github.io/tags/pypi/</link>
+      <pubDate>Fri, 22 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/tags/pypi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://alonsovau.github.io/tags/python/</link>
+      <pubDate>Fri, 21 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Shell</title>
       <link>https://alonsovau.github.io/tags/shell/</link>
       <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://alonsovau.github.io/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webdriver</title>
+      <link>https://alonsovau.github.io/tags/webdriver/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/tags/webdriver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wrapper</title>
+      <link>https://alonsovau.github.io/tags/wrapper/</link>
+      <pubDate>Mon, 12 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/tags/wrapper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xml</title>
+      <link>https://alonsovau.github.io/tags/xml/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/tags/xml/</guid>
       <description></description>
     </item>
     

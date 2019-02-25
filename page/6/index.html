@@ -10,7 +10,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/" />
-<meta property="og:updated_time" content="2018-02-23T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-06-26T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Xin Zhou Blog"/>
@@ -99,7 +99,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/sed/">sed</a>
+    <a class="text-dark" href="/2018/06/linux%E4%B8%8B%E5%AE%89%E8%A3%85python3/">Linux下安装python3</a>
 </h2>
 
         
@@ -107,7 +107,97 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2018-02-23">Feb 23, 2018</time>
+        <time datetime="2018-06-26">Jun 26, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/python">python</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/python">Python</a>
+    
+</div>
+
+    </header>
+    export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN.UTF-8
+make之前需要检查openssl-devel
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/06/oracle%E8%A1%A8%E7%A9%BA%E9%97%B4%E6%AE%B5%E5%8C%BA%E5%92%8C%E5%9D%97%E7%AE%80%E8%BF%B0/">Oracle表空间、段、区和块简述</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-06-26">Jun 26, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/oracle">oracle</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/oracle">Oracle</a>
+    
+</div>
+
+    </header>
+    l Oracle表空间、段、区和块简述
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/06/%E6%96%87%E4%BB%B6%E5%8F%8Aterminal%E7%BB%88%E7%AB%AF%E7%BC%96%E7%A0%81/">文件及Terminal终端编码</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-06-16">Jun 16, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -131,21 +221,116 @@
 </div>
 
     </header>
-    语法 sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件] 参数 -e&lt;script&gt;或--expression=&lt;script&gt; 以选项中指定的script来处理输入的文本文件 -f&lt;script文件&gt;或--file=&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件 -h或--help 显示帮助 -n或--quiet或--silent 仅显示script处理后的结果 -V或--version 显示版本信息 动作  a: 新增，在匹配的下一行新增一行
- i: 插入，转匹配的上一行新增一行
- c: 取代，c后面是将替换的值
- d: 删除，删除指定行
- p: 打印，通常与sed -n一起使用
- s: 取代，进行搜索
-  例子  sed -e 4a\zx zx.txt：在第四行后面加zx，输出到标准输出，macOS语法错误
- nl zx.txt |sed &lsquo;2,5d&rsquo;：列出内容并列出行号，同时删除2-5行
- nl zx.txt |sed &lsquo;2,$d&rsquo;：删除2到最后一行
- nl zx.txt |sed &lsquo;2a zx&rsquo;：第二行后增加zx，行前使用2i,macOS不可
- nl zx.txt |sed &lsquo;2a zx\按enter键xz&rsquo;：第二行后加zx，xz2行数据，macOS不可
- nl zx.txt |sed &lsquo;2,3c kol&rsquo;：2到3行替换为kol
+    1. set fileencoding 查看文件编码 2. set fileencdding=utf-8 设置文件编码 按wq保存 3. :e ++enc=cp936 # vim打开文档后，encoding=utf-8（locale决定的），fileencoding=latin1（自动编码判断机制不准导致的），termencoding=空（默认无需转换term编码），显示文件为乱码
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/05/mysql5.7-linux%E5%AE%89%E8%A3%85/">Mysql5.7 Linux安装</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-05-24">May 24, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/mysql">mysql</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/mysql">Mysql</a>
+    
+</div>
+
+    </header>
+    rpm -ivh mysql-community-common-5.7.22-1.el7.x86_64.rpm mysql-community-libs-5.7.22-1.el7.x86_64.rpm rpm -ivh mysql-community-client-5.7.22-1.el7.x86_64.rpm mysql-community-server-5.7.22-1.el7.x86_64.rpm mysqld --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data/ --initialize service mysqld start grep &#39;temporary password&#39; /var/log/mysqld.log mysql -uroot -p ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;cffEx2016!&#39;; GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;cffEx2016!&#39; WITH GRANT OPTION; 拷贝my.cnf到/etc/目录下 my.cnf 权限为-rw-r--r-- 重启mysql
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/04/mysql-keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">MySQL+Keepalived高可用</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-04-11">Apr 11, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/mysql">mysql</a>
+    
+        <a class="badge badge-primary" href="/tags/keepalived">keepalived</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/mysql">Mysql</a>
+    
+</div>
+
+    </header>
+    一、结构  简介：
+系统主要通过Keepalived+MySQL双主来实现MySQL-HA，我们必须保证两台MySQL数据库的数据完全一样，基本设计是两台MySQL互为主从关系，通过Keepalived配置虚拟IP，实现当其中的一台MySQL数据库宕机后，应用能够自动切换到另外一台MySQL数据库，保证系统的高可用。
+ 拓扑环境：
+ OS: Red Hat Enterprise Linux Server release 7.1 (Maipo)
+ MySQL version: 5.5.59-log MySQL Community Server (GPL)
+ Keepalived version: keepalived-1.3.5-1.el7.x86_64
+ MySQL-Vip: 172.28.10.100
+ MySQL-Master1: 172.28.10.82
+ MySQL-Master2: 172.28.10.83
+  结构图：
+  二、 MySQL环境部署  修改MySQL配置文件
+以下为master1数据库的my.cnf配置文件内容，目录为/etc/my.cnf，配置完成后重启数据库
+[client] port = 3382 socket = /var/lib/mysql/mysql.sock [mysqld] port = 3382 socket = /var/lib/mysql/mysql.sock skip-external-locking key_buffer_size = 16M max_allowed_packet = 1M table_open_cache = 64 sort_buffer_size = 512K net_buffer_length = 8K read_buffer_size = 256K read_rnd_buffer_size = 512K myisam_sort_buffer_size = 8M log-bin=mysql-bin binlog_format=mixed # master2的server-id改为2 server-id = 1 # 要产生log的数据库 binlog-do-db=pms_db # 不产生log的数据库 binlog-ignore-db=mysql # 要复制的数据库 replicate-do-db=pms_db # 不复制的数据库 replicate-ignore-db=mysql log-bin=mysql-bin innodb_data_home_dir = /var/lib/mysql innodb_data_file_path = ibdata1:10M:autoextend innodb_log_group_home_dir = /var/lib/mysql innodb_buffer_pool_size = 16M innodb_additional_mem_pool_size = 2M innodb_log_file_size = 5M innodb_log_buffer_size = 8M innodb_flush_log_at_trx_commit = 1 innodb_lock_wait_timeout = 50 [mysqldump] quick max_allowed_packet = 16M [mysql] no-auto-rehash [myisamchk] key_buffer_size = 20M sort_buffer_size = 20M read_buffer = 2M write_buffer = 2M [mysqlhotcopy] interactive-timeout 将master1设置为master2的主服务器
     
     <p></p>
-    <a href="/2018/02/sed/">Read More →</a>
+    <a href="/2018/04/mysql-keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">Read More →</a>
     
 </article>
 
@@ -157,7 +342,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/%E4%BD%BF%E7%94%A8class-object%E7%9A%84%E6%8C%87%E9%92%88/">使用class object的指针</a>
+    <a class="text-dark" href="/2018/04/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">网络相关</a>
 </h2>
 
         
@@ -165,100 +350,7 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2018-02-23">Feb 23, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/cpp">cpp</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/cpp">CPP</a>
-    
-</div>
-
-    </header>
-    使用class object的指针略有不同，这是因为class object链接到一组我们可以调用(invoke)的操作行为(operations)，举例来说检查fibnacci vector的第二个元素是否为1，我们可能会这么写：
-if (!fibonacci.empty() &amp;&amp; (fibonacci[1] == 1))  上例中的fibonacci和empty()两字之间的逗号，称为dot成员选择运算符(member selection operator)，用来选择想要施行的操作，如果要通过指针来指针来选择操作行为，必须改用arrow成员选择运算符：
-由于指针可能未指向任何对象，所以先校验pv是否为非零值
-if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1)) 
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE/">函数默认值设置</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-02-23">Feb 23, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/cpp">cpp</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/cpp">CPP</a>
-    
-</div>
-
-    </header>
-     h #include &lt;vector&gt; #include &lt;iostream&gt; using namespace std; void display(const vector&lt;int&gt;&amp;, ostream&amp; = cout);  cpp #include &#34;NumericSeq.h&#34; void display(const vector&lt;int&gt; &amp;vec, ostream &amp;os){ for (int ix = 0; ix &lt; vec.size(); ix++){ os &lt;&lt; vec[ix] &lt;&lt; &#39; &#39;; } os &lt;&lt; endl; }    默认值resolve由最右边进行，如果为某个参数提供了默认值，那么这个参数右侧所有参数必须有默认值
- 默认值只能指定一次，可以在声明处，可以在函数定义处，由于头文件为函数带来更高的可见度，所以置于函数声明处 (出自Essential C++)
-   
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/%E6%9F%A5%E7%9C%8B%E6%9C%BA%E5%99%A8%E9%87%8D%E5%90%AF%E6%97%B6%E9%97%B4/">查看机器重启时间</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-02-23">Feb 23, 2018</time>
+        <time datetime="2018-04-09">Apr 9, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -282,7 +374,7 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
 </div>
 
     </header>
-    who -b 上次启动时间 last reboot 系统启动记录 last reboot |head -1 最后一次启动时间 w 可查看系统已经运行时间 top 也可查看
+    arp -a 搜索同一网段机器 iptables -L -n -v 查看已添加的iptables规则 清空日志文件： cat /dev/null&gt;/var/log/messages
     
 </article>
 
@@ -294,7 +386,7 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/10/%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0%E6%96%87%E4%BB%B6/">输出重定向到文件</a>
+    <a class="text-dark" href="/2018/04/cluster/">cluster</a>
 </h2>
 
         
@@ -302,7 +394,7 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2017-10-12">Oct 12, 2017</time>
+        <time datetime="2018-04-03">Apr 3, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -315,48 +407,6 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
     
         <a class="badge badge-primary" href="/tags/linux">linux</a>
     
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    ls &gt; log.log ls &gt;&gt; log.log --不覆盖log.log，追加 cat 1.txt 2&gt; log.log --错误输出到log.log cat 1.txt &gt; log.log 2&gt;&amp;1 --stderr也输出到stdout stdin 0 &lt; stdout 1 1&gt; stderr 2 2&gt;
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/08/root%E8%B4%A6%E6%88%B7%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/">root账户远程登录</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2017-08-04">Aug 4, 2017</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
         <a class="badge badge-primary" href="/tags/mysql">mysql</a>
     
 </div>
@@ -370,62 +420,11 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
 </div>
 
     </header>
-     关闭windows防火墙或者在入站规则添加3306端口
- 执行
-GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;root&#39; WITH GRANT OPTION; 修改root@%此用户的密码
-  
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/08/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AE%89%E8%A3%85mysql/">命令行安装mysql</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2017-08-04">Aug 4, 2017</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/mysql">mysql</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/mysql">Mysql</a>
-    
-</div>
-
-    </header>
-     C:\Program Files\mysql目录下新建my.ini
-[mysql] default-character-set=utf8 [mysqld] sql_mode=&#39;NO_AUTO_VALUE_ON_ZERO,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION,PIPES_AS_CONCAT,ANSI_QUOTES&#39; port = 3306 basedir=C:\Program Files\mysql datadir=C:\Program Files\mysql\data max_connections=200 character-set-server=utf8 default-storage-engine=INNODB 进入C:\Program Files\mysql\bin
- 执行mysqld &ndash;initialize-insecure （不设置root密码，建议使用）
- 执行mysqld -install
- 执行net start mysql
- 执行mysql -u root -p，回车不输入密码即可进入
- update mysql.user set authentication_string=PASSWORD(&lsquo;wasd123&rsquo;) whereUser=&lsquo;root&rsquo;;
- 卸载：net stop mysql,执行mysqld &ndash;remove,删除data文件夹
-  
+    https://www.linuxidc.com/Linux/2016-07/133234.htm
+ sestatus
+ 防火墙
+   接下来就可以针对这个目录通过一些命令查看配置文件在哪了，如下
+/usr/bin/mysql &ndash;verbose &ndash;help | grep -A 1 &lsquo;Default options&rsquo;
     
 </article>
 
@@ -538,12 +537,65 @@ GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;roo
                 </li>
             
         
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item disabled">
+                    <span class="page-link" aria-hidden="true">&hellip;</span>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/page/12/">12</a>
+                </li>
+            
+        
         <li class="page-item ">
             <a class="page-link" href="/page/7/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/page/7/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/page/12/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -580,7 +632,7 @@ GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;roo
         </li>
         
         <li>
-            <a href="/2018/12/watchdog/">watchdog</a>
+            <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
         </li>
         
     </ol>
@@ -604,6 +656,10 @@ GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;roo
             
             <a class="badge badge-primary" href="/categories/mysql">mysql</a>
             
+            <a class="badge badge-primary" href="/categories/oracle">oracle</a>
+            
+            <a class="badge badge-primary" href="/categories/python">python</a>
+            
         </p>
         
     
@@ -611,11 +667,21 @@ GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;roo
         <h4>Tags</h4>
         <p>
             
+            <a class="badge badge-primary" href="/tags/chrome">chrome</a>
+            
             <a class="badge badge-primary" href="/tags/cpp">cpp</a>
             
             <a class="badge badge-primary" href="/tags/database">database</a>
             
+            <a class="badge badge-primary" href="/tags/dbf">dbf</a>
+            
+            <a class="badge badge-primary" href="/tags/dict">dict</a>
+            
+            <a class="badge badge-primary" href="/tags/dll">dll</a>
+            
             <a class="badge badge-primary" href="/tags/git">git</a>
+            
+            <a class="badge badge-primary" href="/tags/html">html</a>
             
             <a class="badge badge-primary" href="/tags/ide">ide</a>
             
@@ -625,9 +691,23 @@ GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;roo
             
             <a class="badge badge-primary" href="/tags/lua">lua</a>
             
+            <a class="badge badge-primary" href="/tags/lxml">lxml</a>
+            
             <a class="badge badge-primary" href="/tags/mysql">mysql</a>
             
+            <a class="badge badge-primary" href="/tags/oracle">oracle</a>
+            
+            <a class="badge badge-primary" href="/tags/pypi">pypi</a>
+            
+            <a class="badge badge-primary" href="/tags/python">python</a>
+            
             <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+            <a class="badge badge-primary" href="/tags/webdriver">webdriver</a>
+            
+            <a class="badge badge-primary" href="/tags/wrapper">wrapper</a>
+            
+            <a class="badge badge-primary" href="/tags/xml">xml</a>
             
         </p>
         

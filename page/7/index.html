@@ -10,7 +10,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/" />
-<meta property="og:updated_time" content="2017-04-12T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-03-16T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Xin Zhou Blog"/>
@@ -99,7 +99,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/04/referential-integrity-constraint%E5%BC%95%E7%94%A8%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F/">referential integrity constraint(引用完整性约束)</a>
+    <a class="text-dark" href="/2018/03/cdll-windll-oledll/">cdll windll oledll</a>
 </h2>
 
         
@@ -107,7 +107,7 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2017-04-12">Apr 12, 2017</time>
+        <time datetime="2018-03-16">Mar 16, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -118,7 +118,9 @@
 <div class="blog-post-tags text-secondary">
     <strong>Tags:</strong>
     
-        <a class="badge badge-primary" href="/tags/database">database</a>
+        <a class="badge badge-primary" href="/tags/python">python</a>
+    
+        <a class="badge badge-primary" href="/tags/dll">dll</a>
     
 </div>
 
@@ -126,18 +128,16 @@
 <div class="blog-post-categories text-secondary">
     <strong>Categories:</strong>
     
-        <a class="badge badge-primary" href="/categories/database">Database</a>
+        <a class="badge badge-primary" href="/categories/python">Python</a>
     
 </div>
 
     </header>
-    实体数据模型 (EDM) 中的“引用完整性约束”与关系数据库中的引用完整性约束类似。 与数据库表中的一个（或多个）列可以引用另一个表的主键相同，实体类型的一个（或多个）属性可以引用另一个实体类型的实体键。 所引用的实体类型称为约束的主体端。 引用主体端的实体类型称为约束的依赖端。
-引用完整性约束定义为两个实体类型间的关联的一部分。引用完整性约束的定义指定了以下信息：
- 约束的主体端。 （一个实体类型，其实体键由依赖端引用。）
- 主体端的实体键。
- 约束的依赖端。 （一个实体类型，它的一个或多个属性引用主体端的实体键。）
- 依赖端的一个或多个引用属性。
-  
+    cdll
+windll
+oledll
+它们的不同之处在于：动态链接库中的函数所遵守的函数调用方式（calling convention）以及返回方式有所不同。
+cdll用于加载遵循cdecl调用约定的动态链接库，windll用于加载遵循stdcall调用约定的动态链接库，oledll与windll完全相同，只是会默认其载入的函数统一返回一个Windows HRESULT错误编码。
     
 </article>
 
@@ -149,7 +149,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/04/truncatedeletedrop/">truncate,delete,drop</a>
+    <a class="text-dark" href="/2018/02/decode-html-entities/">Decode HTML entities</a>
 </h2>
 
         
@@ -157,7 +157,7 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2017-04-11">Apr 11, 2017</time>
+        <time datetime="2018-02-23">Feb 23, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -168,7 +168,9 @@
 <div class="blog-post-tags text-secondary">
     <strong>Tags:</strong>
     
-        <a class="badge badge-primary" href="/tags/database">database</a>
+        <a class="badge badge-primary" href="/tags/python">python</a>
+    
+        <a class="badge badge-primary" href="/tags/html">html</a>
     
 </div>
 
@@ -176,23 +178,12 @@
 <div class="blog-post-categories text-secondary">
     <strong>Categories:</strong>
     
-        <a class="badge badge-primary" href="/categories/database">Database</a>
+        <a class="badge badge-primary" href="/categories/python">Python</a>
     
 </div>
 
     </header>
-     总体  delete：DML语言、可以回退、可以有条件的删除
- truncate：DDL语言、无法回退、默认所有的表内容都删除、删除速度比delete快、表结构及其列、约束、索引等均保持不变、truncate不记录在日志中，所以不能激活触发器。
- drop：DDL语言、操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger
-  对比  DELETE语句每删除一行，都在事务日志中为所删除的每行记录一项；TRUNCATE TABLE通过释放存储表数据所用的数据页来删除数据，并且只事务日志中记录页的释放。
- 对于由 FOREIGN KEY 约束引用的表，不能使用 TRUNCATE TABLE，而应使用不带 Where 子句的 Delete 语句。由于 TRUNCATE TABLE 不记录在日志中，所以它不能激活触发器。
- TRUNCATE TABLE 不能用于参与了索引视图的表。
- truncate和 delete只删除数据不删除表的结构(定义)，drop语句将删除表的结构被依赖的约束(constrain),触发器(trigger),索引(index);依赖于该表的存储过程/函数将保留,但是变为invalid状态.
- delete语句是dml,这个操作会放到rollback segement中,事务提交之后才生效;如果有相应的trigger,执行的时候将被触发. truncate,drop是ddl, 操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger.
- delete语句不影响表所占用的extent, 高水线(high water mark)保持原位置不动，显然drop语句将表所占用的空间全部释放，truncate语句缺省情况下将空间释放到minextents个extent,除非使用reuse storage;truncate会将高水线复位(回到最开始).
- 速度,一般来说: drop&gt; truncate &gt; delete
- 安全性:小心使用drop 和truncate,尤其没有备份的时候.否则哭都来不及
-  
+    Python3.4+ import html print(html.unescape(&#39;&amp;pound;682m&#39;)) Python2.6-3.3 from html.parser import HTMLParser h = HTMLParser() print(h.unescape(&#39;&amp;pound;682m&#39;)) link
     
 </article>
 
@@ -204,7 +195,7 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/04/ubuntu-server%E9%80%9A%E8%BF%87vnc%E8%BF%9E%E6%8E%A5xrdp%E4%BA%A6%E5%8F%AF/">ubuntu server通过vnc连接(xrdp亦可)</a>
+    <a class="text-dark" href="/2018/02/python3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/">Python3自定义排序</a>
 </h2>
 
         
@@ -212,7 +203,7 @@
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2017-04-09">Apr 9, 2017</time>
+        <time datetime="2018-02-23">Feb 23, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -223,7 +214,7 @@
 <div class="blog-post-tags text-secondary">
     <strong>Tags:</strong>
     
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
+        <a class="badge badge-primary" href="/tags/python">python</a>
     
 </div>
 
@@ -231,24 +222,16 @@
 <div class="blog-post-categories text-secondary">
     <strong>Categories:</strong>
     
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+        <a class="badge badge-primary" href="/categories/python">Python</a>
     
 </div>
 
     </header>
-    1.安装
-apt-get install vnc4server 2.设置密码
-vncpasswd 或者
-vncserver 创建一个
-3.启动vnc
-vncserver:1 4.启动vnc客户端
-输入IP地址加:1,例如192.168.1.104:1
-5.配置文件
-进入/root/.vnc
-vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: # unset SESSION_MANAGER # exec /etc/X11/xinit/xinitrc [ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup [ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources xsetroot -solid grey vncconfig -iconic &amp; #x-terminal-emulator -geometry 80x24+10+10 -ls -title &#34;$VNCDESKTOP Desktop&#34; &amp; #x-window-manager &amp; sesion-manager &amp; xfdesktop &amp; xfce4-panel &amp; xfce4-menu-plugin &amp; xfsettingsd &amp; xfconfd &amp; xfwm4 &amp;  6.
+    1. 笨方法，不推荐 a = [&#39;星期一&#39;, &#39;星期三&#39;, &#39;星期二&#39;, &#39;星期日&#39;] c = {&#39;星期一&#39;: 1, &#39;星期二&#39;: 2, &#39;星期三&#39;: 3, &#39;星期四&#39;: 4, &#39;星期五&#39;: 5, &#39;星期六&#39;: 6, &#39;星期日&#39;: 7} b = {} for i in a: b[i] = c[i] b = sorted(b.items(), key=lambda t: t[1]) # b = sorted(zip(b.values(), b.keys())) # 使用zip下面改为j[1] a = [] for j in b: day = j[0] a.append(day) print(a) 2. 自定义大小关系  python3中取消comparison function，使用key function，cmp_to_key帮助cmp过渡为key
+ def compare_day(day1, day2): c = {&#39;星期一&#39;: 1, &#39;星期二&#39;: 2, &#39;星期三&#39;: 3, &#39;星期四&#39;: 4, &#39;星期五&#39;: 5, &#39;星期六&#39;: 6, &#39;星期日&#39;: 7} value1 = c[day1] value2 = c[day2] if value1 &gt; value2: return 1 if value1 &lt; value2: return -1 return 0 a = [&#39;星期一&#39;, &#39;星期三&#39;, &#39;星期二&#39;, &#39;星期日&#39;] from functools import cmp_to_key a.
     
     <p></p>
-    <a href="/2017/04/ubuntu-server%E9%80%9A%E8%BF%87vnc%E8%BF%9E%E6%8E%A5xrdp%E4%BA%A6%E5%8F%AF/">Read More →</a>
+    <a href="/2018/02/python3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/">Read More →</a>
     
 </article>
 
@@ -260,7 +243,7 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/03/euidsuidruid/">EUID、SUID、RUID、</a>
+    <a class="text-dark" href="/2018/02/xml%E8%A7%A3%E6%9E%90/">XML解析</a>
 </h2>
 
         
@@ -268,7 +251,7 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2017-03-31">Mar 31, 2017</time>
+        <time datetime="2018-02-23">Feb 23, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -279,7 +262,11 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
 <div class="blog-post-tags text-secondary">
     <strong>Tags:</strong>
     
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
+        <a class="badge badge-primary" href="/tags/python">python</a>
+    
+        <a class="badge badge-primary" href="/tags/xml">xml</a>
+    
+        <a class="badge badge-primary" href="/tags/lxml">lxml</a>
     
 </div>
 
@@ -287,63 +274,15 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
 <div class="blog-post-categories text-secondary">
     <strong>Categories:</strong>
     
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+        <a class="badge badge-primary" href="/categories/python">Python</a>
     
 </div>
 
     </header>
-    有效用户ID（Effective UID，即EUID）与有效用户组ID（Effective Group ID，即EGID）在创建与访问文件的时候发挥作用；具体来说，创建文件时，系统内核将根据创建文件的进程的EUID与EGID设定文件的所有者/组属性，而在访问文件时，内核亦根据访问进程的EUID与EGID决定其能否访问文件。
-真实用户ID（Real UID,即RUID）与真实用户组ID（Real GID，即RGID）用于辨识进程的真正所有者，且会影响到进程发送信号的权限。没有超级用户权限的进程仅在其RUID与目标进程的RUID相匹配时才能向目标进程发送信号，例如在父子进程间，子进程从父进程处继承了认证信息，使得父子进程间可以互相发送信号。
-暂存用户ID（Saved UID，即SUID）于以提升权限运行的进程暂时需要做一些不需特权的操作时使用，这种情况下进程会暂时将自己的有效用户ID从特权用户（常为root）对应的UID变为某个非特权用户对应的UID，而后将原有的特权用户UID复制为SUID暂存；之后当进程完成不需特权的操作后，进程使用SUID的值重置EUID以重新获得特权。在这里需要说明的是，无特权进程的EUID值只能设为与RUID、SUID与EUID（也即不改变）之一相同的值。
-文件系统用户ID（File System UID，即FSUID）在Linux中使用，且只用于对文件系统的访问权限控制，在没有明确设定的情况下与EUID相同（若FSUID为root的UID，则SUID、RUID与EUID必至少有一亦为root的UID），且EUID改变也会影响到FSUID。设立FSUID是为了允许程序（如NFS服务器）在不需获取向给定UID账户发送信号的情况下以给定UID的权限来限定自己的文件系统权限。
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/03/find-print-print0/">find -print -print0</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2017-03-31">Mar 31, 2017</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    -print  True; print the full file name on the standard output, followed by a newline. If you are
-  piping the output of find into another program and there is the faintest possibility that the files which you are searching for might contain a newline, then you should seriously consider using the -print0 option instead of -print. See the UNUSUAL FILENAMES section for information about how unusual characters in filenames are handled.
+    XML # document.xml为docx文件中的 from xml.etree.ElementTree import parse from xml.etree.ElementTree import XMLParser f = open(&#39;document.xml&#39;) doc = parse(f, XMLParser(encoding=&#34;utf-8&#34;)) # 1 t_elems = doc.findall(&#39;.//{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t&#39;) # 2 ns = {&#39;w&#39;: &#39;http://schemas.openxmlformats.org/wordprocessingml/2006/main&#39;} t_elems = doc.findall(&#39;.//w:t&#39;, ns) # 3 t_elems = doc.iter(&#39;{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t&#39;) for elem in t_elems: print(elem.text) LXML from lxml import etree f = open(&#39;document.xml&#39;) doc_lxml = etree.parse(f, etree.XMLParser(encoding=&#34;utf-8&#34;)) # 1 p_lxml = doc_lxml.iter(&#39;{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t&#39;) # 2 ns = {&#39;w&#39;: &#39;http://schemas.openxmlformats.org/wordprocessingml/2006/main&#39;} find_results = doc_lxml.findall(&#39;//w:t&#39;, ns) # Namespace prefix-&gt;URI mapping known in the context of this Element.
     
     <p></p>
-    <a href="/2017/03/find-print-print0/">Read More →</a>
+    <a href="/2018/02/xml%E8%A7%A3%E6%9E%90/">Read More →</a>
     
 </article>
 
@@ -355,7 +294,7 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/03/find%E5%91%BD%E4%BB%A4/">find命令</a>
+    <a class="text-dark" href="/2018/02/crontab/">crontab</a>
 </h2>
 
         
@@ -363,7 +302,7 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
 
 <div class="blog-post-date text-secondary">
     
-        <time datetime="2017-03-31">Mar 31, 2017</time>
+        <time datetime="2018-02-23">Feb 23, 2018</time>
     
     
         by <span rel="author">Xin Zhou</span>
@@ -387,65 +326,105 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
 </div>
 
     </header>
-    find命令  find (路径) -name 文件名
- find -name &lsquo;*ora*&rsquo; 查找包含ora的文件目录
- find -perm 755 查找权限为755的文件
- find -user root 查找owner为root的文件
- find -group root 查找组为root的文件
- find -mtime -5 更改时间5天内 +5 5天以前
- find -newer myfile2 查找新于myfile2的文件
- find -type d 查找类型为文件夹的文件
- find -size +1k 查找大于1k的文件
- find -type f -exec ls {} \; 注意{}后有空格
- find -ipath &lt;范本样式&gt; 此参数的效果和指定“-path”参数类似，但忽略字符大小写的差别,指定字符串作为寻找目录的范本样式
- find -maxdepth 2 -type f 最大深度为2的文件
+     1. 用法： 1.cat /etc/crontab 系统级 2./etc/cron.deny 所列用户不允许使用 3./etc/cron.allow 所列用户允许使用 4./var/spool/cron/ 下存储以用户名存储的文件 5.minute hour day month week command 6.crontab [-u user] -l 显示当前用户任务 7.crontab -l &gt; z 备份当前用户的任务到z文件 8.crontab [-u user] -e 编辑当前用户的任务 9.crontab [-u user] -r 删除 10.crontab &lt;filename&gt; 从文件恢复 11.service crond start/stop/restart/reload 2. 例子： * * * * * command 每分钟执行 3,15 * * * * command 每小时第3，15分钟执行 3,15 8-11 */2 * * command 每2天的8-11点的第3，15分钟执行 30 21 * * 0,6 command 每周日、周六21:30分执行 * */2 * * * command 每2小时执行
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/02/dbf%E8%AF%BB%E5%86%99/">dbf读写</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-02-23">Feb 23, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/python">python</a>
+    
+        <a class="badge badge-primary" href="/tags/dbf">dbf</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux">Linux</a>
+    
+</div>
+
+    </header>
+     新建一个dbf并写入数据
+import dbf table = dbf.Table(&#39;temptable&#39;, &#39;name C(30); age N(3,0); birth D&#39;) print(table.field_names) table.open() for datum in ((&#39;John Doe&#39;, 31, dbf.Date(1979, 9, 13)), (&#39;Ethan Furman&#39;, 102, dbf.Date(1909, 4, 1)), (&#39;Jane Smith&#39;, 57, dbf.Date(1954, 7, 2)), (&#39;John Adams&#39;, 44, dbf.Date(1967, 1, 9)),): table.append(datum) for record in table: print(record) table.close() 读取一个dbf并写入数据
+table = dbf.Table(&#39;1.DBF&#39;) print(table.field_names) table.open() for data in ((&#39;1000&#39;, &#39;10000001&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;2&#39;, &#39;1&#39;), ): table.append(data) table.close()  
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/02/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-02-23">Feb 23, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/git">git</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/git">Git</a>
+    
+</div>
+
+    </header>
+    git config --global user.name &#34;Alonsovau&#34; git config --global user.email &#34;alonsovau@outlook.com&#34; mkdir learngit pwd 查看完整路径 git init git add readme.txt git commit -m &#34;wrote a readme file&#34; git status git diff readme.txt git log git log --pretty=oneline git reset --hard HEAD^ 退回上一个版本 HEAD^^上上个版本 git reset --hard 4f1be52c 到指定的某个版本 git log得到的commit id的部分即可 git reflog 用来记录你的每一次命令 git checkout -- readme.txt 丢弃工作区修改 --后面要加空格 不然爆炸 场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout &ndash; file。
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库
+rm test.
     
     <p></p>
-    <a href="/2017/03/find%E5%91%BD%E4%BB%A4/">Read More →</a>
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/03/%E5%AE%89%E8%A3%85xfce4/">安装xfce4</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2017-03-31">Mar 31, 2017</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    sudo apt-get install xinit sudo apt-get update sudo apt-get install xfce4 ubuntu中输入startx
+    <a href="/2018/02/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Read More →</a>
     
 </article>
 
@@ -554,12 +533,69 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
                 </li>
             
         
-        <li class="page-item disabled">
-            <a class="page-link" href="" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/page/8/">8</a>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item disabled">
+                    <span class="page-link" aria-hidden="true">&hellip;</span>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/page/12/">12</a>
+                </li>
+            
+        
+        <li class="page-item ">
+            <a class="page-link" href="/page/8/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/page/7/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/page/12/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -596,7 +632,7 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
         </li>
         
         <li>
-            <a href="/2018/12/watchdog/">watchdog</a>
+            <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
         </li>
         
     </ol>
@@ -620,6 +656,10 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
             
             <a class="badge badge-primary" href="/categories/mysql">mysql</a>
             
+            <a class="badge badge-primary" href="/categories/oracle">oracle</a>
+            
+            <a class="badge badge-primary" href="/categories/python">python</a>
+            
         </p>
         
     
@@ -627,11 +667,21 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
         <h4>Tags</h4>
         <p>
             
+            <a class="badge badge-primary" href="/tags/chrome">chrome</a>
+            
             <a class="badge badge-primary" href="/tags/cpp">cpp</a>
             
             <a class="badge badge-primary" href="/tags/database">database</a>
             
+            <a class="badge badge-primary" href="/tags/dbf">dbf</a>
+            
+            <a class="badge badge-primary" href="/tags/dict">dict</a>
+            
+            <a class="badge badge-primary" href="/tags/dll">dll</a>
+            
             <a class="badge badge-primary" href="/tags/git">git</a>
+            
+            <a class="badge badge-primary" href="/tags/html">html</a>
             
             <a class="badge badge-primary" href="/tags/ide">ide</a>
             
@@ -641,9 +691,23 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
             
             <a class="badge badge-primary" href="/tags/lua">lua</a>
             
+            <a class="badge badge-primary" href="/tags/lxml">lxml</a>
+            
             <a class="badge badge-primary" href="/tags/mysql">mysql</a>
             
+            <a class="badge badge-primary" href="/tags/oracle">oracle</a>
+            
+            <a class="badge badge-primary" href="/tags/pypi">pypi</a>
+            
+            <a class="badge badge-primary" href="/tags/python">python</a>
+            
             <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+            <a class="badge badge-primary" href="/tags/webdriver">webdriver</a>
+            
+            <a class="badge badge-primary" href="/tags/wrapper">wrapper</a>
+            
+            <a class="badge badge-primary" href="/tags/xml">xml</a>
             
         </p>
         

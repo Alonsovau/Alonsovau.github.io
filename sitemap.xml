@@ -23,6 +23,11 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</loc>
+    <lastmod>2018-12-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/2018/12/watchdog/</loc>
     <lastmod>2018-12-13T00:00:00+00:00</lastmod>
   </url>
@@ -63,13 +68,28 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/2018/11/%E8%A3%85%E9%A5%B0%E5%99%A8%E7%89%88%E9%AB%98%E9%80%9Ffibonacci/</loc>
+    <lastmod>2018-11-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/2018/11/core%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2018-11-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/2018/11/tips/</loc>
+    <lastmod>2018-11-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/2018/10/double%E7%B2%BE%E5%BA%A6%E6%9C%89%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2018-10-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/10/%E4%BD%BF%E7%94%A8dict%E5%AE%9E%E7%8E%B0switch%E7%B1%BB%E4%BC%BC%E5%8A%9F%E8%83%BD/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -108,6 +128,11 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/2018/07/%E8%AE%A1%E7%AE%97%E5%B0%8F%E6%AE%B5%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</loc>
+    <lastmod>2018-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/2018/07/%E6%9F%A5%E8%AF%A2linux%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</loc>
     <lastmod>2018-07-20T00:00:00+00:00</lastmod>
   </url>
@@ -133,6 +158,11 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/2018/07/chromedriver%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2018-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/2018/07/linux-swap%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2018-07-09T00:00:00+00:00</lastmod>
   </url>
@@ -140,6 +170,21 @@
   <url>
     <loc>https://alonsovau.github.io/2018/07/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit/</loc>
     <lastmod>2018-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/06/linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</loc>
+    <lastmod>2018-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/06/linux%E4%B8%8B%E5%AE%89%E8%A3%85python3/</loc>
+    <lastmod>2018-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/06/oracle%E8%A1%A8%E7%A9%BA%E9%97%B4%E6%AE%B5%E5%8C%BA%E5%92%8C%E5%9D%97%E7%AE%80%E8%BF%B0/</loc>
+    <lastmod>2018-06-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -168,7 +213,32 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/2018/03/cdll-windll-oledll/</loc>
+    <lastmod>2018-03-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/02/decode-html-entities/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/02/python3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/02/xml%E8%A7%A3%E6%9E%90/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/2018/02/crontab/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/02/dbf%E8%AF%BB%E5%86%99/</loc>
     <lastmod>2018-02-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -178,7 +248,22 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/2018/02/lxml/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/2018/02/sed/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/02/sqlplus%E7%9A%84%E5%A4%9A%E7%A7%8D%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2018/02/undefined-symbol-pyunicodeucs2_fromunicode/</loc>
     <lastmod>2018-02-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -198,8 +283,63 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/2017/10/blob%E5%AD%97%E6%AE%B5%E6%8F%92%E5%85%A5%E5%AE%9E%E4%BE%8B/</loc>
+    <lastmod>2017-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/10/%E8%AE%BE%E7%BD%AEnls_lang/</loc>
+    <lastmod>2017-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/2017/10/%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2017-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/09/install-using-source-from-pypi/</loc>
+    <lastmod>2017-09-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/09/linux%E4%B8%8B%E5%AE%89%E8%A3%85python/</loc>
+    <lastmod>2017-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/09/logging/</loc>
+    <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8/</loc>
+    <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/08/%E5%90%8C%E6%97%B6%E5%AE%89%E8%A3%85%E4%BA%86python2%E5%92%8C3/</loc>
+    <lastmod>2017-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/08/xa0u3000/</loc>
+    <lastmod>2017-08-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/08/%E5%AE%89%E8%A3%85beautifulsoup%E5%BA%93%E5%AF%BC%E5%85%A5%E5%A4%B1%E8%B4%A5/</loc>
+    <lastmod>2017-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/08/%E7%B1%BB%E4%BC%BC%E9%97%AE%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    <lastmod>2017-08-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/08/failed-with-error-code-1/</loc>
+    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -213,8 +353,33 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/2017/06/%E6%90%AD%E5%BB%BApycharm%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/06/%E6%9D%82%E9%A1%B9/</loc>
+    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/05/%E6%9D%82%E9%A1%B9/</loc>
+    <lastmod>2017-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/2017/04/referential-integrity-constraint%E5%BC%95%E7%94%A8%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F/</loc>
     <lastmod>2017-04-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/04/sqlldrsql-loader/</loc>
+    <lastmod>2017-04-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/04/hwm/</loc>
+    <lastmod>2017-04-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -243,6 +408,16 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/2017/03/instance-database-service-sid/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/2017/03/shutdown%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/2017/03/%E5%AE%89%E8%A3%85xfce4/</loc>
     <lastmod>2017-03-31T00:00:00+00:00</lastmod>
   </url>
@@ -253,6 +428,12 @@
   
   <url>
     <loc>https://alonsovau.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/tags/chrome/</loc>
+    <lastmod>2018-07-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -285,6 +466,24 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/tags/dbf/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/tags/dict/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/tags/dll/</loc>
+    <lastmod>2018-03-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/categories/git/</loc>
     <lastmod>2018-11-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -293,6 +492,12 @@
   <url>
     <loc>https://alonsovau.github.io/tags/git/</loc>
     <lastmod>2018-11-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/tags/html/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -327,6 +532,12 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/tags/lxml/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/categories/mysql/</loc>
     <lastmod>2019-02-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -339,8 +550,38 @@
   </url>
   
   <url>
+    <loc>https://alonsovau.github.io/categories/oracle/</loc>
+    <lastmod>2018-06-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/tags/oracle/</loc>
+    <lastmod>2018-06-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://alonsovau.github.io/post/</loc>
     <lastmod>2019-02-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/tags/pypi/</loc>
+    <lastmod>2017-09-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/categories/python/</loc>
+    <lastmod>2018-12-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/tags/python/</loc>
+    <lastmod>2018-12-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -352,13 +593,31 @@
   
   <url>
     <loc>https://alonsovau.github.io/tags/</loc>
-    <lastmod>2018-11-07T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/tags/webdriver/</loc>
+    <lastmod>2018-07-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/tags/wrapper/</loc>
+    <lastmod>2018-11-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://alonsovau.github.io/</loc>
     <lastmod>2019-02-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alonsovau.github.io/tags/xml/</loc>
+    <lastmod>2018-02-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

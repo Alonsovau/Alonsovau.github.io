@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dll on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/tags/dll/</link>
+    <description>Recent content in Dll on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Fri, 16 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/tags/dll/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>cdll windll oledll</title>
+      <link>https://alonsovau.github.io/2018/03/cdll-windll-oledll/</link>
+      <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/03/cdll-windll-oledll/</guid>
+      <description>cdll
+windll
+oledll
+它们的不同之处在于：动态链接库中的函数所遵守的函数调用方式（calling convention）以及返回方式有所不同。
+cdll用于加载遵循cdecl调用约定的动态链接库，windll用于加载遵循stdcall调用约定的动态链接库，oledll与windll完全相同，只是会默认其载入的函数统一返回一个Windows HRESULT错误编码。</description>
+    </item>
+    
+  </channel>
+</rss>

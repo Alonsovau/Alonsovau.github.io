@@ -290,6 +290,53 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-12-21">Dec 21, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/python">python</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/python">Python</a>
+    
+</div>
+
+    </header>
+    with open(&#39;./old/zce_l1.csv&#39;) as f: f_csv = csv.reader(f) headers = next(f_csv) print(headers) Row = namedtuple(&#39;Row&#39;, headers) for r in f_csv: row = Row(*r) print(row.
+    
+    <p></p>
+    <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
     <a class="text-dark" href="/2018/12/watchdog/">watchdog</a>
 </h2>
 
@@ -372,55 +419,6 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
 
     </header>
     #得到当前脚本路径 script=`readlink -f $0` base_dir=`dirname $script` #循环该目录下所有文件 for exchange in `ls /target/sixreceiver -I mdloader` do done #生成一个uuid cat /proc/sys/kernel/random/uuid #查找不区分大小写的name并拷贝指定目录 find . -iname *config.xml -exec cp &#39;{}&#39; ./zx/zx \; #查看压缩包中文件 tar -vtf package.tar.gz #shell函数 func() { }
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/12/%E7%BC%96%E8%AF%91%E6%89%BE%E4%B8%8D%E5%88%B0lua/">编译找不到Lua</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-12-06">Dec 6, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux">linux</a>
-    
-        <a class="badge badge-primary" href="/tags/lua">lua</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux">Linux</a>
-    
-</div>
-
-    </header>
-    cmake . -DLUA_INCLUDE_DIR=/usr/local/include/ -DLUA_LIBRARY=/usr/local/lib/liblua.
-    
-    <p></p>
-    <a href="/2018/12/%E7%BC%96%E8%AF%91%E6%89%BE%E4%B8%8D%E5%88%B0lua/">Read More →</a>
     
 </article>
 
@@ -520,8 +518,53 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
                 
             
             
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
                 <li class="page-item ">
-                    <a class="page-link" href="/page/7/">7</a>
+                    <a class="page-link" href="/page/12/">12</a>
                 </li>
             
         
@@ -530,7 +573,7 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/page/7/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/page/12/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -567,7 +610,7 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
         </li>
         
         <li>
-            <a href="/2018/12/watchdog/">watchdog</a>
+            <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
         </li>
         
     </ol>
@@ -591,6 +634,10 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
             
             <a class="badge badge-primary" href="/categories/mysql">mysql</a>
             
+            <a class="badge badge-primary" href="/categories/oracle">oracle</a>
+            
+            <a class="badge badge-primary" href="/categories/python">python</a>
+            
         </p>
         
     
@@ -598,11 +645,21 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
         <h4>Tags</h4>
         <p>
             
+            <a class="badge badge-primary" href="/tags/chrome">chrome</a>
+            
             <a class="badge badge-primary" href="/tags/cpp">cpp</a>
             
             <a class="badge badge-primary" href="/tags/database">database</a>
             
+            <a class="badge badge-primary" href="/tags/dbf">dbf</a>
+            
+            <a class="badge badge-primary" href="/tags/dict">dict</a>
+            
+            <a class="badge badge-primary" href="/tags/dll">dll</a>
+            
             <a class="badge badge-primary" href="/tags/git">git</a>
+            
+            <a class="badge badge-primary" href="/tags/html">html</a>
             
             <a class="badge badge-primary" href="/tags/ide">ide</a>
             
@@ -612,9 +669,23 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
             
             <a class="badge badge-primary" href="/tags/lua">lua</a>
             
+            <a class="badge badge-primary" href="/tags/lxml">lxml</a>
+            
             <a class="badge badge-primary" href="/tags/mysql">mysql</a>
             
+            <a class="badge badge-primary" href="/tags/oracle">oracle</a>
+            
+            <a class="badge badge-primary" href="/tags/pypi">pypi</a>
+            
+            <a class="badge badge-primary" href="/tags/python">python</a>
+            
             <a class="badge badge-primary" href="/tags/shell">shell</a>
+            
+            <a class="badge badge-primary" href="/tags/webdriver">webdriver</a>
+            
+            <a class="badge badge-primary" href="/tags/wrapper">wrapper</a>
+            
+            <a class="badge badge-primary" href="/tags/xml">xml</a>
             
         </p>
         

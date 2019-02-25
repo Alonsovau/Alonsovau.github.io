@@ -56,6 +56,15 @@ setting{ statusFile=&amp;#34;/tmp/lsyncd.stat&amp;#34;, statusInterval = 1, logf
     </item>
     
     <item>
+      <title>csv文件操作</title>
+      <link>https://alonsovau.github.io/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Fri, 21 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</guid>
+      <description>with open(&amp;#39;./old/zce_l1.csv&amp;#39;) as f: f_csv = csv.reader(f) headers = next(f_csv) print(headers) Row = namedtuple(&amp;#39;Row&amp;#39;, headers) for r in f_csv: row = Row(*r) print(row.</description>
+    </item>
+    
+    <item>
       <title>watchdog</title>
       <link>https://alonsovau.github.io/2018/12/watchdog/</link>
       <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
@@ -128,6 +137,15 @@ setting{ statusFile=&amp;#34;/tmp/lsyncd.stat&amp;#34;, statusInterval = 1, logf
     </item>
     
     <item>
+      <title>装饰器版高速fibonacci</title>
+      <link>https://alonsovau.github.io/2018/11/%E8%A3%85%E9%A5%B0%E5%99%A8%E7%89%88%E9%AB%98%E9%80%9Ffibonacci/</link>
+      <pubDate>Mon, 12 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/11/%E8%A3%85%E9%A5%B0%E5%99%A8%E7%89%88%E9%AB%98%E9%80%9Ffibonacci/</guid>
+      <description>@functools.lru_cache()此行为关键 import time from functools import wraps import functools def clock(func): @wraps(func) def clocked(*args, **kwargs): start = time.time() result = func(*args, **kwargs) elapsed = time.time() - start name = func.__name__ args_list = [] if args: args_list.append(&amp;#39;,&amp;#39;.join(repr(arg) for arg in args)) if kwargs: pairs = [&amp;#39;%s=%r&amp;#39; % (k, w) for k, w in sorted(kwargs.items())] args_list.append(&amp;#39;,&amp;#39;.join(pairs)) args_str = &amp;#39;,&amp;#39;.join(args_list) print(&amp;#39;[%0.8fs] %s(%s) -&amp;gt; %r&amp;#39; % (elapsed, name, args_str, result)) return result return clocked @functools.</description>
+    </item>
+    
+    <item>
       <title>core文件</title>
       <link>https://alonsovau.github.io/2018/11/core%E6%96%87%E4%BB%B6/</link>
       <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
@@ -135,6 +153,17 @@ setting{ statusFile=&amp;#34;/tmp/lsyncd.stat&amp;#34;, statusInterval = 1, logf
       <guid>https://alonsovau.github.io/2018/11/core%E6%96%87%E4%BB%B6/</guid>
       <description>1.ulimit -c unlimited 2./proc/sys/kernel/core_pattern 2.或者/etc/sysctl.conf中添加kernel.core_pattern=core_%e_%p或sysctl -w kernel.core_pattern=core_%e_%p 3.查看/etc/security/limits.conf * soft core unlimited //所有用户 &amp;lt;user-login-id&amp;gt; soft core unlimited //设置某个用户 还有hard core需要考虑$sysctl -a|grep core_pattern kernel.core_pattern = |/usr/libexec/abrt-hook-ccpp /var/cache/abrt %p %s %u %c
 “abrtd” creates a sub-directory (named something like “ccpp-1279914365-14618”) in the directory “/var/cache/abrt” as shown in the value of the variable. This also means that the core files will also be stored in that sub-directory in the “/var/cache/abrt” directory (in addition to the current directory where application was run).</description>
+    </item>
+    
+    <item>
+      <title>Tips</title>
+      <link>https://alonsovau.github.io/2018/11/tips/</link>
+      <pubDate>Tue, 06 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/11/tips/</guid>
+      <description> 并不是所有的装饰器都使用了@wraps，因此这里的方案并不全部适用。特别的，内置的装饰器@staticmethod和@classmethod就没有遵循这个约定(它们把原始函数存储在属性func中)
+ dis模块反编译
+  </description>
     </item>
     
     <item>
@@ -147,6 +176,15 @@ setting{ statusFile=&amp;#34;/tmp/lsyncd.stat&amp;#34;, statusInterval = 1, logf
  Code:
 char precisionStr[100] = {0}; double precisionTest = 11.437565871234012; sprintf(precisionStr, &amp;#34;%.20f&amp;#34;, precisionTest); cout &amp;lt;&amp;lt; &amp;#34;precision----&amp;#34; &amp;lt;&amp;lt; precisionStr &amp;lt;&amp;lt; endl; precisionTest = 119.437565871234012; sprintf(precisionStr, &amp;#34;%.20f&amp;#34;, precisionTest); cout &amp;lt;&amp;lt; &amp;#34;precision----&amp;#34; &amp;lt;&amp;lt; precisionStr &amp;lt;&amp;lt; endl;  Output:
 precision----11.43756587123401224915 precision----119.43756587123401402550 </description>
+    </item>
+    
+    <item>
+      <title>使用dict实现switch类似功能</title>
+      <link>https://alonsovau.github.io/2018/10/%E4%BD%BF%E7%94%A8dict%E5%AE%9E%E7%8E%B0switch%E7%B1%BB%E4%BC%BC%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/10/%E4%BD%BF%E7%94%A8dict%E5%AE%9E%E7%8E%B0switch%E7%B1%BB%E4%BC%BC%E5%8A%9F%E8%83%BD/</guid>
+      <description>switch_dict = { &amp;#39;char&amp;#39;: lambda x: &amp;#39;i am char&amp;#39; + x, &amp;#39;double&amp;#39;: lambda x: &amp;#39;i am double&amp;#39; + x, &amp;#39;int&amp;#39;: lambda x: &amp;#39;i am int&amp;#39; + x } print(switch_dict[&amp;#39;char&amp;#39;](&amp;#39;999&amp;#39;))</description>
     </item>
     
     <item>
@@ -230,6 +268,15 @@ apt search ^python$ #正则表达式 apt search --names-only python</description
     </item>
     
     <item>
+      <title>计算小段代码运行时间</title>
+      <link>https://alonsovau.github.io/2018/07/%E8%AE%A1%E7%AE%97%E5%B0%8F%E6%AE%B5%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</link>
+      <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/07/%E8%AE%A1%E7%AE%97%E5%B0%8F%E6%AE%B5%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</guid>
+      <description>t1 = timeit.timeit(&amp;#39;f = open(&amp;#34;Log.log_2018-07-10_04-43.log&amp;#34;, encoding=&amp;#34;GBK&amp;#34;);x = sum([l.count(&amp;#34;insert&amp;#34;) for l in f]);&amp;#39; &amp;#39;print(x)&amp;#39;, &amp;#39;&amp;#39;, number=5) # 第二个参数为运行前环境设置，如import timeit</description>
+    </item>
+    
+    <item>
       <title>查询Linux进程启动和运行时间</title>
       <link>https://alonsovau.github.io/2018/07/%E6%9F%A5%E8%AF%A2linux%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
@@ -282,6 +329,15 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
     </item>
     
     <item>
+      <title>chromedriver添加代理</title>
+      <link>https://alonsovau.github.io/2018/07/chromedriver%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/07/chromedriver%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86/</guid>
+      <description>from selenium import webdriver from selenium.webdriver.chrome.options import Options chrome_options = Options() chrome_options.add_argument(&amp;#34;--headless&amp;#34;) chrome_options.add_argument(&amp;#34;--no-sandbox&amp;#34;) chrome_options.add_argument(&amp;#34;--proxy-server=socks5://127.0.0.1:1080&amp;#34;) driver = webdriver.Chrome(executable_path=&amp;#39;/opt/chromedriver&amp;#39;, chrome_options=chrome_options) driver.</description>
+    </item>
+    
+    <item>
       <title>Linux swap配置</title>
       <link>https://alonsovau.github.io/2018/07/linux-swap%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
@@ -299,6 +355,35 @@ apt-get install polipo vi /etc/polipo/config service polipo restart export http_
       <description> .ssh文件夹下建立config文件：
 # 84 Host 172.28.10.84 HostName 172.28.10.84 PreferredAuthentications publickey IdentityFile ~/.ssh/id_rsa_84 执行ssh-agent让ssh识别新的私钥
 ssh-add ~/.ssh/id_rsa_84 该命令如果报错：Could not open a connection to your authentication agent.无法连接到ssh agent，可执行ssh-agent bash命令后再执行ssh-add命令  </description>
+    </item>
+    
+    <item>
+      <title>Linux下创建虚拟环境</title>
+      <link>https://alonsovau.github.io/2018/06/linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/06/linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</guid>
+      <description>pip install virtualenv virtualenv py3env #可选择使用哪个python source bin/activate deactivate</description>
+    </item>
+    
+    <item>
+      <title>Linux下安装python3</title>
+      <link>https://alonsovau.github.io/2018/06/linux%E4%B8%8B%E5%AE%89%E8%A3%85python3/</link>
+      <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/06/linux%E4%B8%8B%E5%AE%89%E8%A3%85python3/</guid>
+      <description>export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN.UTF-8
+make之前需要检查openssl-devel</description>
+    </item>
+    
+    <item>
+      <title>Oracle表空间、段、区和块简述</title>
+      <link>https://alonsovau.github.io/2018/06/oracle%E8%A1%A8%E7%A9%BA%E9%97%B4%E6%AE%B5%E5%8C%BA%E5%92%8C%E5%9D%97%E7%AE%80%E8%BF%B0/</link>
+      <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/06/oracle%E8%A1%A8%E7%A9%BA%E9%97%B4%E6%AE%B5%E5%8C%BA%E5%92%8C%E5%9D%97%E7%AE%80%E8%BF%B0/</guid>
+      <description>l Oracle表空间、段、区和块简述</description>
     </item>
     
     <item>
@@ -363,12 +448,64 @@ ssh-add ~/.ssh/id_rsa_84 该命令如果报错：Could not open a connection to 
     </item>
     
     <item>
+      <title>cdll windll oledll</title>
+      <link>https://alonsovau.github.io/2018/03/cdll-windll-oledll/</link>
+      <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/03/cdll-windll-oledll/</guid>
+      <description>cdll
+windll
+oledll
+它们的不同之处在于：动态链接库中的函数所遵守的函数调用方式（calling convention）以及返回方式有所不同。
+cdll用于加载遵循cdecl调用约定的动态链接库，windll用于加载遵循stdcall调用约定的动态链接库，oledll与windll完全相同，只是会默认其载入的函数统一返回一个Windows HRESULT错误编码。</description>
+    </item>
+    
+    <item>
+      <title>Decode HTML entities</title>
+      <link>https://alonsovau.github.io/2018/02/decode-html-entities/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/decode-html-entities/</guid>
+      <description>Python3.4+ import html print(html.unescape(&amp;#39;&amp;amp;pound;682m&amp;#39;)) Python2.6-3.3 from html.parser import HTMLParser h = HTMLParser() print(h.unescape(&amp;#39;&amp;amp;pound;682m&amp;#39;)) link</description>
+    </item>
+    
+    <item>
+      <title>Python3自定义排序</title>
+      <link>https://alonsovau.github.io/2018/02/python3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/python3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/</guid>
+      <description>1. 笨方法，不推荐 a = [&amp;#39;星期一&amp;#39;, &amp;#39;星期三&amp;#39;, &amp;#39;星期二&amp;#39;, &amp;#39;星期日&amp;#39;] c = {&amp;#39;星期一&amp;#39;: 1, &amp;#39;星期二&amp;#39;: 2, &amp;#39;星期三&amp;#39;: 3, &amp;#39;星期四&amp;#39;: 4, &amp;#39;星期五&amp;#39;: 5, &amp;#39;星期六&amp;#39;: 6, &amp;#39;星期日&amp;#39;: 7} b = {} for i in a: b[i] = c[i] b = sorted(b.items(), key=lambda t: t[1]) # b = sorted(zip(b.values(), b.keys())) # 使用zip下面改为j[1] a = [] for j in b: day = j[0] a.append(day) print(a) 2. 自定义大小关系  python3中取消comparison function，使用key function，cmp_to_key帮助cmp过渡为key
+ def compare_day(day1, day2): c = {&amp;#39;星期一&amp;#39;: 1, &amp;#39;星期二&amp;#39;: 2, &amp;#39;星期三&amp;#39;: 3, &amp;#39;星期四&amp;#39;: 4, &amp;#39;星期五&amp;#39;: 5, &amp;#39;星期六&amp;#39;: 6, &amp;#39;星期日&amp;#39;: 7} value1 = c[day1] value2 = c[day2] if value1 &amp;gt; value2: return 1 if value1 &amp;lt; value2: return -1 return 0 a = [&amp;#39;星期一&amp;#39;, &amp;#39;星期三&amp;#39;, &amp;#39;星期二&amp;#39;, &amp;#39;星期日&amp;#39;] from functools import cmp_to_key a.</description>
+    </item>
+    
+    <item>
+      <title>XML解析</title>
+      <link>https://alonsovau.github.io/2018/02/xml%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/xml%E8%A7%A3%E6%9E%90/</guid>
+      <description>XML # document.xml为docx文件中的 from xml.etree.ElementTree import parse from xml.etree.ElementTree import XMLParser f = open(&amp;#39;document.xml&amp;#39;) doc = parse(f, XMLParser(encoding=&amp;#34;utf-8&amp;#34;)) # 1 t_elems = doc.findall(&amp;#39;.//{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t&amp;#39;) # 2 ns = {&amp;#39;w&amp;#39;: &amp;#39;http://schemas.openxmlformats.org/wordprocessingml/2006/main&amp;#39;} t_elems = doc.findall(&amp;#39;.//w:t&amp;#39;, ns) # 3 t_elems = doc.iter(&amp;#39;{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t&amp;#39;) for elem in t_elems: print(elem.text) LXML from lxml import etree f = open(&amp;#39;document.xml&amp;#39;) doc_lxml = etree.parse(f, etree.XMLParser(encoding=&amp;#34;utf-8&amp;#34;)) # 1 p_lxml = doc_lxml.iter(&amp;#39;{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t&amp;#39;) # 2 ns = {&amp;#39;w&amp;#39;: &amp;#39;http://schemas.openxmlformats.org/wordprocessingml/2006/main&amp;#39;} find_results = doc_lxml.findall(&amp;#39;//w:t&amp;#39;, ns) # Namespace prefix-&amp;gt;URI mapping known in the context of this Element.</description>
+    </item>
+    
+    <item>
       <title>crontab</title>
       <link>https://alonsovau.github.io/2018/02/crontab/</link>
       <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://alonsovau.github.io/2018/02/crontab/</guid>
       <description> 1. 用法： 1.cat /etc/crontab 系统级 2./etc/cron.deny 所列用户不允许使用 3./etc/cron.allow 所列用户允许使用 4./var/spool/cron/ 下存储以用户名存储的文件 5.minute hour day month week command 6.crontab [-u user] -l 显示当前用户任务 7.crontab -l &amp;gt; z 备份当前用户的任务到z文件 8.crontab [-u user] -e 编辑当前用户的任务 9.crontab [-u user] -r 删除 10.crontab &amp;lt;filename&amp;gt; 从文件恢复 11.service crond start/stop/restart/reload 2. 例子： * * * * * command 每分钟执行 3,15 * * * * command 每小时第3，15分钟执行 3,15 8-11 */2 * * command 每2天的8-11点的第3，15分钟执行 30 21 * * 0,6 command 每周日、周六21:30分执行 * */2 * * * command 每2小时执行</description>
+    </item>
+    
+    <item>
+      <title>dbf读写</title>
+      <link>https://alonsovau.github.io/2018/02/dbf%E8%AF%BB%E5%86%99/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/dbf%E8%AF%BB%E5%86%99/</guid>
+      <description> 新建一个dbf并写入数据
+import dbf table = dbf.Table(&amp;#39;temptable&amp;#39;, &amp;#39;name C(30); age N(3,0); birth D&amp;#39;) print(table.field_names) table.open() for datum in ((&amp;#39;John Doe&amp;#39;, 31, dbf.Date(1979, 9, 13)), (&amp;#39;Ethan Furman&amp;#39;, 102, dbf.Date(1909, 4, 1)), (&amp;#39;Jane Smith&amp;#39;, 57, dbf.Date(1954, 7, 2)), (&amp;#39;John Adams&amp;#39;, 44, dbf.Date(1967, 1, 9)),): table.append(datum) for record in table: print(record) table.close() 读取一个dbf并写入数据
+table = dbf.Table(&amp;#39;1.DBF&amp;#39;) print(table.field_names) table.open() for data in ((&amp;#39;1000&amp;#39;, &amp;#39;10000001&amp;#39;, &amp;#39;1&amp;#39;, &amp;#39;1&amp;#39;, &amp;#39;1&amp;#39;, &amp;#39;1&amp;#39;, &amp;#39;2&amp;#39;, &amp;#39;1&amp;#39;), ): table.append(data) table.close()  </description>
     </item>
     
     <item>
@@ -381,6 +518,15 @@ ssh-add ~/.ssh/id_rsa_84 该命令如果报错：Could not open a connection to 
 场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
 场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库
 rm test.</description>
+    </item>
+    
+    <item>
+      <title>lxml</title>
+      <link>https://alonsovau.github.io/2018/02/lxml/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/lxml/</guid>
+      <description>from lxml import etree html = etree.HTML(resHtml, parser=etree.HTMLParser(encoding=&amp;#39;utf-8&amp;#39;)) # 处理源文件的时候，由于没有指定编码，所以它使用了一个默认编码，从而导致和UTF-8冲突，产生乱码 # http://lxml.</description>
     </item>
     
     <item>
@@ -401,6 +547,41 @@ rm test.</description>
  nl zx.txt |sed &amp;lsquo;2a zx&amp;rsquo;：第二行后增加zx，行前使用2i,macOS不可
  nl zx.txt |sed &amp;lsquo;2a zx\按enter键xz&amp;rsquo;：第二行后加zx，xz2行数据，macOS不可
  nl zx.txt |sed &amp;lsquo;2,3c kol&amp;rsquo;：2到3行替换为kol</description>
+    </item>
+    
+    <item>
+      <title>sqlplus的多种连接方式</title>
+      <link>https://alonsovau.github.io/2018/02/sqlplus%E7%9A%84%E5%A4%9A%E7%A7%8D%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/sqlplus%E7%9A%84%E5%A4%9A%E7%A7%8D%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/</guid>
+      <description> sqlplus / as sysdba
+ 操作系统认证，不需要数据库服务器启动listener，也不需要数据库服务器处于可用状态。比如我们想要启动数据库就可以用这种方式进入
+ sqlplus username/password
+ 连接本机数据库，不需要数据库服务器的listener进程，但是由于需要用户名密码的认证，因此需要数据库服务器处于可用状态才行
+ sqlplus username/password@orcl
+ 通过网络连接，这是需要数据库服务器的listener处于监听状态。此时建立一个连接的大致步骤如下
+ a. 查询sqlnet.ora，看看名称的解析方式，默认是TNSNAME；
+b. 查询tnsnames.ora文件，从里边找orcl的记录，并且找到数据库服务器的主机名或者IP，端口和service_name；
+c. 如果服务器listener进程没有问题的话，建立与listener进程的连接；
+d. 根据不同的服务器模式如专用服务器模式或者共享服务器模式，listener采取接下去的动作。默认是专用服务器模式，没有问题的话客户端就连接上了数据库的server process。
+ sqlplus username/password@//host:port/sid
+ sqlplus system/oracle@//192.168.130.99:1521/orabiz
+  </description>
+    </item>
+    
+    <item>
+      <title>undefined symbol PyUnicodeUCS2_FromUnicode</title>
+      <link>https://alonsovau.github.io/2018/02/undefined-symbol-pyunicodeucs2_fromunicode/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/undefined-symbol-pyunicodeucs2_fromunicode/</guid>
+      <description>import sys print(sys.maxunicode) # 大于65535为UCS4，否则为UCS2  python2.6.6 &amp;ndash; 1114111
+ python2.7.10 &amp;ndash; 65535
+ python2.7.13 &amp;ndash; 65535
+ python3.5.2 &amp;ndash; 1114111
+ UCS4为使用4字节Unicode编译扩展模块，UCS2为2字节Unicode，解决方法是使用对应的python版本编译
+  </description>
     </item>
     
     <item>
@@ -436,12 +617,137 @@ if (pv &amp;amp;&amp;amp; pv-&amp;gt;empty() &amp;amp;&amp;amp; ((*pv)[1] == 1))
     </item>
     
     <item>
+      <title>blob字段插入实例</title>
+      <link>https://alonsovau.github.io/2017/10/blob%E5%AD%97%E6%AE%B5%E6%8F%92%E5%85%A5%E5%AE%9E%E4%BE%8B/</link>
+      <pubDate>Thu, 12 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/10/blob%E5%AD%97%E6%AE%B5%E6%8F%92%E5%85%A5%E5%AE%9E%E4%BE%8B/</guid>
+      <description>blob字段插入实例
+create table blob_table( id number primary key, blob_cl blob not null ); insert into blob_table values(1,to_blob(&amp;#39;11111000011111&amp;#39;)); commit; select * from blob_table; update blob_table set blob_cl=to_blob(&amp;#39;110010000110011&amp;#39;) where id=1; delete from blob_table where id=1; commit;</description>
+    </item>
+    
+    <item>
+      <title>设置NlS_LANG</title>
+      <link>https://alonsovau.github.io/2017/10/%E8%AE%BE%E7%BD%AEnls_lang/</link>
+      <pubDate>Thu, 12 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/10/%E8%AE%BE%E7%BD%AEnls_lang/</guid>
+      <description>linux:
+export NLS_LANG=&amp;#34;SIMPLIFIED CHINESE_CHINA&amp;#34;.</description>
+    </item>
+    
+    <item>
       <title>输出重定向到文件</title>
       <link>https://alonsovau.github.io/2017/10/%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0%E6%96%87%E4%BB%B6/</link>
       <pubDate>Thu, 12 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://alonsovau.github.io/2017/10/%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0%E6%96%87%E4%BB%B6/</guid>
       <description>ls &amp;gt; log.log ls &amp;gt;&amp;gt; log.log --不覆盖log.log，追加 cat 1.txt 2&amp;gt; log.log --错误输出到log.log cat 1.txt &amp;gt; log.log 2&amp;gt;&amp;amp;1 --stderr也输出到stdout stdin 0 &amp;lt; stdout 1 1&amp;gt; stderr 2 2&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Install Using Source from PyPI</title>
+      <link>https://alonsovau.github.io/2017/09/install-using-source-from-pypi/</link>
+      <pubDate>Fri, 22 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/09/install-using-source-from-pypi/</guid>
+      <description>python setup.py build
+python setup.py install</description>
+    </item>
+    
+    <item>
+      <title>Linux下安装python</title>
+      <link>https://alonsovau.github.io/2017/09/linux%E4%B8%8B%E5%AE%89%E8%A3%85python/</link>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/09/linux%E4%B8%8B%E5%AE%89%E8%A3%85python/</guid>
+      <description> 下载tgz包
+ tar -zxvf python-x.x.x.tgz
+ cd Python-x.x.x
+ ./configure
+ make
+ make install
+ cd /usr/bin
+ rm -rf python
+ ln -s /usr/local/bin/python2.7 ./python
+  </description>
+    </item>
+    
+    <item>
+      <title>logging</title>
+      <link>https://alonsovau.github.io/2017/09/logging/</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/09/logging/</guid>
+      <description>Logging Cookbook</description>
+    </item>
+    
+    <item>
+      <title>浏览器支持列表</title>
+      <link>https://alonsovau.github.io/2017/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8/</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8/</guid>
+      <description>浏览器支持文档</description>
+    </item>
+    
+    <item>
+      <title>同时安装了python2和3</title>
+      <link>https://alonsovau.github.io/2017/08/%E5%90%8C%E6%97%B6%E5%AE%89%E8%A3%85%E4%BA%86python2%E5%92%8C3/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/08/%E5%90%8C%E6%97%B6%E5%AE%89%E8%A3%85%E4%BA%86python2%E5%92%8C3/</guid>
+      <description> py -2 hello.py (Windows)
+ py -3 hello.py (Windows)
+ 文件开头加入:
+ #! python2
+#! python3
+ pip
+py -2 -m pip install xxx py -3 -m pip install xxx mac:
+#!/usr/bin/env python3  </description>
+    </item>
+    
+    <item>
+      <title>xa0、u3000</title>
+      <link>https://alonsovau.github.io/2017/08/xa0u3000/</link>
+      <pubDate>Fri, 25 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/08/xa0u3000/</guid>
+      <description> \xa0是不间断空白符(&amp;amp;nbsp)
+ 我们通常所用的空格是 \x20 ，是在标准ASCII可见字符 0x20~0x7e 范围内。而 \xa0 属于 latin1 （ISO/IEC_8859-1）中的扩展字符集字符，代表空白符nbsp(non-breaking space)。latin1 字符集向下兼容 ASCII （ 0x20~0x7e ）。通常我们见到的字符多数是 latin1 的，比如在 MySQL 数据库中。
+ \u3000是全角的空白符
+ 根据Unicode编码标准及其基本多语言面的定义， \u3000 属于CJK字符的CJK标点符号区块内，是空白字符之一。它的名字是 Ideographic Space ，有人译作表意字空格、象形字空格等。顾名思义，就是全角的 CJK 空格。它跟 nbsp 不一样，是可以被换行间断的。常用于制造缩进， wiki 还说用于抬头，但没见过。
+  </description>
+    </item>
+    
+    <item>
+      <title>安装BeautifulSoup库导入失败</title>
+      <link>https://alonsovau.github.io/2017/08/%E5%AE%89%E8%A3%85beautifulsoup%E5%BA%93%E5%AF%BC%E5%85%A5%E5%A4%B1%E8%B4%A5/</link>
+      <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/08/%E5%AE%89%E8%A3%85beautifulsoup%E5%BA%93%E5%AF%BC%E5%85%A5%E5%A4%B1%E8%B4%A5/</guid>
+      <description>import BeautifulSoup # 报错，找不到模块 # 命令行进入python，使用help(&amp;#39;modules&amp;#39;)，发现名字为bs4</description>
+    </item>
+    
+    <item>
+      <title>类似问号表达式</title>
+      <link>https://alonsovau.github.io/2017/08/%E7%B1%BB%E4%BC%BC%E9%97%AE%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/08/%E7%B1%BB%E4%BC%BC%E9%97%AE%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+      <description>expression and truevalue or falsevalue
+a = reduce(lambda x, y: x &amp;gt; y and x or y, [9, 7, 9, 8, 100])</description>
+    </item>
+    
+    <item>
+      <title>failed with error code 1</title>
+      <link>https://alonsovau.github.io/2017/08/failed-with-error-code-1/</link>
+      <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/08/failed-with-error-code-1/</guid>
+      <description>command &amp;ldquo;python setup.py egg_info&amp;rdquo; failed with error code 1 in &amp;hellip;
+解决方法：
+pip install distribute</description>
     </item>
     
     <item>
@@ -474,6 +780,46 @@ GRANT ALL PRIVILEGES ON *.* TO &amp;#39;root&amp;#39;@&amp;#39;%&amp;#39; IDENTI
     </item>
     
     <item>
+      <title>搭建pycharm激活服务器</title>
+      <link>https://alonsovau.github.io/2017/06/%E6%90%AD%E5%BB%BApycharm%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/06/%E6%90%AD%E5%BB%BApycharm%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description> chmod +x intelserver
+ nohup ./intelserver -p 1666 -u zx &amp;gt;zx.out 2&amp;gt;&amp;amp;1 &amp;amp;
+  </description>
+    </item>
+    
+    <item>
+      <title>杂项</title>
+      <link>https://alonsovau.github.io/2017/06/%E6%9D%82%E9%A1%B9/</link>
+      <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/06/%E6%9D%82%E9%A1%B9/</guid>
+      <description>enumerate将其组成一个索引序列，利用它可以同时获得索引和值
+for lineno, line in enumerate(self.lines, 1):  迭代器切片
+for x in itertools.islice(c, 10, 20): 跳过可迭代对象的开始部分
+for line in dropwhile(lambda l: l.startswith(&amp;#39;#&amp;#39;), f): 跳过所有#开头字符串
+lines = (line for line in f if not line.startswith(&amp;#39;#&amp;#39;)) 排列迭代
+for p in permutations(items, 2): 组合迭代
+for c in combinations(items, 2): for c in combinations_with_replacement(items, 2): 同时迭代多个序列
+for xv, yv in zip(x, y): 迭代多个序列,短的序列补0
+for xv, yv in zip_longest(x, y, fillvalue=0): 不同集合上元素的迭代
+for x in chain(a, b): 按顺序迭代已排序序列</description>
+    </item>
+    
+    <item>
+      <title>杂项</title>
+      <link>https://alonsovau.github.io/2017/05/%E6%9D%82%E9%A1%B9/</link>
+      <pubDate>Mon, 08 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/05/%E6%9D%82%E9%A1%B9/</guid>
+      <description>select text from all_source where type=&amp;lsquo;TRIGGER&amp;rsquo; AND name=&amp;lsquo;TR_XXX&amp;rsquo;;
+ 关键字：  :NEW 和:OLD使用方法和意义，new 只出现在insert和update时，old只出现在update和delete时。在insert时new表示新插入的行数据，update时new表示要替换的新数据、old表示要被更改的原来的数据行，delete时old表示要被删除的数据。
+ORA-08002: 序列 sequence226 尚未在此会话中定义创建Sequence后直接查询它的当前值（CURRVAL）会出错，要先调用Sequence对象.NEXTVAL，才能查询当前值</description>
+    </item>
+    
+    <item>
       <title>referential integrity constraint(引用完整性约束)</title>
       <link>https://alonsovau.github.io/2017/04/referential-integrity-constraint%E5%BC%95%E7%94%A8%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F/</link>
       <pubDate>Wed, 12 Apr 2017 00:00:00 +0000</pubDate>
@@ -486,6 +832,43 @@ GRANT ALL PRIVILEGES ON *.* TO &amp;#39;root&amp;#39;@&amp;#39;%&amp;#39; IDENTI
  约束的依赖端。 （一个实体类型，它的一个或多个属性引用主体端的实体键。）
  依赖端的一个或多个引用属性。
   </description>
+    </item>
+    
+    <item>
+      <title>sqlldr(sql loader)</title>
+      <link>https://alonsovau.github.io/2017/04/sqlldrsql-loader/</link>
+      <pubDate>Wed, 12 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/04/sqlldrsql-loader/</guid>
+      <description>sqlldr userid=system/oracle@172.31.198.121/orabiz control=d:\student.ctl log=d:\log\student.log bad=d:\bad\student.bad skip=1  control&amp;ndash;控制文件名
+ log&amp;ndash;日志文件名
+ bad&amp;ndash;错误文件名
+ discard&amp;ndash;废弃文件名
+ discardmax&amp;ndash;允许废弃的文件的数目
+ skip&amp;ndash;要跳过的逻辑记录的数目（默认0）
+ load&amp;ndash;要加载的逻辑记录的数目（默认全部）
+ errors&amp;ndash;允许的错误的数目
+ rows&amp;ndash;常规路径绑定数组中或直接路径保存数据间的行数 (默认:常规路径 64, 所有直接路径)
+ bindsize&amp;ndash;常规路径绑定数组的大小，以字节计，默认256000
+ silent&amp;ndash; 运行过程中隐藏消息 (标题,反馈,错误,废弃,分区)
+ direct&amp;ndash; 使用直接路径 (默认 FALSE)
+ parfile&amp;ndash; 参数文件: 包含参数说明的文件的名称
+ parallel&amp;ndash; 执行并行加载 (默认 FALSE)
+ file&amp;ndash; 要从以下对象中分配区的文件
+ skip_unusable_indexes&amp;ndash; 不允许/允许使用无用的索引或索引分区 (默认 FALSE)
+ skip_index_maintenance&amp;ndash; 没有维护索引, 将受到影响的索引标记为无用 (默认 FALSE)
+ commit_discontinued&amp;ndash; 提交加载中断时已加载的行(默认 FALSE)
+ readsize&amp;ndash; 读取缓冲区的大小(默认 1048576)
+ external_table&amp;ndash; 使用外部表进行加载; NOT_USED, GENERATE_ONLY, EXECUTE (默认 NOT_USED)</description>
+    </item>
+    
+    <item>
+      <title>HWM</title>
+      <link>https://alonsovau.github.io/2017/04/hwm/</link>
+      <pubDate>Tue, 11 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/04/hwm/</guid>
+      <description>HWM(High Water Mark)</description>
     </item>
     
     <item>
@@ -566,6 +949,28 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
  find -type f -exec ls {} \; 注意{}后有空格
  find -ipath &amp;lt;范本样式&amp;gt; 此参数的效果和指定“-path”参数类似，但忽略字符大小写的差别,指定字符串作为寻找目录的范本样式
  find -maxdepth 2 -type f 最大深度为2的文件</description>
+    </item>
+    
+    <item>
+      <title>instance database service SID</title>
+      <link>https://alonsovau.github.io/2017/03/instance-database-service-sid/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/03/instance-database-service-sid/</guid>
+      <description>A database instance is a set of memory structures that manage database files. A database is a set of physical files on disk created by the CREATE DATABASE statement. The instance manages its associated data and serves the users of the database.
+Every running Oracle database is associated with at least one Oracle database instance. Because an instance exists in memory and a database exists on disk, an instance can exist without a database and a database can exist without an instance.</description>
+    </item>
+    
+    <item>
+      <title>shutdown模式</title>
+      <link>https://alonsovau.github.io/2017/03/shutdown%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2017/03/shutdown%E6%A8%A1%E5%BC%8F/</guid>
+      <description>SHUTDOWN ABORT
+This mode is intended for emergency situations, such as when no other form of shutdown is successful. This mode of shutdown is the fastest. However, a subsequent open of this database may take substantially longer because instance recovery must be performed to make the data files consistent.
+ SHUTDOWN IMMEDIATE
+This mode is typically the fastest next to SHUTDOWN ABORT. Oracle Database terminates any executing SQL statements and disconnects users.</description>
     </item>
     
     <item>

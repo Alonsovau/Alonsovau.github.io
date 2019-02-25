@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lxml on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/tags/lxml/</link>
+    <description>Recent content in Lxml on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Fri, 23 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/tags/lxml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>XML解析</title>
+      <link>https://alonsovau.github.io/2018/02/xml%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/xml%E8%A7%A3%E6%9E%90/</guid>
+      <description>XML # document.xml为docx文件中的 from xml.etree.ElementTree import parse from xml.etree.ElementTree import XMLParser f = open(&amp;#39;document.xml&amp;#39;) doc = parse(f, XMLParser(encoding=&amp;#34;utf-8&amp;#34;)) # 1 t_elems = doc.findall(&amp;#39;.//{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t&amp;#39;) # 2 ns = {&amp;#39;w&amp;#39;: &amp;#39;http://schemas.openxmlformats.org/wordprocessingml/2006/main&amp;#39;} t_elems = doc.findall(&amp;#39;.//w:t&amp;#39;, ns) # 3 t_elems = doc.iter(&amp;#39;{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t&amp;#39;) for elem in t_elems: print(elem.text) LXML from lxml import etree f = open(&amp;#39;document.xml&amp;#39;) doc_lxml = etree.parse(f, etree.XMLParser(encoding=&amp;#34;utf-8&amp;#34;)) # 1 p_lxml = doc_lxml.iter(&amp;#39;{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t&amp;#39;) # 2 ns = {&amp;#39;w&amp;#39;: &amp;#39;http://schemas.openxmlformats.org/wordprocessingml/2006/main&amp;#39;} find_results = doc_lxml.findall(&amp;#39;//w:t&amp;#39;, ns) # Namespace prefix-&amp;gt;URI mapping known in the context of this Element.</description>
+    </item>
+    
+    <item>
+      <title>lxml</title>
+      <link>https://alonsovau.github.io/2018/02/lxml/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/lxml/</guid>
+      <description>from lxml import etree html = etree.HTML(resHtml, parser=etree.HTMLParser(encoding=&amp;#39;utf-8&amp;#39;)) # 处理源文件的时候，由于没有指定编码，所以它使用了一个默认编码，从而导致和UTF-8冲突，产生乱码 # http://lxml.</description>
+    </item>
+    
+  </channel>
+</rss>

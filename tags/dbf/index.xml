@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dbf on Xin Zhou Blog</title>
+    <link>https://alonsovau.github.io/tags/dbf/</link>
+    <description>Recent content in Dbf on Xin Zhou Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2019 Copyright Zhouxin</copyright>
+    <lastBuildDate>Fri, 23 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alonsovau.github.io/tags/dbf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>dbf读写</title>
+      <link>https://alonsovau.github.io/2018/02/dbf%E8%AF%BB%E5%86%99/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2018/02/dbf%E8%AF%BB%E5%86%99/</guid>
+      <description> 新建一个dbf并写入数据
+import dbf table = dbf.Table(&amp;#39;temptable&amp;#39;, &amp;#39;name C(30); age N(3,0); birth D&amp;#39;) print(table.field_names) table.open() for datum in ((&amp;#39;John Doe&amp;#39;, 31, dbf.Date(1979, 9, 13)), (&amp;#39;Ethan Furman&amp;#39;, 102, dbf.Date(1909, 4, 1)), (&amp;#39;Jane Smith&amp;#39;, 57, dbf.Date(1954, 7, 2)), (&amp;#39;John Adams&amp;#39;, 44, dbf.Date(1967, 1, 9)),): table.append(datum) for record in table: print(record) table.close() 读取一个dbf并写入数据
+table = dbf.Table(&amp;#39;1.DBF&amp;#39;) print(table.field_names) table.open() for data in ((&amp;#39;1000&amp;#39;, &amp;#39;10000001&amp;#39;, &amp;#39;1&amp;#39;, &amp;#39;1&amp;#39;, &amp;#39;1&amp;#39;, &amp;#39;1&amp;#39;, &amp;#39;2&amp;#39;, &amp;#39;1&amp;#39;), ): table.append(data) table.close()  </description>
+    </item>
+    
+  </channel>
+</rss>
