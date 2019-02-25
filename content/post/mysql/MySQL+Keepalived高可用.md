@@ -31,7 +31,7 @@ categories: [
 
 3. 结构图：  
 
-![image](系统网络拓扑图.png)
+![image](../../../post/mysql/系统网络拓扑图.png)
 
 ## 二、 MySQL环境部署
 
