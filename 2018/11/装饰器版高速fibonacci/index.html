@@ -8,7 +8,8 @@
 <meta property="og:title" content="装饰器版高速fibonacci" />
 <meta property="og:description" content="@functools.lru_cache()此行为关键 import time from functools import wraps import functools def clock(func): @wraps(func) def clocked(*args, **kwargs): start = time.time() result = func(*args, **kwargs) elapsed = time.time() - start name = func.__name__ args_list = [] if args: args_list.append(&#39;,&#39;.join(repr(arg) for arg in args)) if kwargs: pairs = [&#39;%s=%r&#39; % (k, w) for k, w in sorted(kwargs.items())] args_list.append(&#39;,&#39;.join(pairs)) args_str = &#39;,&#39;.join(args_list) print(&#39;[%0.8fs] %s(%s) -&gt; %r&#39; % (elapsed, name, args_str, result)) return result return clocked @functools." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://alonsovau.github.io/2018/11/%E8%A3%85%E9%A5%B0%E5%99%A8%E7%89%88%E9%AB%98%E9%80%9Ffibonacci/" /><meta property="article:published_time" content="2018-11-12T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://alonsovau.github.io/2018/11/%E8%A3%85%E9%A5%B0%E5%99%A8%E7%89%88%E9%AB%98%E9%80%9Ffibonacci/" />
+<meta property="article:published_time" content="2018-11-12T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2018-11-12T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>

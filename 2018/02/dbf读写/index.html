@@ -10,7 +10,8 @@
 import dbf table = dbf.Table(&#39;temptable&#39;, &#39;name C(30); age N(3,0); birth D&#39;) print(table.field_names) table.open() for datum in ((&#39;John Doe&#39;, 31, dbf.Date(1979, 9, 13)), (&#39;Ethan Furman&#39;, 102, dbf.Date(1909, 4, 1)), (&#39;Jane Smith&#39;, 57, dbf.Date(1954, 7, 2)), (&#39;John Adams&#39;, 44, dbf.Date(1967, 1, 9)),): table.append(datum) for record in table: print(record) table.close() 读取一个dbf并写入数据
 table = dbf.Table(&#39;1.DBF&#39;) print(table.field_names) table.open() for data in ((&#39;1000&#39;, &#39;10000001&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;2&#39;, &#39;1&#39;), ): table.append(data) table.close()  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://alonsovau.github.io/2018/02/dbf%E8%AF%BB%E5%86%99/" /><meta property="article:published_time" content="2018-02-23T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://alonsovau.github.io/2018/02/dbf%E8%AF%BB%E5%86%99/" />
+<meta property="article:published_time" content="2018-02-23T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2018-02-23T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
@@ -171,13 +172,13 @@ table<span style="color:#f92672">.</span>close()</code></pre></div></li>
     <h4>See also</h4>
     <ul>
         
-            <li><a href="/2018/02/decode-html-entities/">Decode HTML entities</a></li>
+            <li><a href="/2018/02/xml%E8%A7%A3%E6%9E%90/">XML解析</a></li>
         
             <li><a href="/2018/02/python3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/">Python3自定义排序</a></li>
         
-            <li><a href="/2018/02/xml%E8%A7%A3%E6%9E%90/">XML解析</a></li>
-        
             <li><a href="/2018/02/lxml/">lxml</a></li>
+        
+            <li><a href="/2018/02/decode-html-entities/">Decode HTML entities</a></li>
         
             <li><a href="/2018/02/undefined-symbol-pyunicodeucs2_fromunicode/">undefined symbol PyUnicodeUCS2_FromUnicode</a></li>
         

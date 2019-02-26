@@ -20,7 +20,8 @@
 以下为master1数据库的my.cnf配置文件内容，目录为/etc/my.cnf，配置完成后重启数据库
 [client] port = 3382 socket = /var/lib/mysql/mysql.sock [mysqld] port = 3382 socket = /var/lib/mysql/mysql.sock skip-external-locking key_buffer_size = 16M max_allowed_packet = 1M table_open_cache = 64 sort_buffer_size = 512K net_buffer_length = 8K read_buffer_size = 256K read_rnd_buffer_size = 512K myisam_sort_buffer_size = 8M log-bin=mysql-bin binlog_format=mixed # master2的server-id改为2 server-id = 1 # 要产生log的数据库 binlog-do-db=pms_db # 不产生log的数据库 binlog-ignore-db=mysql # 要复制的数据库 replicate-do-db=pms_db # 不复制的数据库 replicate-ignore-db=mysql log-bin=mysql-bin innodb_data_home_dir = /var/lib/mysql innodb_data_file_path = ibdata1:10M:autoextend innodb_log_group_home_dir = /var/lib/mysql innodb_buffer_pool_size = 16M innodb_additional_mem_pool_size = 2M innodb_log_file_size = 5M innodb_log_buffer_size = 8M innodb_flush_log_at_trx_commit = 1 innodb_lock_wait_timeout = 50 [mysqldump] quick max_allowed_packet = 16M [mysql] no-auto-rehash [myisamchk] key_buffer_size = 20M sort_buffer_size = 20M read_buffer = 2M write_buffer = 2M [mysqlhotcopy] interactive-timeout 将master1设置为master2的主服务器" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://alonsovau.github.io/2018/04/mysql-keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/" /><meta property="article:published_time" content="2018-04-11T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://alonsovau.github.io/2018/04/mysql-keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/" />
+<meta property="article:published_time" content="2018-04-11T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2018-04-11T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
@@ -572,11 +573,11 @@ inet6 fe80::250:56ff:feb1:6058/64 scope link
         
             <li><a href="/2018/04/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">网络相关</a></li>
         
-            <li><a href="/2018/02/%E6%9F%A5%E7%9C%8B%E6%9C%BA%E5%99%A8%E9%87%8D%E5%90%AF%E6%97%B6%E9%97%B4/">查看机器重启时间</a></li>
+            <li><a href="/2018/02/crontab/">crontab</a></li>
         
             <li><a href="/2018/02/sed/">sed</a></li>
         
-            <li><a href="/2018/02/crontab/">crontab</a></li>
+            <li><a href="/2018/02/%E6%9F%A5%E7%9C%8B%E6%9C%BA%E5%99%A8%E9%87%8D%E5%90%AF%E6%97%B6%E9%97%B4/">查看机器重启时间</a></li>
         
     </ul>
 

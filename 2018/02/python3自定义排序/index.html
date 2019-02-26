@@ -9,7 +9,8 @@
 <meta property="og:description" content="1. 笨方法，不推荐 a = [&#39;星期一&#39;, &#39;星期三&#39;, &#39;星期二&#39;, &#39;星期日&#39;] c = {&#39;星期一&#39;: 1, &#39;星期二&#39;: 2, &#39;星期三&#39;: 3, &#39;星期四&#39;: 4, &#39;星期五&#39;: 5, &#39;星期六&#39;: 6, &#39;星期日&#39;: 7} b = {} for i in a: b[i] = c[i] b = sorted(b.items(), key=lambda t: t[1]) # b = sorted(zip(b.values(), b.keys())) # 使用zip下面改为j[1] a = [] for j in b: day = j[0] a.append(day) print(a) 2. 自定义大小关系  python3中取消comparison function，使用key function，cmp_to_key帮助cmp过渡为key
  def compare_day(day1, day2): c = {&#39;星期一&#39;: 1, &#39;星期二&#39;: 2, &#39;星期三&#39;: 3, &#39;星期四&#39;: 4, &#39;星期五&#39;: 5, &#39;星期六&#39;: 6, &#39;星期日&#39;: 7} value1 = c[day1] value2 = c[day2] if value1 &gt; value2: return 1 if value1 &lt; value2: return -1 return 0 a = [&#39;星期一&#39;, &#39;星期三&#39;, &#39;星期二&#39;, &#39;星期日&#39;] from functools import cmp_to_key a." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://alonsovau.github.io/2018/02/python3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/" /><meta property="article:published_time" content="2018-02-23T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://alonsovau.github.io/2018/02/python3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/" />
+<meta property="article:published_time" content="2018-02-23T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2018-02-23T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
@@ -217,15 +218,15 @@ double_resvered <span style="color:#f92672">=</span> list(reversed(sorted(revers
     <h4>See also</h4>
     <ul>
         
-            <li><a href="/2018/02/lxml/">lxml</a></li>
-        
             <li><a href="/2018/02/dbf%E8%AF%BB%E5%86%99/">dbf读写</a></li>
         
-            <li><a href="/2018/02/xml%E8%A7%A3%E6%9E%90/">XML解析</a></li>
+            <li><a href="/2018/02/lxml/">lxml</a></li>
         
             <li><a href="/2018/02/undefined-symbol-pyunicodeucs2_fromunicode/">undefined symbol PyUnicodeUCS2_FromUnicode</a></li>
         
             <li><a href="/2018/02/decode-html-entities/">Decode HTML entities</a></li>
+        
+            <li><a href="/2018/02/xml%E8%A7%A3%E6%9E%90/">XML解析</a></li>
         
     </ul>
 
