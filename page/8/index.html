@@ -100,6 +100,148 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/02/crontab/">crontab</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-02-23">Feb 23, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux/">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
+    
+</div>
+
+    </header>
+     1. 用法： 1.cat /etc/crontab 系统级 2./etc/cron.deny 所列用户不允许使用 3./etc/cron.allow 所列用户允许使用 4./var/spool/cron/ 下存储以用户名存储的文件 5.minute hour day month week command 6.crontab [-u user] -l 显示当前用户任务 7.crontab -l &gt; z 备份当前用户的任务到z文件 8.crontab [-u user] -e 编辑当前用户的任务 9.crontab [-u user] -r 删除 10.crontab &lt;filename&gt; 从文件恢复 11.service crond start/stop/restart/reload 2. 例子： * * * * * command 每分钟执行 3,15 * * * * command 每小时第3，15分钟执行 3,15 8-11 */2 * * command 每2天的8-11点的第3，15分钟执行 30 21 * * 0,6 command 每周日、周六21:30分执行 * */2 * * * command 每2小时执行
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/02/dbf%E8%AF%BB%E5%86%99/">dbf读写</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-02-23">Feb 23, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/python/">python</a>
+    
+        <a class="badge badge-primary" href="/tags/dbf/">dbf</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
+    
+</div>
+
+    </header>
+     新建一个dbf并写入数据
+import dbf table = dbf.Table(&#39;temptable&#39;, &#39;name C(30); age N(3,0); birth D&#39;) print(table.field_names) table.open() for datum in ((&#39;John Doe&#39;, 31, dbf.Date(1979, 9, 13)), (&#39;Ethan Furman&#39;, 102, dbf.Date(1909, 4, 1)), (&#39;Jane Smith&#39;, 57, dbf.Date(1954, 7, 2)), (&#39;John Adams&#39;, 44, dbf.Date(1967, 1, 9)),): table.append(datum) for record in table: print(record) table.close() 读取一个dbf并写入数据
+table = dbf.Table(&#39;1.DBF&#39;) print(table.field_names) table.open() for data in ((&#39;1000&#39;, &#39;10000001&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;2&#39;, &#39;1&#39;), ): table.append(data) table.close()  
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/02/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-02-23">Feb 23, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/git/">git</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/git/">Git</a>
+    
+</div>
+
+    </header>
+    git config --global user.name &#34;Alonsovau&#34; git config --global user.email &#34;alonsovau@outlook.com&#34; mkdir learngit pwd 查看完整路径 git init git add readme.txt git commit -m &#34;wrote a readme file&#34; git status git diff readme.txt git log git log --pretty=oneline git reset --hard HEAD^ 退回上一个版本 HEAD^^上上个版本 git reset --hard 4f1be52c 到指定的某个版本 git log得到的commit id的部分即可 git reflog 用来记录你的每一次命令 git checkout -- readme.txt 丢弃工作区修改 --后面要加空格 不然爆炸 场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout &ndash; file。
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库
+rm test.
+    
+    <p></p>
+    <a href="/2018/02/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
     <a class="text-dark" href="/2018/02/lxml/">lxml</a>
 </h2>
 
@@ -308,143 +450,6 @@ d. 根据不同的服务器模式如专用服务器模式或者共享服务器�
 
 
 
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/%E4%BD%BF%E7%94%A8class-object%E7%9A%84%E6%8C%87%E9%92%88/">使用class object的指针</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-02-23">Feb 23, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/cpp/">cpp</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/cpp/">CPP</a>
-    
-</div>
-
-    </header>
-    使用class object的指针略有不同，这是因为class object链接到一组我们可以调用(invoke)的操作行为(operations)，举例来说检查fibnacci vector的第二个元素是否为1，我们可能会这么写：
-if (!fibonacci.empty() &amp;&amp; (fibonacci[1] == 1))  上例中的fibonacci和empty()两字之间的逗号，称为dot成员选择运算符(member selection operator)，用来选择想要施行的操作，如果要通过指针来指针来选择操作行为，必须改用arrow成员选择运算符：
-由于指针可能未指向任何对象，所以先校验pv是否为非零值
-if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1)) 
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE/">函数默认值设置</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-02-23">Feb 23, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/cpp/">cpp</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/cpp/">CPP</a>
-    
-</div>
-
-    </header>
-     h #include &lt;vector&gt; #include &lt;iostream&gt; using namespace std; void display(const vector&lt;int&gt;&amp;, ostream&amp; = cout);  cpp #include &#34;NumericSeq.h&#34; void display(const vector&lt;int&gt; &amp;vec, ostream &amp;os){ for (int ix = 0; ix &lt; vec.size(); ix++){ os &lt;&lt; vec[ix] &lt;&lt; &#39; &#39;; } os &lt;&lt; endl; }    默认值resolve由最右边进行，如果为某个参数提供了默认值，那么这个参数右侧所有参数必须有默认值
- 默认值只能指定一次，可以在声明处，可以在函数定义处，由于头文件为函数带来更高的可见度，所以置于函数声明处 (出自Essential C++)
-   
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/%E6%9F%A5%E7%9C%8B%E6%9C%BA%E5%99%A8%E9%87%8D%E5%90%AF%E6%97%B6%E9%97%B4/">查看机器重启时间</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-02-23">Feb 23, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux/">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
-    
-</div>
-
-    </header>
-    who -b 上次启动时间 last reboot 系统启动记录 last reboot |head -1 最后一次启动时间 w 可查看系统已经运行时间 top 也可查看
-    
-</article>
-
-    
-
-
-
 
 
 <nav class="blog-pagination">
@@ -598,8 +603,17 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
                 
             
             
+        
+            
+            
+            
+            
+                
+                
+            
+            
                 <li class="page-item ">
-                    <a class="page-link" href="/page/12/">12</a>
+                    <a class="page-link" href="/page/13/">13</a>
                 </li>
             
         
@@ -608,7 +622,7 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/page/12/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/page/13/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -629,23 +643,23 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
     <ol class="list-unstyled">
         
         <li>
+            <a href="/2019/03/gdb-debugging-forks/">GDB Debugging Forks</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/fork/">fork()</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/git-orphan-submodule-worktree-example/">git orphan submodule worktree example</a>
+        </li>
+        
+        <li>
             <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
         </li>
         
         <li>
             <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
-        </li>
-        
-        <li>
-            <a href="/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/">Linux和Windows换行</a>
-        </li>
-        
-        <li>
-            <a href="/2019/02/vmvare-multiple-network-adapters-configuration/">vmvare multiple network adapters configuration</a>
-        </li>
-        
-        <li>
-            <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
         </li>
         
     </ol>

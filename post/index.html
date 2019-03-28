@@ -10,7 +10,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/post/" />
 
-<meta property="og:updated_time" content="2019-02-18T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2019-03-27T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -92,6 +92,151 @@
 
 
 
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2019/03/gdb-debugging-forks/">GDB Debugging Forks</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2019-03-27">Mar 27, 2019</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux/">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/cpp/">cpp</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/cpp/">CPP</a>
+    
+</div>
+
+    </header>
+    show follow-fork-mode Debugger response to a program call of fork or vfork is &#34;parent&#34;.set follow-fork-mode mode parent The original process is debugged after a fork. The child process runs unimpeded. This is the default. child The new process is debugged after a fork. The parent process runs unimpeded.show detach-on-fork Whether gdb will detach the child of a fork is on.set detach-on-fork mode on The child process (or parent process, depending on the value of follow-fork-mode) will be detached and allowed to run independently.
+    
+    <p></p>
+    <a href="/2019/03/gdb-debugging-forks/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2019/02/fork/">fork()</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2019-02-28">Feb 28, 2019</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux/">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/cpp/">cpp</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/cpp/">CPP</a>
+    
+</div>
+
+    </header>
+    #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include &lt;unistd.h&gt; #include &lt;set&gt; #include &lt;sys/wait.h&gt; using namespace std; int main(int argc, char const *argv[]) { int num = 5; set&lt;int&gt; pid_set; int seq = 0; pid_t temp_pid; for (int i=0; i &lt; num; i++) { temp_pid = fork(); if (temp_pid ==0 || temp_pid == -1) break; pid_set.insert(temp_pid); seq++; } if (temp_pid == 0) { for (int j=0; j &lt; 10; j++) { printf(&#34;%d---%d---%d\n&#34;, getpid(), j, seq); if (seq == 0) { char *p = NULL; printf(&#34;%c&#34;, *p); } sleep(seq); } return 0; } else { int stat = 0; int ret = 0; while(true){ ret = waitpid(0, &amp;stat, WNOHANG); if (ret &gt; 0) { set&lt;int&gt;::iterator position = pid_set.
+    
+    <p></p>
+    <a href="/2019/02/fork/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2019/02/git-orphan-submodule-worktree-example/">git orphan submodule worktree example</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2019-02-18">Feb 18, 2019</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/git/">git</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/git/">Git</a>
+    
+</div>
+
+    </header>
+    Example 1 directories $ ll -a total 22 drwxr-xr-x 1 alons 197609 0 2月 18 19:56 ./ drwxr-xr-x 1 alons 197609 0 2月 18 19:53 ../ drwxr-xr-x 1 alons 197609 0 2月 18 20:04 .git/ -rw-r--r-- 1 alons 197609 7 2月 18 19:53 .gitignore -rw-r--r-- 1 alons 197609 116 2月 18 19:53 .gitmodules drwxr-xr-x 1 alons 197609 0 2月 18 19:53 archetypes/ -rw-r--r-- 1 alons 197609 2381 2月 18 19:53 config.
+    
+    <p></p>
+    <a href="/2019/02/git-orphan-submodule-worktree-example/">Read More →</a>
+    
+</article>
+
+    
 
 
 
@@ -286,146 +431,6 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
 
 
 
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-12-21">Dec 21, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/python/">python</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/python/">Python</a>
-    
-</div>
-
-    </header>
-    with open(&#39;./old/zce_l1.csv&#39;) as f: f_csv = csv.reader(f) headers = next(f_csv) print(headers) Row = namedtuple(&#39;Row&#39;, headers) for r in f_csv: row = Row(*r) print(row.
-    
-    <p></p>
-    <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">Read More →</a>
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/12/watchdog/">watchdog</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-12-13">Dec 13, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux/">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
-    
-</div>
-
-    </header>
-    The Linux kernel watchdog is used to monitor if a system is running. It is supposed to automatically reboot hanged systems due to unrecoverable software errors. The watchdog module is specific to the hardware or chip being used. Personal computer users don’t need watchdog as they can reset the system manually. However, it is useful for systems that are mission critical and need the ability to reboot themselves without human intervention.
-    
-    <p></p>
-    <a href="/2018/12/watchdog/">Read More →</a>
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/12/%E5%B8%B8%E7%94%A8shell/">常用shell</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-12-12">Dec 12, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux/">linux</a>
-    
-        <a class="badge badge-primary" href="/tags/shell/">shell</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
-    
-</div>
-
-    </header>
-    #得到当前脚本路径 script=`readlink -f $0` base_dir=`dirname $script` #循环该目录下所有文件 for exchange in `ls /target/sixreceiver -I mdloader` do done #生成一个uuid cat /proc/sys/kernel/random/uuid #查找不区分大小写的name并拷贝指定目录 find . -iname *config.xml -exec cp &#39;{}&#39; ./zx/zx \; #查看压缩包中文件 tar -vtf package.tar.gz #shell函数 func() { }
-    
-</article>
-
-    
-
-
-
 
 
 <nav class="blog-pagination">
@@ -563,8 +568,17 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
                 
             
             
+        
+            
+            
+            
+            
+                
+                
+            
+            
                 <li class="page-item ">
-                    <a class="page-link" href="/post/page/12/">12</a>
+                    <a class="page-link" href="/post/page/13/">13</a>
                 </li>
             
         
@@ -573,7 +587,7 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/post/page/12/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/post/page/13/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -594,23 +608,23 @@ setting{ statusFile=&#34;/tmp/lsyncd.stat&#34;, statusInterval = 1, logfile=&#34
     <ol class="list-unstyled">
         
         <li>
+            <a href="/2019/03/gdb-debugging-forks/">GDB Debugging Forks</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/fork/">fork()</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/git-orphan-submodule-worktree-example/">git orphan submodule worktree example</a>
+        </li>
+        
+        <li>
             <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
         </li>
         
         <li>
             <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
-        </li>
-        
-        <li>
-            <a href="/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/">Linux和Windows换行</a>
-        </li>
-        
-        <li>
-            <a href="/2019/02/vmvare-multiple-network-adapters-configuration/">vmvare multiple network adapters configuration</a>
-        </li>
-        
-        <li>
-            <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
         </li>
         
     </ol>

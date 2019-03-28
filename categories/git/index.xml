@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2019 Copyright Zhouxin</copyright>
-    <lastBuildDate>Tue, 20 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://alonsovau.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>git orphan submodule worktree example</title>
+      <link>https://alonsovau.github.io/2019/02/git-orphan-submodule-worktree-example/</link>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://alonsovau.github.io/2019/02/git-orphan-submodule-worktree-example/</guid>
+      <description>Example 1 directories $ ll -a total 22 drwxr-xr-x 1 alons 197609 0 2月 18 19:56 ./ drwxr-xr-x 1 alons 197609 0 2月 18 19:53 ../ drwxr-xr-x 1 alons 197609 0 2月 18 20:04 .git/ -rw-r--r-- 1 alons 197609 7 2月 18 19:53 .gitignore -rw-r--r-- 1 alons 197609 116 2月 18 19:53 .gitmodules drwxr-xr-x 1 alons 197609 0 2月 18 19:53 archetypes/ -rw-r--r-- 1 alons 197609 2381 2月 18 19:53 config.</description>
+    </item>
     
     <item>
       <title>fork后同步原仓库</title>

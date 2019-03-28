@@ -10,7 +10,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/categories/cpp/" />
 
-<meta property="og:updated_time" content="2018-10-29T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2019-03-27T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cpp"/>
@@ -92,6 +92,104 @@
 
 
 
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2019/03/gdb-debugging-forks/">GDB Debugging Forks</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2019-03-27">Mar 27, 2019</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux/">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/cpp/">cpp</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/cpp/">CPP</a>
+    
+</div>
+
+    </header>
+    show follow-fork-mode Debugger response to a program call of fork or vfork is &#34;parent&#34;.set follow-fork-mode mode parent The original process is debugged after a fork. The child process runs unimpeded. This is the default. child The new process is debugged after a fork. The parent process runs unimpeded.show detach-on-fork Whether gdb will detach the child of a fork is on.set detach-on-fork mode on The child process (or parent process, depending on the value of follow-fork-mode) will be detached and allowed to run independently.
+    
+    <p></p>
+    <a href="/2019/03/gdb-debugging-forks/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2019/02/fork/">fork()</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2019-02-28">Feb 28, 2019</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux/">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/cpp/">cpp</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/cpp/">CPP</a>
+    
+</div>
+
+    </header>
+    #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include &lt;unistd.h&gt; #include &lt;set&gt; #include &lt;sys/wait.h&gt; using namespace std; int main(int argc, char const *argv[]) { int num = 5; set&lt;int&gt; pid_set; int seq = 0; pid_t temp_pid; for (int i=0; i &lt; num; i++) { temp_pid = fork(); if (temp_pid ==0 || temp_pid == -1) break; pid_set.insert(temp_pid); seq++; } if (temp_pid == 0) { for (int j=0; j &lt; 10; j++) { printf(&#34;%d---%d---%d\n&#34;, getpid(), j, seq); if (seq == 0) { char *p = NULL; printf(&#34;%c&#34;, *p); } sleep(seq); } return 0; } else { int stat = 0; int ret = 0; while(true){ ret = waitpid(0, &amp;stat, WNOHANG); if (ret &gt; 0) { set&lt;int&gt;::iterator position = pid_set.
+    
+    <p></p>
+    <a href="/2019/02/fork/">Read More →</a>
+    
+</article>
+
+    
 
 
 
@@ -334,53 +432,56 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
 
 
 
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/02/%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE/">函数默认值设置</a>
-</h2>
 
+
+<nav class="blog-pagination">
+    <ul class="pagination justify-content-center">
         
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-02-23">Feb 23, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
+        <li class="page-item">
+            <a class="page-link" href="/categories/cpp/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+        </li>
         
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/cpp/">cpp</a>
-    
-</div>
-
+        <li class="page-item disabled">
+            <a class="page-link" href="" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+        </li>
         
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/cpp/">CPP</a>
-    
-</div>
-
-    </header>
-     h #include &lt;vector&gt; #include &lt;iostream&gt; using namespace std; void display(const vector&lt;int&gt;&amp;, ostream&amp; = cout);  cpp #include &#34;NumericSeq.h&#34; void display(const vector&lt;int&gt; &amp;vec, ostream &amp;os){ for (int ix = 0; ix &lt; vec.size(); ix++){ os &lt;&lt; vec[ix] &lt;&lt; &#39; &#39;; } os &lt;&lt; endl; }    默认值resolve由最右边进行，如果为某个参数提供了默认值，那么这个参数右侧所有参数必须有默认值
- 默认值只能指定一次，可以在声明处，可以在函数定义处，由于头文件为函数带来更高的可见度，所以置于函数声明处 (出自Essential C++)
-   
-    
-</article>
-
-    
-
-
-
-
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item active">
+                    <a class="page-link" href="/categories/cpp/">1</a>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/categories/cpp/page/2/">2</a>
+                </li>
+            
+        
+        <li class="page-item ">
+            <a class="page-link" href="/categories/cpp/page/2/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+        </li>
+        
+            <li class="page-item">
+                <a class="page-link" href="/categories/cpp/page/2/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+            </li>
+        
+    </ul>
+</nav>
 
 
 
@@ -397,23 +498,23 @@ if (pv &amp;&amp; pv-&gt;empty() &amp;&amp; ((*pv)[1] == 1))
     <ol class="list-unstyled">
         
         <li>
+            <a href="/2019/03/gdb-debugging-forks/">GDB Debugging Forks</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/fork/">fork()</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/git-orphan-submodule-worktree-example/">git orphan submodule worktree example</a>
+        </li>
+        
+        <li>
             <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
         </li>
         
         <li>
             <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
-        </li>
-        
-        <li>
-            <a href="/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/">Linux和Windows换行</a>
-        </li>
-        
-        <li>
-            <a href="/2019/02/vmvare-multiple-network-adapters-configuration/">vmvare multiple network adapters configuration</a>
-        </li>
-        
-        <li>
-            <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
         </li>
         
     </ol>

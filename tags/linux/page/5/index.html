@@ -99,6 +99,108 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/02/crontab/">crontab</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-02-23">Feb 23, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux/">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
+    
+</div>
+
+    </header>
+     1. 用法： 1.cat /etc/crontab 系统级 2./etc/cron.deny 所列用户不允许使用 3./etc/cron.allow 所列用户允许使用 4./var/spool/cron/ 下存储以用户名存储的文件 5.minute hour day month week command 6.crontab [-u user] -l 显示当前用户任务 7.crontab -l &gt; z 备份当前用户的任务到z文件 8.crontab [-u user] -e 编辑当前用户的任务 9.crontab [-u user] -r 删除 10.crontab &lt;filename&gt; 从文件恢复 11.service crond start/stop/restart/reload 2. 例子： * * * * * command 每分钟执行 3,15 * * * * command 每小时第3，15分钟执行 3,15 8-11 */2 * * command 每2天的8-11点的第3，15分钟执行 30 21 * * 0,6 command 每周日、周六21:30分执行 * */2 * * * command 每2小时执行
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/02/sed/">sed</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-02-23">Feb 23, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux/">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
+    
+</div>
+
+    </header>
+    语法 sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件] 参数 -e&lt;script&gt;或--expression=&lt;script&gt; 以选项中指定的script来处理输入的文本文件 -f&lt;script文件&gt;或--file=&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件 -h或--help 显示帮助 -n或--quiet或--silent 仅显示script处理后的结果 -V或--version 显示版本信息 动作  a: 新增，在匹配的下一行新增一行
+ i: 插入，转匹配的上一行新增一行
+ c: 取代，c后面是将替换的值
+ d: 删除，删除指定行
+ p: 打印，通常与sed -n一起使用
+ s: 取代，进行搜索
+  例子  sed -e 4a\zx zx.txt：在第四行后面加zx，输出到标准输出，macOS语法错误
+ nl zx.txt |sed &lsquo;2,5d&rsquo;：列出内容并列出行号，同时删除2-5行
+ nl zx.txt |sed &lsquo;2,$d&rsquo;：删除2到最后一行
+ nl zx.txt |sed &lsquo;2a zx&rsquo;：第二行后增加zx，行前使用2i,macOS不可
+ nl zx.txt |sed &lsquo;2a zx\按enter键xz&rsquo;：第二行后加zx，xz2行数据，macOS不可
+ nl zx.txt |sed &lsquo;2,3c kol&rsquo;：2到3行替换为kol
+    
+    <p></p>
+    <a href="/2018/02/sed/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
     <a class="text-dark" href="/2018/02/%E6%9F%A5%E7%9C%8B%E6%9C%BA%E5%99%A8%E9%87%8D%E5%90%AF%E6%97%B6%E9%97%B4/">查看机器重启时间</a>
 </h2>
 
@@ -334,108 +436,6 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
 
 
 
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/03/find%E5%91%BD%E4%BB%A4/">find命令</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2017-03-31">Mar 31, 2017</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux/">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
-    
-</div>
-
-    </header>
-    find命令  find (路径) -name 文件名
- find -name &lsquo;*ora*&rsquo; 查找包含ora的文件目录
- find -perm 755 查找权限为755的文件
- find -user root 查找owner为root的文件
- find -group root 查找组为root的文件
- find -mtime -5 更改时间5天内 +5 5天以前
- find -newer myfile2 查找新于myfile2的文件
- find -type d 查找类型为文件夹的文件
- find -size +1k 查找大于1k的文件
- find -type f -exec ls {} \; 注意{}后有空格
- find -ipath &lt;范本样式&gt; 此参数的效果和指定“-path”参数类似，但忽略字符大小写的差别,指定字符串作为寻找目录的范本样式
- find -maxdepth 2 -type f 最大深度为2的文件
-    
-    <p></p>
-    <a href="/2017/03/find%E5%91%BD%E4%BB%A4/">Read More →</a>
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2017/03/%E5%AE%89%E8%A3%85xfce4/">安装xfce4</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2017-03-31">Mar 31, 2017</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux/">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
-    
-</div>
-
-    </header>
-    sudo apt-get install xinit sudo apt-get update sudo apt-get install xfce4 ubuntu中输入startx
-    
-</article>
-
-    
-
-
-
 
 
 <nav class="blog-pagination">
@@ -515,12 +515,25 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
                 </li>
             
         
-        <li class="page-item disabled">
-            <a class="page-link" href="" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/tags/linux/page/6/">6</a>
+                </li>
+            
+        
+        <li class="page-item ">
+            <a class="page-link" href="/tags/linux/page/6/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/tags/linux/page/5/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/tags/linux/page/6/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -541,23 +554,23 @@ vi xstartup #!/bin/sh  # Uncomment the following two lines for normal desktop: #
     <ol class="list-unstyled">
         
         <li>
+            <a href="/2019/03/gdb-debugging-forks/">GDB Debugging Forks</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/fork/">fork()</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/git-orphan-submodule-worktree-example/">git orphan submodule worktree example</a>
+        </li>
+        
+        <li>
             <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
         </li>
         
         <li>
             <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
-        </li>
-        
-        <li>
-            <a href="/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/">Linux和Windows换行</a>
-        </li>
-        
-        <li>
-            <a href="/2019/02/vmvare-multiple-network-adapters-configuration/">vmvare multiple network adapters configuration</a>
-        </li>
-        
-        <li>
-            <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
         </li>
         
     </ol>

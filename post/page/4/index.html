@@ -10,7 +10,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/post/" />
 
-<meta property="og:updated_time" content="2018-09-20T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-10-15T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -92,6 +92,151 @@
 
 
 
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/10/netbeans%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%BC%96%E7%A0%81/">netbeans修改默认编码</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-10-15">Oct 15, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/ide/">ide</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/cpp/">CPP</a>
+    
+</div>
+
+    </header>
+    项目级别，修改项目属性
+ 整体IDE,修改etc/netbeans.conf,-J-Dfile.encoding=UTF-8
+  netbeans_default_options=&#34;-J-client -J-Xss2m -J-Xms32m -J-XX:PermSize=32m -J-XX:MaxPermSize=200m -J-Dapple.laf.useScreenMenuBar=true -J-Dapple.awt.graphics.UseQuartz=true -J-Dsun.java2d.noddraw=true -J-Dfile.
+    
+    <p></p>
+    <a href="/2018/10/netbeans%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%BC%96%E7%A0%81/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/10/%E5%AE%8F%E5%AE%9A%E4%B9%89define%E5%92%8C%E5%B8%B8%E9%87%8Fconst%E7%9A%84%E5%8C%BA%E5%88%AB/">宏定义define和常量const的区别</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-10-11">Oct 11, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/cpp/">cpp</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/cpp/">CPP</a>
+    
+</div>
+
+    </header>
+    类型和安全检查不同
+  宏定义是字符替换，没有数据类型的区别，同时这种替换没有类型安全检查，可能产生边际效应等错误；
+const常量是常量的声明，有类型区别，需要在编译阶段进行类型检查
+ 编译器处理不同
+  宏定义是一个&rdquo;编译时&rdquo;概念，在预处理阶段展开，不能对宏定义进行调试，生命周期结束与编译时期；
+const常量是一个&rdquo;运行时&rdquo;概念，在程序运行使用，类似于一个只读行数据
+ 存储方式不同
+  宏定义是直接替换，不会分配内存，存储与程序的代码段中；
+const常量需要进行内存分配，存储与程序的数据段中
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/09/%E4%B8%8D%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E5%88%B0-char%E7%9A%84%E8%BD%AC%E6%8D%A2/">不建议使用字符串常量到 char*的转换</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-09-27">Sep 27, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/cpp/">cpp</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/cpp/">CPP</a>
+    
+</div>
+
+    </header>
+    不建议使用字符串常量到 char*的转换 char* p = &#34;test&#34;; 声明了一个指针，而这个指针指向的是全局的const内存区，如果你一定要写这块内存的话，那就是一个非常严重的内存错误 在声明字符串字面量时，应该加上const. const char *p = &#34;test&#34;; 
+    
+</article>
+
+    
 
 
 
@@ -283,142 +428,6 @@ apt search ^python$ #正则表达式 apt search --names-only python
 
 
 
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/07/%E8%AE%A1%E7%AE%97%E5%B0%8F%E6%AE%B5%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/">计算小段代码运行时间</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-07-24">Jul 24, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/python/">python</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/python/">Python</a>
-    
-</div>
-
-    </header>
-    t1 = timeit.timeit(&#39;f = open(&#34;Log.log_2018-07-10_04-43.log&#34;, encoding=&#34;GBK&#34;);x = sum([l.count(&#34;insert&#34;) for l in f]);&#39; &#39;print(x)&#39;, &#39;&#39;, number=5) # 第二个参数为运行前环境设置，如import timeit
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/07/%E6%9F%A5%E8%AF%A2linux%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/">查询Linux进程启动和运行时间</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-07-20">Jul 20, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux/">linux</a>
-    
-        <a class="badge badge-primary" href="/tags/shell/">shell</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
-    
-</div>
-
-    </header>
-    ps -eo pid,start,etime,cmd |grep -v grep | grep ss
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/07/no-mta-installed-discarding-output/">No MTA installed, discarding output</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-07-17">Jul 17, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux/">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
-    
-</div>
-
-    </header>
-     配置邮件服务器
- 重定向到文件或者/dev/null：cd /opt/ &amp;&amp; ./start_sslocal.sh &gt;zx.log 2&gt;&amp;1
-  
-    
-</article>
-
-    
-
-
-
 
 
 <nav class="blog-pagination">
@@ -564,8 +573,17 @@ apt search ^python$ #正则表达式 apt search --names-only python
                 
             
             
+        
+            
+            
+            
+            
+                
+                
+            
+            
                 <li class="page-item ">
-                    <a class="page-link" href="/post/page/12/">12</a>
+                    <a class="page-link" href="/post/page/13/">13</a>
                 </li>
             
         
@@ -574,7 +592,7 @@ apt search ^python$ #正则表达式 apt search --names-only python
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/post/page/12/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/post/page/13/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -595,23 +613,23 @@ apt search ^python$ #正则表达式 apt search --names-only python
     <ol class="list-unstyled">
         
         <li>
+            <a href="/2019/03/gdb-debugging-forks/">GDB Debugging Forks</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/fork/">fork()</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/git-orphan-submodule-worktree-example/">git orphan submodule worktree example</a>
+        </li>
+        
+        <li>
             <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
         </li>
         
         <li>
             <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
-        </li>
-        
-        <li>
-            <a href="/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/">Linux和Windows换行</a>
-        </li>
-        
-        <li>
-            <a href="/2019/02/vmvare-multiple-network-adapters-configuration/">vmvare multiple network adapters configuration</a>
-        </li>
-        
-        <li>
-            <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
         </li>
         
     </ol>

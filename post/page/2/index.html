@@ -10,7 +10,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://alonsovau.github.io/post/" />
 
-<meta property="og:updated_time" content="2018-12-06T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-12-21T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -92,6 +92,146 @@
 
 
 
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-12-21">Dec 21, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/python/">python</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/python/">Python</a>
+    
+</div>
+
+    </header>
+    with open(&#39;./old/zce_l1.csv&#39;) as f: f_csv = csv.reader(f) headers = next(f_csv) print(headers) Row = namedtuple(&#39;Row&#39;, headers) for r in f_csv: row = Row(*r) print(row.
+    
+    <p></p>
+    <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/12/watchdog/">watchdog</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-12-13">Dec 13, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux/">linux</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
+    
+</div>
+
+    </header>
+    The Linux kernel watchdog is used to monitor if a system is running. It is supposed to automatically reboot hanged systems due to unrecoverable software errors. The watchdog module is specific to the hardware or chip being used. Personal computer users don’t need watchdog as they can reset the system manually. However, it is useful for systems that are mission critical and need the ability to reboot themselves without human intervention.
+    
+    <p></p>
+    <a href="/2018/12/watchdog/">Read More →</a>
+    
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+    <a class="text-dark" href="/2018/12/%E5%B8%B8%E7%94%A8shell/">常用shell</a>
+</h2>
+
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        <time datetime="2018-12-12">Dec 12, 2018</time>
+    
+    
+        by <span rel="author">Xin Zhou</span>
+    
+</div>
+
+        
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/linux/">linux</a>
+    
+        <a class="badge badge-primary" href="/tags/shell/">shell</a>
+    
+</div>
+
+        
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
+    
+</div>
+
+    </header>
+    #得到当前脚本路径 script=`readlink -f $0` base_dir=`dirname $script` #循环该目录下所有文件 for exchange in `ls /target/sixreceiver -I mdloader` do done #生成一个uuid cat /proc/sys/kernel/random/uuid #查找不区分大小写的name并拷贝指定目录 find . -iname *config.xml -exec cp &#39;{}&#39; ./zx/zx \; #查看压缩包中文件 tar -vtf package.tar.gz #shell函数 func() { }
+    
+</article>
+
+    
 
 
 
@@ -283,146 +423,6 @@
 
 
 
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/11/fork%E5%90%8E%E5%90%8C%E6%AD%A5%E5%8E%9F%E4%BB%93%E5%BA%93/">fork后同步原仓库</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-11-20">Nov 20, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/git/">git</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/git/">Git</a>
-    
-</div>
-
-    </header>
-    configuring a remote for a fork  查看远程状态  git remote -v # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch) # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)  添加一个将被同步给 fork 远程的上游仓库  git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git  再次查看远程状态  git remote -v # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch) # origin https://github.com/YOUR_USERNAME/YOUR_FORK.git (push) # upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch) # upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push) syncing a fork  从原仓库fetch数据到本地，并会被存储在本地分支upstream/master  git fetch upstream # remote: Counting objects: 75, done. # remote: Compressing objects: 100% (53/53), done.
-    
-    <p></p>
-    <a href="/2018/11/fork%E5%90%8E%E5%90%8C%E6%AD%A5%E5%8E%9F%E4%BB%93%E5%BA%93/">Read More →</a>
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/11/%E6%A0%B9%E6%8D%AE%E8%BF%9B%E7%A8%8B%E5%90%8Dkill/">根据进程名kill</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-11-20">Nov 20, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/linux/">linux</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/linux/">Linux</a>
-    
-</div>
-
-    </header>
-    #!/bin/sh  if [ $# -lt 1 ] then echo Usage:xx exit 1 fi NAME=$1 echo $1 PID=`ps -ef|grep $NAME$ |grep -v $0 |awk &#39;{print $2}&#39;` echo $PID kill -9 $PID echo killed
-    
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-    <a class="text-dark" href="/2018/11/%E8%A3%85%E9%A5%B0%E5%99%A8%E7%89%88%E9%AB%98%E9%80%9Ffibonacci/">装饰器版高速fibonacci</a>
-</h2>
-
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        <time datetime="2018-11-12">Nov 12, 2018</time>
-    
-    
-        by <span rel="author">Xin Zhou</span>
-    
-</div>
-
-        
-<div class="blog-post-tags text-secondary">
-    <strong>Tags:</strong>
-    
-        <a class="badge badge-primary" href="/tags/python/">python</a>
-    
-        <a class="badge badge-primary" href="/tags/wrapper/">wrapper</a>
-    
-</div>
-
-        
-<div class="blog-post-categories text-secondary">
-    <strong>Categories:</strong>
-    
-        <a class="badge badge-primary" href="/categories/python/">Python</a>
-    
-</div>
-
-    </header>
-    @functools.lru_cache()此行为关键 import time from functools import wraps import functools def clock(func): @wraps(func) def clocked(*args, **kwargs): start = time.time() result = func(*args, **kwargs) elapsed = time.time() - start name = func.__name__ args_list = [] if args: args_list.append(&#39;,&#39;.join(repr(arg) for arg in args)) if kwargs: pairs = [&#39;%s=%r&#39; % (k, w) for k, w in sorted(kwargs.items())] args_list.append(&#39;,&#39;.join(pairs)) args_str = &#39;,&#39;.join(args_list) print(&#39;[%0.8fs] %s(%s) -&gt; %r&#39; % (elapsed, name, args_str, result)) return result return clocked @functools.
-    
-    <p></p>
-    <a href="/2018/11/%E8%A3%85%E9%A5%B0%E5%99%A8%E7%89%88%E9%AB%98%E9%80%9Ffibonacci/">Read More →</a>
-    
-</article>
-
-    
-
-
-
 
 
 <nav class="blog-pagination">
@@ -560,8 +560,17 @@
                 
             
             
+        
+            
+            
+            
+            
+                
+                
+            
+            
                 <li class="page-item ">
-                    <a class="page-link" href="/post/page/12/">12</a>
+                    <a class="page-link" href="/post/page/13/">13</a>
                 </li>
             
         
@@ -570,7 +579,7 @@
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/post/page/12/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/post/page/13/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -591,23 +600,23 @@
     <ol class="list-unstyled">
         
         <li>
+            <a href="/2019/03/gdb-debugging-forks/">GDB Debugging Forks</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/fork/">fork()</a>
+        </li>
+        
+        <li>
+            <a href="/2019/02/git-orphan-submodule-worktree-example/">git orphan submodule worktree example</a>
+        </li>
+        
+        <li>
             <a href="/2019/02/%E5%BE%AA%E7%8E%AF%E6%9B%B4%E6%96%B0%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%87%AA%E5%A2%9E/">循环更新字段并自增</a>
         </li>
         
         <li>
             <a href="/2019/02/%E5%AE%89%E8%A3%85lsyncd/">安装lsyncd</a>
-        </li>
-        
-        <li>
-            <a href="/2019/02/linux%E5%92%8Cwindows%E6%8D%A2%E8%A1%8C/">Linux和Windows换行</a>
-        </li>
-        
-        <li>
-            <a href="/2019/02/vmvare-multiple-network-adapters-configuration/">vmvare multiple network adapters configuration</a>
-        </li>
-        
-        <li>
-            <a href="/2018/12/csv%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">csv文件操作</a>
         </li>
         
     </ol>
