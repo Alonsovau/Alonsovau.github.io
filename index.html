@@ -183,7 +183,7 @@
 </div>
 
     </header>
-    #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include &lt;unistd.h&gt; #include &lt;set&gt; #include &lt;sys/wait.h&gt; using namespace std; int main(int argc, char const *argv[]) { int num = 5; set&lt;int&gt; pid_set; int seq = 0; pid_t temp_pid; for (int i=0; i &lt; num; i++) { temp_pid = fork(); if (temp_pid ==0 || temp_pid == -1) break; pid_set.insert(temp_pid); seq++; } if (temp_pid == 0) { for (int j=0; j &lt; 10; j++) { printf(&#34;%d---%d---%d\n&#34;, getpid(), j, seq); if (seq == 0) { char *p = NULL; printf(&#34;%c&#34;, *p); } sleep(seq); } return 0; } else { int stat = 0; int ret = 0; while(true){ ret = waitpid(0, &amp;stat, WNOHANG); if (ret &gt; 0) { set&lt;int&gt;::iterator position = pid_set.
+    #include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include &lt;unistd.h&gt;#include &lt;set&gt;#include &lt;sys/wait.h&gt; using namespace std; int main(int argc, char const *argv[]) { int num = 5; set&lt;int&gt; pid_set; int seq = 0; pid_t temp_pid; for (int i=0; i &lt; num; i++) { temp_pid = fork(); if (temp_pid ==0 || temp_pid == -1) break; pid_set.insert(temp_pid); seq++; } if (temp_pid == 0) { for (int j=0; j &lt; 10; j++) { printf(&#34;%d---%d---%d\n&#34;, getpid(), j, seq); if (seq == 0) { char *p = NULL; printf(&#34;%c&#34;, *p); } sleep(seq); } return 0; } else { int stat = 0; int ret = 0; while(true){ ret = waitpid(0, &amp;stat, WNOHANG); if (ret &gt; 0) { set&lt;int&gt;::iterator position = pid_set.
     
     <p></p>
     <a href="/2019/02/fork/">Read More →</a>
